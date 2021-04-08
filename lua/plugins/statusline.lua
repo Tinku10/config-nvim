@@ -44,7 +44,7 @@ section.left[2] = {
       -- auto change color according the vim mode
       local mode_color = {
         n = colors.green,
-        i = colors.yellow,
+        i = colors.orange,
         v = colors.blue,
         [""] = colors.blue,
         V = colors.blue,
@@ -68,7 +68,7 @@ section.left[2] = {
       -- return "     "
       return "   ҟαĺ  "
     end,
-    highlight = {colors.red, colors.line_bg, "bold"}
+    highlight = {colors.red, colors.line_bg}
   }
 }
 section.left[3] = {
@@ -126,6 +126,7 @@ section.right[3] = {
     highlight = {colors.green, colors.line_bg}
   }
 }
+
 section.right[4] = {
   DiffModified = {
     provider = "DiffModified",
@@ -134,12 +135,13 @@ section.right[4] = {
     highlight = {colors.yellow, colors.line_bg}
   }
 }
+
 section.right[5] = {
   DiffRemove = {
     provider = "DiffRemove",
     condition = checkwidth,
     icon = " ",
-    highlight = {colors.red, colors.line_bg}
+    highlight = {colors.orange, colors.line_bg}
   }
 }
 
@@ -166,7 +168,7 @@ section.right[8] = {
     provider = "DiagnosticError",
     separator = " ",
     icon = " ",
-    highlight = {colors.red, colors.line_bg},
+    highlight = {colors.orange, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
 }
