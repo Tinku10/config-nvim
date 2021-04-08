@@ -46,4 +46,8 @@ return require('packer').startup(function()
 
   use 'romgrk/barbar.nvim'
 
+  use 'onsails/lspkind-nvim'
+
+  -- use 'kabouzeid/nvim-lspinstall'
+
 end)

@@ -13,13 +13,14 @@ local colors = {
   yellow = "#fabd2f",
   cyan = "#A3BE8C",
   darkblue = "#81A1C1",
-  green = "#98971a",
+  green = "#689d6a",
   orange = "#fe8019",
   purple = "#d3869b",
   magenta = "#BF616A",
   gray = "#616E88",
-  blue = "#5E81AC",
-  red = "#cc241d"
+  blue = "#83a598",
+  red = "#cc241d",
+  white = "#d5a4c1"
 }
 
 local buffer_not_empty = function()
@@ -44,8 +45,8 @@ section.left[2] = {
       -- auto change color according the vim mode
       local mode_color = {
         n = colors.green,
-        i = colors.orange,
-        v = colors.blue,
+        i = colors.yellow,
+        v = colors.white,
         [""] = colors.blue,
         V = colors.blue,
         c = colors.red,
@@ -66,18 +67,19 @@ section.left[2] = {
       }
       cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
       -- return "     "
-      return "   ҟαĺ  "
+      -- return "   ҟαĺ  "
+      return "      "
     end,
-    highlight = {colors.red, colors.line_bg}
+    highlight = {colors.red, colors.line_bg, "bold"}
   }
 }
-section.left[3] = {
-  FileIcon = {
-    provider = "FileIcon",
-    condition = buffer_not_empty,
-    highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, colors.line_bg}
-  }
-}
+-- section.left[3] = {
+--   FileIcon = {
+--     provider = "FileIcon",
+--     condition = buffer_not_empty,
+--     highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, colors.line_bg}
+--   }
+-- }
 section.left[4] = {
   FileName = {
     -- provider = "FileName",
@@ -91,16 +93,17 @@ section.left[4] = {
   }
 }
 
-section.right[5] = {
+section.right[1] = {
   GitIcon = {
-    provider = function()
-      return "  "
-    end,
     condition = require("galaxyline.provider_vcs").check_git_workspace,
+    provider = function()
+      -- return "  "
+      return "  "
+    end,
     highlight = {colors.orange, colors.line_bg}
   }
 }
-section.right[6] = {
+section.right[2] = {
   GitBranch = {
     provider = "GitBranch",
     condition = require("galaxyline.provider_vcs").check_git_workspace,
@@ -119,15 +122,34 @@ local checkwidth = function()
 end
 
 section.right[3] = {
-  DiffAdd = {
-    provider = "DiffAdd",
-    condition = checkwidth,
-    icon = " ",
-    highlight = {colors.green, colors.line_bg}
+  FileFormat = {
+    provider = "FileFormat",
+    separator = "  ",
+    separator_highlight = {colors.blue, colors.line_bg},
+    highlight = {colors.gray, colors.line_bg}
   }
 }
 
 section.right[4] = {
+  FileEncode = {
+    provider = "FileEncode",
+    separator = " ",
+    separator_highlight = {colors.blue, colors.line_bg},
+    highlight = {colors.gray, colors.line_bg}
+  }
+}
+section.right[7] = {
+  DiffAdd = {
+    provider = "DiffAdd",
+    condition = checkwidth,
+    separator = "  ",
+    icon = " ",
+    separator_highlight = {colors.blue, colors.line_bg},
+    highlight = {colors.green, colors.line_bg}
+  }
+}
+
+section.right[8] = {
   DiffModified = {
     provider = "DiffModified",
     condition = checkwidth,
@@ -136,7 +158,7 @@ section.right[4] = {
   }
 }
 
-section.right[5] = {
+section.right[9] = {
   DiffRemove = {
     provider = "DiffRemove",
     condition = checkwidth,
@@ -145,7 +167,7 @@ section.right[5] = {
   }
 }
 
-section.right[6] = {
+section.right[10] = {
   LineInfo = {
     provider = "LineColumn",
     separator = " ",
@@ -153,6 +175,8 @@ section.right[6] = {
     highlight = {colors.gray, colors.line_bg}
   }
 }
+
+
 -- section.right[7] = {
 --   FileSize = {
 --    provider = "FileSize",
@@ -163,7 +187,7 @@ section.right[6] = {
 --   }
 -- }
 
-section.right[8] = {
+section.right[11] = {
   DiagnosticError = {
     provider = "DiagnosticError",
     separator = " ",
@@ -172,7 +196,7 @@ section.right[8] = {
     separator_highlight = {colors.bg, colors.bg}
   }
 }
-section.right[9] = {
+section.right[12] = {
   DiagnosticWarn = {
     provider = "DiagnosticWarn",
     separator = " ",
@@ -182,17 +206,18 @@ section.right[9] = {
   }
 }
 
-section.right[10] = {
+section.right[13] = {
   DiagnosticInfo = {
     -- separator = " ",
     provider = "DiagnosticInfo",
-    icon = " ",
+    -- icon = " ",
+    icon = "ﯧ ",
     highlight = {colors.green, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
 }
 
-section.right[11] = {
+section.right[14] = {
   DiagnosticHint = {
     provider = "DiagnosticHint",
     separator = " ",
