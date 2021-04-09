@@ -1,3 +1,5 @@
+local mappings = require('settings/mappings')
+
 require'FTerm'.setup({
     dimensions  = {
         height = 0.8,
@@ -9,9 +11,8 @@ require'FTerm'.setup({
 })
 
 -- Keybinding
-local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Closer to the metal
-map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+mappings.map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+mappings.map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
