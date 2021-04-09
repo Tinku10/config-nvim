@@ -1,5 +1,6 @@
 require "settings.plugins"
 require "settings.mappings"
+vim.cmd('source ~/.config/nvim/lua/settings/settings.vim')
 
 local fn = vim.fn
 local execute = vim.api.nvim_command
@@ -11,6 +12,3 @@ end
 
 vim.cmd [[packadd packer.nvim]]
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
-
-vim.cmd('source ~/.config/nvim/lua/settings/settings.vim')
-

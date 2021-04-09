@@ -39,7 +39,7 @@ set pastetoggle=<F2>
 
 let mapleader = " " 
 
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+" nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 " prepopulate the file with a template
 function Template(tmpl_file)

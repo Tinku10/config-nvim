@@ -20,7 +20,8 @@ local colors = {
   gray = "#616E88",
   blue = "#83a598",
   red = "#cc241d",
-  white = "#d5a4c1"
+  white = "#d5a4c1",
+  black = "#282828"
 }
 
 local buffer_not_empty = function()
@@ -95,7 +96,7 @@ section.left[4] = {
 
 section.right[1] = {
   GitIcon = {
-    condition = require("galaxyline.provider_vcs").check_git_workspace,
+    condition = require("galaxyline.condition").check_git_workspace,
     provider = function()
       -- return "  "
       return "  "
@@ -126,7 +127,7 @@ section.right[3] = {
     provider = "FileFormat",
     separator = "  ",
     separator_highlight = {colors.blue, colors.line_bg},
-    highlight = {colors.gray, colors.line_bg}
+    highlight = {colors.blue, colors.line_bg}
   }
 }
 
@@ -135,7 +136,7 @@ section.right[4] = {
     provider = "FileEncode",
     separator = " ",
     separator_highlight = {colors.blue, colors.line_bg},
-    highlight = {colors.gray, colors.line_bg}
+    highlight = {colors.blue, colors.line_bg}
   }
 }
 section.right[7] = {
@@ -172,9 +173,23 @@ section.right[10] = {
     provider = "LineColumn",
     separator = " ",
     separator_highlight = {colors.blue, colors.line_bg},
-    highlight = {colors.gray, colors.line_bg}
+    highlight = {colors.blue, colors.line_bg}
   }
 }
+
+
+-- section.right[16] = {
+--     ShowLspClient = {
+--         provider = 'GetLspClient',
+--         condition = function()
+--             local tbl = {['dashboard'] = true, [' '] = true}
+--             if tbl[vim.bo.filetype] then return false end
+--             return true
+--         end,
+--         icon = ' ',
+--         highlight = {colors.grey, colors.bg}
+--     }
+-- }
 
 
 -- section.right[7] = {

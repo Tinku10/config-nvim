@@ -44,7 +44,7 @@ return require('packer').startup(function()
 
   use 'neovim/nvim-lspconfig'
 
-  use 'romgrk/barbar.nvim'
+  -- use 'romgrk/barbar.nvim'
 
   use 'onsails/lspkind-nvim'
 
