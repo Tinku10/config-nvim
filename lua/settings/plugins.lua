@@ -50,4 +50,8 @@ return require('packer').startup(function()
 
   -- use 'kabouzeid/nvim-lspinstall'
 
+  use 'mhinz/vim-startify'
+
+  use 'numtostr/FTerm.nvim'
+
 end)

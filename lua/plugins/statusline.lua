@@ -125,7 +125,7 @@ end
 section.right[3] = {
   FileFormat = {
     provider = "FileFormat",
-    separator = "  ",
+    separator = " ",
     separator_highlight = {colors.blue, colors.line_bg},
     highlight = {colors.blue, colors.line_bg}
   }
@@ -242,32 +242,51 @@ section.right[14] = {
   }
 }
 
+-- section.short_line_left[1] = {
+--   BufferType = {
+--     provider = "FileIcon",
+--     separator = " ",
+--     separator_highlight = {"NONE", colors.lbg},
+--     highlight = {colors.blue, colors.lbg, "bold"}
+--   }
+-- }
+
+-- section.short_line_left[2] = {
+--   SFileName = {
+--     provider = function()
+--       local fileinfo = require("galaxyline.provider_fileinfo")
+--       local fname = fileinfo.get_current_file_name()
+--       for _, v in ipairs(gl.short_line_list) do
+--         if v == vim.bo.filetype then
+--           return ""
+--         end
+--       end
+--       return fname
+--     end,
+--     condition = buffer_not_empty,
+--     seperator = "  ",
+--     highlight = {colors.white, colors.lbg, "bold"}
+--   }
+-- }
+
 section.short_line_left[1] = {
-  BufferType = {
-    provider = "FileIcon",
-    separator = " ",
-    separator_highlight = {"NONE", colors.lbg},
-    highlight = {colors.blue, colors.lbg, "bold"}
+  Space = {
+    provider = function()
+      return ' '
+    end,
+    separator = ' ',
+    separator_highlight = {'NONE', colors.bg},
+    highlight = {colors.orange, colors.bg}
   }
 }
 
 section.short_line_left[2] = {
   SFileName = {
-    provider = function()
-      local fileinfo = require("galaxyline.provider_fileinfo")
-      local fname = fileinfo.get_current_file_name()
-      for _, v in ipairs(gl.short_line_list) do
-        if v == vim.bo.filetype then
-          return ""
-        end
-      end
-      return fname
-    end,
-    condition = buffer_not_empty,
-    highlight = {colors.white, colors.lbg, "bold"}
+    provider = 'SFileName', 
+    condition = require('galaxyline.condition').buffer_not_empty, 
+    highlight = {colors.grey, colors.bg}
   }
 }
-
 section.short_line_right[1] = {
   BufferIcon = {
     provider = "BufferIcon",

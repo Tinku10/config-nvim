@@ -55,4 +55,9 @@ endfunction
 autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template("~/.vim/tmpl.cpp")
 
 " kind of autosave 
-autocmd TextChanged,TextChangedI <buffer> silent write
+" autocmd TextChanged,TextChangedI <buffer> silent write
+" augroup autosave
+"     autocmd!
+"     autocmd BufRead * if &filetype == "" | setlocal ft=text | endif
+"     autocmd FileType * autocmd TextChanged,InsertLeave <buffer> if &readonly == 0 | silent write | endif
+" augroup END

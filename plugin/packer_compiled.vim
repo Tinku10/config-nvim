@@ -40,10 +40,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
-  ["barbar.nvim"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/barbar.nvim"
-  },
   ["completion-nvim"] = {
     after = { "vim-vsnip", "vim-vsnip-integ" },
     loaded = false,
@@ -121,6 +117,10 @@ _G.packer_plugins = {
   ["vim-ripgrep"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-ripgrep"
+  },
+  ["vim-startify"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-startify"
   },
   ["vim-vsnip"] = {
     load_after = {
