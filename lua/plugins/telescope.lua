@@ -27,7 +27,8 @@ require('telescope').setup{
         mirror = false,
       },
     },
-    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    -- file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    file_sorter =  require'telescope.sorters'.get_fzy_sorter,
     file_ignore_patterns = {},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     shorten_path = true,
@@ -44,13 +45,44 @@ require('telescope').setup{
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+    mappings = {
+      i = {
+        -- ["<leader>s"] = actions.send_to_qflist
+      }
+    },
 
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+  },
+  extensions = {
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      filetypes = {"png", "webp", "jpg", "jpeg"},
+      find_cmd = "rg" -- find command (defaults to `fd`)
+    },
+    fzy_native = {
+      override_generic_sorter = false,
+      override_file_sorter = true,
+    }
   }
 }
+
+require('telescope').load_extension('fzy_native')
 
 mappings.map("n", '<leader>ff', '<cmd>Telescope find_files<cr>', {noremap = true, silent = true})
 mappings.map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {noremap = true})
 mappings.map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {noremap = true})
 mappings.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {noremap = true})
+
+
+
+dotfiles = function()
+  require('telescope.builtin').find_files({
+      prompt_title = "<Neovim Configs>",
+      cwd = "~/.config/nvim/"
+  })
+end
+
+mappings.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
+

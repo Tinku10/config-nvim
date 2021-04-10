@@ -22,7 +22,8 @@ set scrolloff=8
 set noshowmode
 set linespace=3
 set completeopt=menuone,noinsert,noselect
- set showmatch
+set showmatch
+set cursorline
 " Give more space for displaying messages.
 set cmdheight=2
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable

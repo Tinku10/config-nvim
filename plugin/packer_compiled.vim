@@ -32,6 +32,10 @@ local function try_loadstring(s, component, name)
 end
 
 _G.packer_plugins = {
+  ["FTerm.nvim"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/FTerm.nvim"
+  },
   Tabtastic = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/Tabtastic"
@@ -57,6 +61,10 @@ _G.packer_plugins = {
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
+  },
+  neoformat = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/neoformat"
   },
   nerdtree = {
     loaded = true,
@@ -85,6 +93,10 @@ _G.packer_plugins = {
   ["popup.nvim"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
+  ["telescope-fzy-native.nvim"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

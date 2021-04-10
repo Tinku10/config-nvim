@@ -2,7 +2,7 @@ local cmd = vim.cmd
 local fn = vim.fn
 local gl = require('galaxyline')
 local section = gl.section
-gl.short_line_list = {"LuaTree", "packager", "Floaterm", "coc-eplorer"}
+gl.short_line_list = {"NerdTree", "packager", "Floaterm", "coc-eplorer"}
 
 local colors = {
   bg = "#3c3836",
@@ -50,7 +50,7 @@ section.left[2] = {
         v = colors.white,
         [""] = colors.blue,
         V = colors.blue,
-        c = colors.red,
+        c = colors.orange,
         no = colors.magenta,
         s = colors.orange,
         S = colors.orange,
@@ -101,16 +101,16 @@ section.right[1] = {
       -- return "  "
       return "  "
     end,
-    highlight = {colors.orange, colors.line_bg}
+    highlight = {colors.green, colors.line_bg}
   }
 }
 section.right[2] = {
   GitBranch = {
     provider = "GitBranch",
     condition = require("galaxyline.provider_vcs").check_git_workspace,
-    separator = " ",
+    separator = "",
     separator_highlight = {colors.purple, colors.bg},
-    highlight = {colors.orange, colors.line_bg, "bold"}
+    highlight = {colors.green, colors.line_bg, "bold"}
   }
 }
 
@@ -125,7 +125,7 @@ end
 section.right[3] = {
   FileFormat = {
     provider = "FileFormat",
-    separator = " ",
+    separator = "  ",
     separator_highlight = {colors.blue, colors.line_bg},
     highlight = {colors.blue, colors.line_bg}
   }
@@ -173,7 +173,7 @@ section.right[10] = {
     provider = "LineColumn",
     separator = " ",
     separator_highlight = {colors.blue, colors.line_bg},
-    highlight = {colors.blue, colors.line_bg}
+    highlight = {colors.green, colors.line_bg}
   }
 }
 

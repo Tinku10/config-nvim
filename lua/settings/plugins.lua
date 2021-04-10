@@ -17,7 +17,7 @@ return require('packer').startup(function()
 
   use {
       'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-fzy-native.nvim'}}
   }
 
   use 'scrooloose/nerdtree'
@@ -34,7 +34,8 @@ return require('packer').startup(function()
 
   use 'flazz/vim-colorschemes'
 
-  use 'morhetz/gruvbox'
+  use 'gruvbox-community/gruvbox'
+  -- use 'morhetz/gruvbox'
 
   use 'jremmen/vim-ripgrep'
 
@@ -53,5 +54,7 @@ return require('packer').startup(function()
   use 'mhinz/vim-startify'
 
   use 'numtostr/FTerm.nvim'
+
+  use 'sbdchd/neoformat'
 
 end)
