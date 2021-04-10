@@ -38,8 +38,7 @@ set shortmess+=c
 " set rtp+=~/.nvim/bundle/nerdtree
 set pastetoggle=<F2>
 
-let mapleader = " " 
-
+let g:move_key_modifier = 'S'
 " nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 " prepopulate the file with a template

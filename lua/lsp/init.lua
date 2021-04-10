@@ -60,7 +60,7 @@ ensure_installed = "maintained", -- one of "all", "maintained" (parsers with mai
   },
 }
 
-local mappings = require('settings/mappings')
+local utils = require('settings/utils')
 
-mappings.map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
-mappings.map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
+utils.map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
+utils.map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})

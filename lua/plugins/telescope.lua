@@ -1,4 +1,4 @@
-local mappings = require('settings/mappings')
+local utils = require('settings/utils')
 
 require('telescope').setup{
   defaults = {
@@ -45,7 +45,7 @@ require('telescope').setup{
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-    mappings = {
+    utils = {
       i = {
         -- ["<leader>s"] = actions.send_to_qflist
       }
@@ -70,10 +70,10 @@ require('telescope').setup{
 
 require('telescope').load_extension('fzy_native')
 
-mappings.map("n", '<leader>ff', '<cmd>Telescope find_files<cr>', {noremap = true, silent = true})
-mappings.map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {noremap = true})
-mappings.map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {noremap = true})
-mappings.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {noremap = true})
+utils.map("n", '<leader>ff', '<cmd>Telescope find_files<cr>', {noremap = true, silent = true})
+utils.map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {noremap = true})
+utils.map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {noremap = true})
+utils.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {noremap = true})
 
 
 
@@ -84,5 +84,5 @@ dotfiles = function()
   })
 end
 
-mappings.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
+utils.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
 

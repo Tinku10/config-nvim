@@ -1,12 +1,7 @@
-local mappings = {  }
+-- these are mappings related to the editor and not plugins
+-- settings.vim and mappings.lua will be combined to one file to have editor only settings
 
-function mappings.map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local utils = require('settings/utils')
 
-mappings.map('i', 'jj', '<Esc>')
-
-return mappings 
--- General purpose mappings (provide a third parameter as true to impose noremap)
+-- most important mapping
+utils.map('i', 'jj', '<Esc>')

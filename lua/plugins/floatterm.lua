@@ -1,4 +1,4 @@
-local mappings = require('settings/mappings')
+local utils = require('settings/utils')
 
 require'FTerm'.setup({
     dimensions  = {
@@ -14,5 +14,5 @@ require'FTerm'.setup({
 local opts = { noremap = true, silent = true }
 
 -- Closer to the metal
-mappings.map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-mappings.map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+utils.map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+utils.map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
