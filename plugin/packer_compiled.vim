@@ -45,7 +45,7 @@ _G.packer_plugins = {
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
   ["completion-nvim"] = {
-    after = { "vim-vsnip", "vim-vsnip-integ" },
+    after = { "vim-vsnip-integ", "vim-vsnip" },
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/completion-nvim"
@@ -53,6 +53,10 @@ _G.packer_plugins = {
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
+  ["goyo.vim"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/goyo.vim"
   },
   gruvbox = {
     loaded = true,
@@ -122,9 +126,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-man"
   },
-  ["vim-polyglot"] = {
+  ["vim-move"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-polyglot"
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-move"
   },
   ["vim-ripgrep"] = {
     loaded = true,

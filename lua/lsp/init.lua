@@ -1,6 +1,11 @@
 require "lsp.cpp"
 require "lsp.lua"
 
+-- uncomment this if you want to use lspinstall
+-- no need to install lsp server manually (comment the above two require if you uncomment this)
+-- may need toeinstall existing lsp servers with the command :LspInstall <server-name>
+-- require "lsp.lspinstall"
+
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
 local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -60,7 +65,7 @@ ensure_installed = "maintained", -- one of "all", "maintained" (parsers with mai
   },
 }
 
-local utils = require('settings/utils')
+-- local utils = require('settings/utils')
 
-utils.map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
-utils.map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
+-- utils.map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
+-- utils.map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})

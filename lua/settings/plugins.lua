@@ -22,13 +22,13 @@ return require('packer').startup(function()
 
   use 'scrooloose/nerdtree'
 
-  use 'vim-scripts/Tabtastic'
+  -- use 'vim-scripts/Tabtastic'
 
   use 'vim-utils/vim-man'
 
   use 'mbbill/undotree'
 
-  use 'sheerun/vim-polyglot'
+  -- use 'sheerun/vim-polyglot'
 
   use 'jiangmiao/auto-pairs'
 
@@ -59,4 +59,9 @@ return require('packer').startup(function()
 
   use 'matze/vim-move'
 
+  use 'junegunn/goyo.vim'
+
+  -- use 'kabouzeid/nvim-lspinstall'
+
+  use 'tpope/vim-fugitive'
 end)

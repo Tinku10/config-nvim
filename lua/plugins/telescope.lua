@@ -85,4 +85,5 @@ dotfiles = function()
 end
 
 utils.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
+utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
 

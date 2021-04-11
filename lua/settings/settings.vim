@@ -1,12 +1,13 @@
 " basic settings done in vim
+syntax on
 set guicursor=
 set encoding=UTF-8
 set relativenumber
 set nohlsearch
 set hidden
 set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 set nu
@@ -62,3 +63,11 @@ autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template("~/.vim/tmpl.cpp")
 "     autocmd BufRead * if &filetype == "" | setlocal ft=text | endif
 "     autocmd FileType * autocmd TextChanged,InsertLeave <buffer> if &readonly == 0 | silent write | endif
 " augroup END
+"
+autocmd TermOpen * startinsert
+" autocmd BufWinEnter,WinEnter term://* startinsert
+autocmd BufLeave term://* stopinsert
+map <F8> :w <CR> :term  g++ -Wall -Wextra -pedantic -std=c++17 -O2 -Wformat=2 -Wfloat-equal -Wconversion -Wcast-qual -Wunused-variable -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fstack-protector %; if [ -f a.out  ]; then time ./a.out; rm a.out; fi <CR>
+nnoremap <C-c> :w <CR> :!g++ -o  %:r % -std=c++17 -Wall -fsanitize=address -fsanitize=undefined -Wshift-overflow <CR>
+" nnoremap <C-c> :w <CR> :!clear; makef %:r <CR>
+nnoremap <C-x> :term ./%:r <Enter>
