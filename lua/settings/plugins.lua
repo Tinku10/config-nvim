@@ -64,4 +64,6 @@ return require('packer').startup(function()
   -- use 'kabouzeid/nvim-lspinstall'
 
   use 'tpope/vim-fugitive'
+
+  use 'tjdevries/nlua.nvim'
 end)

@@ -126,10 +126,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-man"
   },
-  ["vim-move"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-move"
-  },
   ["vim-ripgrep"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-ripgrep"

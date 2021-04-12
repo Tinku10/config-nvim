@@ -4,6 +4,7 @@ local gl = require('galaxyline')
 local section = gl.section
 gl.short_line_list = {"NerdTree", "packager", "Floaterm", "coc-eplorer"}
 
+-- color palette
 local colors = {
   bg = "#3c3836",
   fg = "#81A1C1",
@@ -24,6 +25,31 @@ local colors = {
   black = "#282828"
 }
 
+-- colors for different vim modes
+local mode_color = {
+  n = colors.green,
+  i = colors.yellow,
+  v = colors.white,
+  [''] = colors.white,
+  [''] = colors.white,
+  V = colors.white,
+  c = colors.orange,
+  no = colors.magenta,
+  s = colors.orange,
+  S = colors.orange,
+  -- [""] = colors.orange,
+  ic = colors.yellow,
+  R = colors.purple,
+  Rv = colors.purple,
+  cv = colors.orange,
+  ce = colors.orange,
+  r = colors.cyan,
+  rm = colors.cyan,
+  ['r?'] = colors.cyan,
+  ['!'] = colors.cyan,
+  t = colors.cyan
+}
+
 local buffer_not_empty = function()
   if fn.empty(fn.expand("%:t")) ~= 1 then
     return true
@@ -34,28 +60,6 @@ end
 -- section.left[0] = {
 --   RainbowRed = {
 --     provider = function()
---       local mode_color = {
---         n = colors.green,
---         i = colors.yellow,
---         v = colors.white,
---         [""] = colors.blue,
---         V = colors.blue,
---         c = colors.orange,
---         no = colors.magenta,
---         s = colors.orange,
---         S = colors.orange,
---         [""] = colors.orange,
---         ic = colors.yellow,
---         R = colors.purple,
---         Rv = colors.purple,
---         cv = colors.red,
---         ce = colors.red,
---         r = colors.cyan,
---         rm = colors.cyan,
---         ["r?"] = colors.cyan,
---         ["!"] = colors.red,
---         t = colors.red
---       }
 --       cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
 --       return '▊ '
 --     end,
@@ -75,35 +79,9 @@ section.left[1] = {
 section.left[2] = {
   ViMode = {
     provider = function()
-      -- auto change color according the vim mode
-      local mode_color = {
-        n = colors.green,
-        i = colors.yellow,
-        v = colors.white,
-        [''] = colors.blue,
-        [''] = colors.blue,
-        V = colors.blue,
-        c = colors.orange,
-        no = colors.magenta,
-        s = colors.orange,
-        S = colors.orange,
-        -- [""] = colors.orange,
-        ic = colors.yellow,
-        R = colors.purple,
-        Rv = colors.purple,
-        cv = colors.orange,
-        ce = colors.orange,
-        r = colors.cyan,
-        rm = colors.cyan,
-        ['r?'] = colors.cyan,
-        ['!'] = colors.cyan,
-        t = colors.cyan
-      }
       cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
-      -- return "     "
-      -- return "   ҟαĺ  "
-      -- return "      "
-      return "     "
+      --   ҟαĺ          
+      return "     "
     end,
     highlight = {colors.red, colors.line_bg, "bold"}
   }
@@ -119,7 +97,7 @@ section.left[4] = {
   FileName = {
     -- provider = "FileName",
     provider = function()
-      return fn.expand("%:F")
+      return fn.expand("%:f")
     end,
     condition = buffer_not_empty,
     separator = " ",
