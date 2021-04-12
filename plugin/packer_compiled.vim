@@ -36,16 +36,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/FTerm.nvim"
   },
-  Tabtastic = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/Tabtastic"
-  },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
   ["completion-nvim"] = {
-    after = { "vim-vsnip-integ", "vim-vsnip" },
+    after = { "vim-vsnip", "vim-vsnip-integ" },
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/completion-nvim"
@@ -117,6 +113,10 @@ _G.packer_plugins = {
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-commentary"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-gitgutter"] = {
     loaded = true,

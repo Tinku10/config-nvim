@@ -1,4 +1,4 @@
-local cmd = vim.cmd
+local cmd = vim.api.nvim_command
 local fn = vim.fn
 local gl = require('galaxyline')
 local section = gl.section
@@ -31,6 +31,38 @@ local buffer_not_empty = function()
   return false
 end
 
+-- section.left[0] = {
+--   RainbowRed = {
+--     provider = function()
+--       local mode_color = {
+--         n = colors.green,
+--         i = colors.yellow,
+--         v = colors.white,
+--         [""] = colors.blue,
+--         V = colors.blue,
+--         c = colors.orange,
+--         no = colors.magenta,
+--         s = colors.orange,
+--         S = colors.orange,
+--         [""] = colors.orange,
+--         ic = colors.yellow,
+--         R = colors.purple,
+--         Rv = colors.purple,
+--         cv = colors.red,
+--         ce = colors.red,
+--         r = colors.cyan,
+--         rm = colors.cyan,
+--         ["r?"] = colors.cyan,
+--         ["!"] = colors.red,
+--         t = colors.red
+--       }
+--       cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
+--       return '▊ '
+--     end,
+--     highlight = {colors.blue,colors.bg}
+--   },
+-- }
+
 section.left[1] = {
   FirstElement = {
     -- provider = function() return '▊ ' end,
@@ -48,23 +80,24 @@ section.left[2] = {
         n = colors.green,
         i = colors.yellow,
         v = colors.white,
-        [""] = colors.blue,
+        [''] = colors.blue,
+        [''] = colors.blue,
         V = colors.blue,
         c = colors.orange,
         no = colors.magenta,
         s = colors.orange,
         S = colors.orange,
-        [""] = colors.orange,
+        -- [""] = colors.orange,
         ic = colors.yellow,
         R = colors.purple,
         Rv = colors.purple,
-        cv = colors.red,
-        ce = colors.red,
+        cv = colors.orange,
+        ce = colors.orange,
         r = colors.cyan,
         rm = colors.cyan,
-        ["r?"] = colors.cyan,
-        ["!"] = colors.red,
-        t = colors.red
+        ['r?'] = colors.cyan,
+        ['!'] = colors.cyan,
+        t = colors.cyan
       }
       cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
       -- return "     "
@@ -126,6 +159,7 @@ end
 section.right[3] = {
   FileFormat = {
     provider = "FileFormat",
+    condition = checkwidth,
     separator = "  ",
     separator_highlight = {colors.blue, colors.line_bg},
     highlight = {colors.blue, colors.line_bg}
@@ -135,6 +169,7 @@ section.right[3] = {
 section.right[4] = {
   FileEncode = {
     provider = "FileEncode",
+    condition = checkwidth,
     separator = " ",
     separator_highlight = {colors.blue, colors.line_bg},
     highlight = {colors.blue, colors.line_bg}
@@ -172,12 +207,20 @@ section.right[9] = {
 section.right[10] = {
   LineInfo = {
     provider = "LineColumn",
+    condition = checkwidth,
     separator = " ",
     separator_highlight = {colors.blue, colors.line_bg},
     highlight = {colors.green, colors.line_bg}
   }
 }
-
+-- section.right[19] = {
+--   PerCent = {
+--     provider = 'LinePercent',
+--     separator = ' ',
+--     separator_highlight = {'NONE',colors.bg},
+--     highlight = {colors.fg,colors.bg,'bold'},
+--   }
+-- }
 
 -- section.right[16] = {
 --     ShowLspClient = {
@@ -283,8 +326,8 @@ section.short_line_left[1] = {
 
 section.short_line_left[2] = {
   SFileName = {
-    provider = 'SFileName', 
-    condition = require('galaxyline.condition').buffer_not_empty, 
+    provider = 'SFileName',
+    condition = require('galaxyline.condition').buffer_not_empty,
     highlight = {colors.grey, colors.bg}
   }
 }
@@ -293,4 +336,4 @@ section.short_line_right[1] = {
     provider = "BufferIcon",
     highlight = {colors.fg, colors.lbg}
   }
-} 
+}

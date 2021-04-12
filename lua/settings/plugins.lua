@@ -57,7 +57,7 @@ return require('packer').startup(function()
 
   use 'sbdchd/neoformat'
 
-  use 'matze/vim-move'
+  -- use 'matze/vim-move'
 
   use 'junegunn/goyo.vim'
 
