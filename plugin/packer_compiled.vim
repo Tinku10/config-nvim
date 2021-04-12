@@ -41,7 +41,7 @@ _G.packer_plugins = {
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
   ["completion-nvim"] = {
-    after = { "vim-vsnip", "vim-vsnip-integ" },
+    after = { "vim-vsnip-integ", "vim-vsnip" },
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/completion-nvim"
@@ -70,6 +70,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nerdtree"
   },
+  ["nlua.nvim"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nlua.nvim"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -85,6 +89,10 @@ _G.packer_plugins = {
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  },
+  playground = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,

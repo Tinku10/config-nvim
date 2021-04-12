@@ -16,3 +16,15 @@ local opts = { noremap = true, silent = true }
 -- Closer to the metal
 utils.map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
 utils.map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+vim.g.floaterm_keymap_next   = '<A-j>'
+vim.g.floaterm_keymap_prev   = '<A-k>'
+vim.g.floaterm_keymap_new    = '<A-n>'
+vim.g.floaterm_title=''
+
+vim.g.floaterm_gitcommit='floaterm'
+-- vim.g.floaterm_shell=O.shell
+vim.g.floaterm_autoinsert=1
+-- vim.g.floaterm_width=0.8
+-- vim.g.floaterm_height=0.8
+-- vim.g.floaterm_wintitle=0
+-- vim.g.floaterm_autoclose=1

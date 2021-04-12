@@ -10,6 +10,8 @@ return require('packer').startup(function()
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
+  use 'nvim-treesitter/playground'
+
   use {
     'glepnir/galaxyline.nvim', branch = 'main',
     requires = {'kyazdani42/nvim-web-devicons'}
@@ -66,4 +68,11 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
 
   use 'tjdevries/nlua.nvim'
+
+  use {
+    'liuchengxu/vim-which-key',
+    opt = true,
+    cmd = {'WhichKey', 'WhichKey!'}
+  }
+
 end)
