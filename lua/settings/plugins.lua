@@ -22,12 +22,12 @@ return require('packer').startup(function()
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-fzy-native.nvim'}}
   }
 
-  use 'scrooloose/nerdtree'
+  -- use 'scrooloose/nerdtree'
 
-  -- use {
-  --   'kyazdani42/nvim-tree.lua',
-  --   requires = {'kyazdani42/nvim-web-devicons'}
-  -- }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
 
   -- use 'vim-scripts/Tabtastic'
 
@@ -77,7 +77,7 @@ return require('packer').startup(function()
   use {
     'liuchengxu/vim-which-key',
     opt = true,
-    cmd = {'WhichKey', 'WhichKey!'}
+    cmd = {'WhichKey'}
   }
 
 end)
