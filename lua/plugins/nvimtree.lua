@@ -7,7 +7,7 @@ vim.g.nvim_tree_auto_close = 1 --"0 by default, closes the tree when it's the la
 vim.g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' } --"empty by default, don't auto open tree on specific filetypes.
 vim.g.nvim_tree_quit_on_open = 1 --"0 by default, closes the tree when you open a file
 vim.g.nvim_tree_follow = 1 --"0 by default, this option allows the cursor to be updated when entering a buffer
-vim.g.nvim_tree_indent_markers = 1 --"0 by default, this option shows indent markers when folders are open
+-- vim.g.nvim_tree_indent_markers = 1 --"0 by default, this option shows indent markers when folders are open
 vim.g.nvim_tree_hide_dotfiles = 1 --"0 by default, this option hides files and folders starting with a dot `.`
 vim.g.nvim_tree_git_hl = 1 --"0 by default, will enable file highlight for git attributes (can be used without the icons).
 vim.g.nvim_tree_root_folder_modifier = ':~' --"This is the default. See :help filename-modifiers for more options
@@ -63,23 +63,27 @@ vim.g.nvim_tree_bindings = {
 }
 
 vim.g.nvim_tree_icons = {
-    default = ' ',
-    symlink = ' ',
-    git = {
-        unstaged = " ",
-        staged = " ",
-        unmerged = " ",
-        renamed = "➜ ",
-        untracked = " ",
-        -- ignored = "◌"
-    },
-    folder = {
-        default = " ",
-        open = " ",
-        empty = " ",
-        empty_open = " ",
-        symlink = " "
-    }
+  default = " ",
+  -- default = ' ',
+  -- symlink = ' ',
+  git = {
+    unstaged = " ",
+    -- unstaged = " ",
+    staged = " ",
+    unmerged = " ",
+    renamed = "➜ ",
+    untracked = " ",
+    -- ignored = "◌"
+  },
+  folder = {
+    -- default = " ",
+    -- open = " "
+    default = " ",
+    open = " ",
+    empty = " ",
+    empty_open = " ",
+    symlink = " "
+  }
 }
 
 local utils = require('settings/utils')
