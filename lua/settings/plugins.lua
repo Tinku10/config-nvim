@@ -24,9 +24,10 @@ return require('packer').startup(function()
 
   -- use 'scrooloose/nerdtree'
 
-  use 'kyazdani42/nvim-tree.lua'
-
-  -- use 'kyazdani42/nvim-tree.lua'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
 
   -- use 'vim-scripts/Tabtastic'
 
