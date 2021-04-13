@@ -66,10 +66,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/neoformat"
   },
-  nerdtree = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nerdtree"
-  },
   ["nlua.nvim"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nlua.nvim"
@@ -77,6 +73,10 @@ _G.packer_plugins = {
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -158,8 +158,19 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/vim-vsnip-integ"
+  },
+  ["vim-which-key"] = {
+    commands = { "WhichKey", "WhichKey!" },
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/vim-which-key"
   }
 }
+
+
+-- Command lazy-loads
+vim.cmd [[command! -nargs=* -range -bang -complete=file WhichKey! lua require("packer.load")({'vim-which-key'}, { cmd = "WhichKey!", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
+vim.cmd [[command! -nargs=* -range -bang -complete=file WhichKey lua require("packer.load")({'vim-which-key'}, { cmd = "WhichKey", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
 
 END
 

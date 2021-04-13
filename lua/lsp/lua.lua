@@ -22,7 +22,11 @@ lspconfig.sumneko_lua.setup {
   capabilities = capabilities,
   settings = {
     Lua = {
-      runtime = {version = "LuaJIT"},
+      runtime = {
+        version = "LuaJIT",
+        -- Setup your lua path
+        path = vim.split(package.path, ';')
+      },
       diagnostics = {enable = true, globals = {"vim", "use", "lua"}},
       workspace = {
         library = {[vim.fn.expand("$VIMRUNTIME/lua")] = true, [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true}

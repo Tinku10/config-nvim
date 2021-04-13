@@ -79,7 +79,7 @@ utils.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {noremap = true})
 
 dotfiles = function()
   require('telescope.builtin').find_files({
-      prompt_title = "<Neovim Configs>",
+      prompt_title = "Neovim Configs",
       cwd = "~/.config/nvim/"
   })
 end

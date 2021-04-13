@@ -2,7 +2,6 @@ vim.cmd [[ packadd completion-nvim ]]
 
 require'lspconfig'.vimls.setup {
   cmd = {vim.fn.stdpath('data') .. "/lspinstall/vimls/bin/index.js", "--stdio"},
-  print(vim.fn.stdpath('data')),
   on_attach = require'completion'.on_attach
 }
   -- cmd = { "vim-language-server", "--stdio" },
