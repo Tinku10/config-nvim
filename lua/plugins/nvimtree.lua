@@ -18,11 +18,11 @@ vim.g.nvim_tree_width_allow_resize  = 1 --"0 by default, will not resize the tre
 vim.g.nvim_tree_add_trailing = 1 --"0 by default, append a trailing slash to folder names
 vim.g.nvim_tree_group_empty = 1 --" 0 by default, compact folders that only contain a single folder into one node in the file tree
 vim.g.nvim_tree_lsp_diagnostics = 1 --"0 by default, will show lsp diagnostics in the tree. See :help nvim_tree_lsp_diagnostics
--- vim.g.nvim_tree_show_icons = {
---    ['git']= 1,
---    ['folders']= 0,
---    ['files']= 0
--- }
+vim.g.nvim_tree_show_icons = {
+   ['git']= 1,
+   ['folders']= 1,
+   ['files']= 0
+}
 -- "If 0, do not show the icons for one of 'git' 'folder' and 'files'
 -- "1 by default, notice that if 'files' is 1, it will only display
 -- "if nvim-web-devicons is installed and on your runtimepath
@@ -63,7 +63,7 @@ vim.g.nvim_tree_bindings = {
 }
 
 vim.g.nvim_tree_icons = {
-  default = " ",
+  default = "",
   -- default = ' ',
   -- symlink = ' ',
   git = {
@@ -76,13 +76,15 @@ vim.g.nvim_tree_icons = {
     -- ignored = "◌"
   },
   folder = {
-    -- default = " ",
-    -- open = " "
-    default = " ",
-    open = " ",
-    empty = " ",
-    empty_open = " ",
-    symlink = " "
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = ""
+    -- default = " ",
+    -- open = " ",
+    -- empty = " ",
+    -- empty_open = " ",
+    -- symlink = " "
   }
 }
 

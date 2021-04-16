@@ -19,7 +19,7 @@ return require('packer').startup(function()
 
   use {
       'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-fzy-native.nvim'}}
+      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-fzy-native.nvim'}, {'nvim-telescope/telescope-media-files.nvim'}}
   }
 
   -- use 'scrooloose/nerdtree'
@@ -79,5 +79,12 @@ return require('packer').startup(function()
     opt = true,
     cmd = {'WhichKey'}
   }
+
+  use {
+    'junegunn/fzf',
+    run = 'cd ~/.fzf && ./install --all'
+  }
+
+  use 'Tinku10/dsa'
 
 end)

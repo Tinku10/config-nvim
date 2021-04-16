@@ -69,21 +69,68 @@ require('telescope').setup{
 }
 
 require('telescope').load_extension('fzy_native')
+require('telescope').load_extension('media_files')
 
-utils.map("n", '<leader>ff', '<cmd>Telescope find_files<cr>', {noremap = true, silent = true})
-utils.map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {noremap = true})
-utils.map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {noremap = true})
-utils.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {noremap = true})
+utils.map("n", '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true, silent = true })
+utils.map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
+utils.map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
+utils.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
 
+----------------------------- custom functions ----------------------------------
 
+local customs = {  }
+-- list all the neovim config files in a telescope buffer
 
-function dotfiles()
+dotfiles = function()
   require('telescope.builtin').find_files({
       prompt_title = "Neovim Configs",
       cwd = "~/.config/nvim/"
   })
 end
 
+local function get_file_contents(path_to_file, buff, line)
+  -- Path comes from plenary.path
+  local content = vim.fn.systemlist('cat ' .. require('plenary/path'):new(path_to_file):absolute())
+  vim.api.nvim_buf_set_lines(buff, line[1], line[1], false, content)
+end
+
+local function select_file(prompt_bufnr, map, buff, line)
+  local function choices(close)
+    local content = require('telescope.actions.state').get_selected_entry(prompt_bufnr)
+    get_file_contents(content.cwd .. "/" .. content.value, buff, line)
+    if close then
+      require('telescope.actions').close(prompt_bufnr)
+    end
+  end
+
+  map('i', '<CR>', function()
+    choices(true)
+  end)
+  map('n', '<CR>', function()
+    choices(true)
+  end)
+end
+
+local function listing(prompt, cwd, buff, line)
+  require("telescope.builtin").find_files({
+    prompt_title = prompt,
+    cwd = cwd,
+    attach_mappings = function(prompt_bufnr, map)
+      select_file(prompt_bufnr, map, buff, line)
+      return true
+    end
+  })
+end
+
+-- list all the files in a telescope buffer and copies the content of the file 
+-- selected into the currsor cursor position
+
+content_selector = function(buff, line, userdir)
+  listing("DSA", userdir, buff, line)
+end
+
 utils.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
 utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
+utils.map("n", '<leader>o', '<cmd> lua content_selector(vim.api.nvim_get_current_buf(), vim.api.nvim_win_get_cursor(0), "~/.vim/plugged/dsa")<cr>', {noremap = true})
 
+return customs

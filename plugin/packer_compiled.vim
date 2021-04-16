@@ -41,7 +41,7 @@ _G.packer_plugins = {
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
   ["completion-nvim"] = {
-    after = { "vim-vsnip-integ", "vim-vsnip" },
+    after = { "vim-vsnip", "vim-vsnip-integ" },
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/completion-nvim"
@@ -65,10 +65,6 @@ _G.packer_plugins = {
   neoformat = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/neoformat"
-  },
-  ["nlua.nvim"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nlua.nvim"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -106,6 +102,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
   },
+  ["telescope-media-files.nvim"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -121,10 +121,6 @@ _G.packer_plugins = {
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-commentary"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-gitgutter"] = {
     loaded = true,
@@ -158,18 +154,8 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/vim-vsnip-integ"
-  },
-  ["vim-which-key"] = {
-    commands = { "WhichKey" },
-    loaded = false,
-    needs_bufread = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/vim-which-key"
   }
 }
-
-
--- Command lazy-loads
-vim.cmd [[command! -nargs=* -range -bang -complete=file WhichKey lua require("packer.load")({'vim-which-key'}, { cmd = "WhichKey", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
 
 END
 

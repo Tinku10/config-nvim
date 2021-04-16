@@ -38,6 +38,9 @@ set termguicolors
 set shortmess+=c
 " set rtp+=~/.nvim/bundle/nerdtree
 set pastetoggle=<F2>
+set colorcolumn=80,81
+
+set wildignore+=~/.config/nvim/undodir/*
 
 let mapleader = " "
 let g:move_key_modifier = 'S'
