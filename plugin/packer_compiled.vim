@@ -66,6 +66,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/neoformat"
   },
+  ["nlua.nvim"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nlua.nvim"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -122,6 +126,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-commentary"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
   ["vim-gitgutter"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
@@ -154,8 +162,18 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/vim-vsnip-integ"
+  },
+  ["vim-which-key"] = {
+    commands = { "WhichKey" },
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/vim-which-key"
   }
 }
+
+
+-- Command lazy-loads
+vim.cmd [[command! -nargs=* -range -bang -complete=file WhichKey lua require("packer.load")({'vim-which-key'}, { cmd = "WhichKey", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
 
 END
 

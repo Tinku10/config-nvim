@@ -48,7 +48,8 @@ return require('packer').startup(function()
 
   use 'tpope/vim-commentary'
 
-  use 'airblade/vim-gitgutter'
+  -- use 'airblade/vim-gitgutter'
+  use 'mhinz/vim-signify'
 
   use 'neovim/nvim-lspconfig'
 
@@ -80,11 +81,11 @@ return require('packer').startup(function()
     cmd = {'WhichKey'}
   }
 
-  use {
-    'junegunn/fzf',
-    run = 'cd ~/.fzf && ./install --all'
-  }
+  -- use {
+  --   'junegunn/fzf',
+  --   run = 'cd ~/.fzf && ./install --all'
+  -- }
 
-  use 'Tinku10/dsa'
+  -- use 'Tinku10/dsa'
 
 end)

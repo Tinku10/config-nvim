@@ -17,10 +17,10 @@ local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
 buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
--- vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = " ", numhl = "LspDiagnosticsSignError"})
--- vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = " ", numhl = "LspDiagnosticsSignWarning"})
--- vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint", text = " ", numhl = "LspDiagnosticsSignHint"})
--- vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = " ", numhl = "LspDiagnosticsSignInformation"})
+vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = " ", numhl = "LspDiagnosticsSignError"})
+vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = " ", numhl = "LspDiagnosticsSignWarning"})
+vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint", text = " ", numhl = "LspDiagnosticsSignHint"})
+vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = " ", numhl = "LspDiagnosticsSignInformation"})
 
 -- Mappings.
 local opts = { noremap=true, silent=true }
@@ -61,13 +61,13 @@ if client.resolved_capabilities.document_highlight then
     ]], false)
 end
 end
-require'nvim-treesitter.configs'.setup {
-ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
-  },
-}
+-- require'nvim-treesitter.configs'.setup {
+-- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+--   highlight = {
+--     enable = true,              -- false will disable the whole extension
+--     disable = { "c", "rust" },  -- list of language that will be disabled
+--   },
+-- }
 
 -- local utils = require('settings/utils')
 

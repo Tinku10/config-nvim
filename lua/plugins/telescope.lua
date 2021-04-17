@@ -122,7 +122,7 @@ local function listing(prompt, cwd, buff, line)
   })
 end
 
--- list all the files in a telescope buffer and copies the content of the file 
+-- list all the files in a telescope buffer and copies the content of the file
 -- selected into the currsor cursor position
 
 content_selector = function(buff, line, userdir)
@@ -131,6 +131,6 @@ end
 
 utils.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
 utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
-utils.map("n", '<leader>o', '<cmd> lua content_selector(vim.api.nvim_get_current_buf(), vim.api.nvim_win_get_cursor(0), "~/.vim/plugged/dsa")<cr>', {noremap = true})
+utils.map("n", '<leader>o', '<cmd> lua content_selector(vim.api.nvim_get_current_buf(), vim.api.nvim_win_get_cursor(0), "~/Documents/dsa")<cr>', {noremap = true})
 
 return customs

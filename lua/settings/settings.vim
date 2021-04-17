@@ -1,4 +1,5 @@
 " basic settings done in vim
+" this will be replaced by a lua based settings file
 syntax on
 set guicursor=
 set encoding=UTF-8
