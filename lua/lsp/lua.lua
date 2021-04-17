@@ -1,3 +1,5 @@
+-- sumneko lua server
+
 vim.cmd [[ packadd completion-nvim ]]
 local lspconfig = require "lspconfig"
 

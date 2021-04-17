@@ -27,6 +27,6 @@ local utils = require('settings/utils')
 -- utils.map('n', '<leader>o', ":JJ<cr>", {noremap = true})
 
 -- custom telescope commands
-utils.map("n", '<leader>go', '<cmd> lua require("plugins/telescope").dotfiles()<cr>', {noremap = true})
-utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
-utils.map("n", '<leader>l', '<cmd> lua require("plugins/telescope").content_selector(vim.api.nvim_get_current_buf(), vim.api.nvim_win_get_cursor(0), "~/.vim/plugged/dsa")<cr>', {noremap = true})
+-- utils.map("n", '<leader>go', '<cmd> lua require("plugins/telescope").dotfiles()<cr>', {noremap = true})
+-- utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
+-- utils.map("n", '<leader>l', '<cmd> lua require("plugins/telescope").content_selector(vim.api.nvim_get_current_buf(), vim.api.nvim_win_get_cursor(0), "~/.vim/plugged/dsa")<cr>', {noremap = true})

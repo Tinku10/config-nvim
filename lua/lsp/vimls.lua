@@ -1,3 +1,5 @@
+-- vim language server
+
 vim.cmd [[ packadd completion-nvim ]]
 
 require'lspconfig'.vimls.setup {
