@@ -1,3 +1,5 @@
+------------------------------- Sourcing ----------------------------------------
+
 require "settings.plugins"
 require "settings.utils"
 require "settings.mappings"

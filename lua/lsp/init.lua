@@ -1,3 +1,5 @@
+------------------------------- Sourcing ----------------------------------------
+
 require "lsp.cpp"
 require "lsp.lua"
 require "lsp.deno"
@@ -5,12 +7,13 @@ require "lsp.typescript"
 require "lsp.python"
 -- require "lsp.tailwindcss"
 require "lsp.vimls"
--- require "lsp.lspinstall"
 
 -- uncomment this if you want to use lspinstall
 -- no need to install lsp server manually (comment the above two require if you uncomment this)
 -- may need toeinstall existing lsp servers with the command :LspInstall <server-name>
 -- require "lsp.lspinstall"
+
+--------------------------- Mappings & Setup ------------------------------------
 
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
@@ -55,24 +58,17 @@ end
 -- Set autocommands conditional on server_capabilities
 if client.resolved_capabilities.document_highlight then
   vim.api.nvim_exec([[
-    hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-    hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-    hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-    augroup lsp_document_highlight
-    autocmd! * <buffer>
-    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-    augroup END
-    ]], false)
+  hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+  hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+  hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+  augroup lsp_document_highlight
+  autocmd! * <buffer>
+  autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+  autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+  augroup END
+  ]], false)
 end
 end
--- require'nvim-treesitter.configs'.setup {
--- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
---   highlight = {
---     enable = true,              -- false will disable the whole extension
---     disable = { "c", "rust" },  -- list of language that will be disabled
---   },
--- }
 
 -- local utils = require('settings/utils')
 

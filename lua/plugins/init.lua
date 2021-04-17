@@ -1,3 +1,8 @@
+------------------------------- Sourcing ----------------------------------------
+
+-- some files are autosourced by neovim when placed in a certain folder
+-- but manually sourcing every file here
+
 require "plugins.treesitter"
 require "plugins.statusline"
 require "plugins.devicons"
@@ -5,9 +10,10 @@ require "plugins.lspkind"
 require "plugins.floatterm"
 require "plugins.telescope"
 require "plugins.nvimtree"
-
 -- require "plugins.startify"
 -- require "plugins.lspinstall"
+-- require "lsp.lspinstall"
+
 vim.cmd('source ~/.config/nvim/lua/plugins/gruvbox.vim')
 -- vim.cmd('source ~/.config/nvim/lua/plugins/telescope.vim')
 -- vim.cmd('source ~/.config/nvim/lua/plugins/nerdtree.vim')
