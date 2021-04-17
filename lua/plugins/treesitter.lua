@@ -26,6 +26,8 @@ require 'nvim-treesitter.configs'.setup{
   },
 }
 
+-------------------------------- Mappings ---------------------------------------
+
 local utils = require('settings/utils')
 
 utils.map('n', '<leader>ts', ':TSPlaygroundToggle<cr>', { noremap = true, silent = true })

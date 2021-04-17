@@ -1,3 +1,5 @@
+-- clangd server
+
 vim.cmd [[ packadd completion-nvim ]]
 local completion = require('completion')
 

@@ -1,5 +1,7 @@
 require "lsp.cpp"
 require "lsp.lua"
+require "lsp.deno"
+require "lsp.typescript"
 require "lsp.vimls"
 
 -- uncomment this if you want to use lspinstall

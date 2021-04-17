@@ -63,17 +63,21 @@ vim.g.nvim_tree_bindings = {
 }
 
 vim.g.nvim_tree_icons = {
-  default = "",
+  -- default = " ",
   -- default = ' ',
   -- symlink = ' ',
   git = {
     unstaged = " ",
     -- unstaged = " ",
-    staged = " ",
+    -- staged = " ",
+    -- renamed = "➜ ",
+    staged = " ",
     unmerged = " ",
-    renamed = "➜ ",
-    untracked = " ",
+    renamed = " ",
+    -- untracked = " ",
+    untracked = "ﯰ ",
     -- ignored = "◌"
+    ignored = " "
   },
   folder = {
     default = "",
@@ -87,6 +91,8 @@ vim.g.nvim_tree_icons = {
     -- symlink = " "
   }
 }
+
+-------------------------------- Mappings ---------------------------------------
 
 local utils = require('settings/utils')
 

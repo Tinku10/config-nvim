@@ -16,6 +16,9 @@ vim.cmd('source ~/.config/nvim/lua/plugins/goyo.vim')
 vim.cmd('source ~/.config/nvim/lua/plugins/completion.vim')
 -- vim.cmd('source ~/.config/nvim/lua/plugins/whichkey.vim')
 
+
+-------------------------------- Mappings ---------------------------------------
+
 -- general mappings for which I don't have a separate file
 -- just because they are not so many to have an individual file for
 -- these are plugins related mappings (editor related are placed in mappings.lua)
