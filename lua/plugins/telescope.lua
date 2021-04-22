@@ -79,8 +79,8 @@ utils.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
 ----------------------------- custom functions ----------------------------------
 
 local customs = {  }
--- list all the neovim config files in a telescope buffer
 
+-- list all the neovim config files in a telescope buffer
 dotfiles = function()
   require('telescope.builtin').find_files({
       prompt_title = "Neovim Configs",

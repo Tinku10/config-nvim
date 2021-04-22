@@ -75,7 +75,7 @@ vim.g.nvim_tree_icons = {
     unmerged = " ",
     renamed = " ",
     -- untracked = " ",
-    untracked = "ﯰ ",
+    untracked = "  ",
     -- ignored = "◌"
     ignored = " "
   },

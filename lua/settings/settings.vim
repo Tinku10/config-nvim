@@ -39,7 +39,7 @@ set termguicolors
 set shortmess+=c
 " set rtp+=~/.nvim/bundle/nerdtree
 set pastetoggle=<F2>
-set colorcolumn=80,81
+set colorcolumn=80
 
 set wildignore+=~/.config/nvim/undodir/*
 

@@ -63,6 +63,8 @@ return require('packer').startup(function()
 
   use 'numtostr/FTerm.nvim'
 
+  -- use 'akinsho/nvim-toggleterm.lua'
+
   use 'sbdchd/neoformat'
 
   -- use 'matze/vim-move'
