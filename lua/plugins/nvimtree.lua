@@ -17,7 +17,7 @@ vim.g.nvim_tree_width_allow_resize  = 1 --"0 by default, will not resize the tre
 -- vim.g.nvim_tree_hijack_netrw = 1 --"1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
 vim.g.nvim_tree_add_trailing = 1 --"0 by default, append a trailing slash to folder names
 vim.g.nvim_tree_group_empty = 1 --" 0 by default, compact folders that only contain a single folder into one node in the file tree
-vim.g.nvim_tree_lsp_diagnostics = 1 --"0 by default, will show lsp diagnostics in the tree. See :help nvim_tree_lsp_diagnostics
+vim.g.nvim_tree_lsp_diagnostics = 0 --"0 by default, will show lsp diagnostics in the tree. See :help nvim_tree_lsp_diagnostics
 vim.g.nvim_tree_show_icons = {
    ['git']= 1,
    ['folders']= 1,
@@ -75,7 +75,7 @@ vim.g.nvim_tree_icons = {
     unmerged = " ",
     renamed = " ",
     -- untracked = " ",
-    untracked = "  ",
+    untracked = " ",
     -- ignored = "◌"
     ignored = " "
   },
