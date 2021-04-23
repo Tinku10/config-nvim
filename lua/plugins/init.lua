@@ -11,17 +11,17 @@ require "plugins.floatterm"
 -- require "plugins.toogleterm"
 require "plugins.telescope"
 require "plugins.nvimtree"
+require "plugins.whichkey"
 -- require "plugins.startify"
 -- require "plugins.lspinstall"
 -- require "lsp.lspinstall"
 
 vim.cmd('source ~/.config/nvim/lua/plugins/gruvbox.vim')
--- vim.cmd('source ~/.config/nvim/lua/plugins/telescope.vim')
 -- vim.cmd('source ~/.config/nvim/lua/plugins/nerdtree.vim')
 vim.cmd('source ~/.config/nvim/lua/plugins/undotree.vim')
+-- vim.cmd('source ~/.config/nvim/lua/plugins/barber_tabline.vim')
 vim.cmd('source ~/.config/nvim/lua/plugins/goyo.vim')
 vim.cmd('source ~/.config/nvim/lua/plugins/completion.vim')
--- vim.cmd('source ~/.config/nvim/lua/plugins/whichkey.vim')
 
 
 -------------------------------- Mappings ---------------------------------------
