@@ -96,6 +96,6 @@ vim.g.nvim_tree_icons = {
 
 local utils = require('settings/utils')
 
-utils.map('n', '<leader>t', ':NvimTreeToggle<cr>', { noremap = true, silent = true })
+utils.map('n', '<F3>', ':NvimTreeToggle<cr>', { noremap = true})
 utils.map('n', '<leader>v', ':NvimTreeFind<cr>', { noremap = true, silent = true })
 utils.map('n', '<leader>r', ':NvimTreeRefresh<cr>', { noremap = true, silent = true })

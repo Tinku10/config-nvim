@@ -17,9 +17,9 @@ set shortmess+=c
 " possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
 " let g:completion_enable_snippet = 'UltiSnips'
 
-let g:completion_confirm_key = ""
-imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
-                 \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
+" let g:completion_confirm_key = ""
+" imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
+"                  \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
 
 " disable auto hover popup
 " let g:completion_enable_auto_hover = 0

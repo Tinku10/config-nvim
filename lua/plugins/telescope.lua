@@ -78,10 +78,10 @@ utils.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
 
 ----------------------------- custom functions ----------------------------------
 
-local customs = {  }
+local telescope = {  }
 
 -- list all the neovim config files in a telescope buffer
-dotfiles = function()
+telescope.dotfiles = function()
   require('telescope.builtin').find_files({
       prompt_title = "Neovim Configs",
       cwd = "~/.config/nvim/"
@@ -125,12 +125,12 @@ end
 -- list all the files in a telescope buffer and copies the content of the file
 -- selected into the currsor cursor position
 
-content_selector = function(buff, line, userdir)
-  listing("DSA", userdir, buff, line)
+telescope.content_selector = function()
+  listing("DSA", "~/Documents/dsa", vim.api.nvim_get_current_buf(),  vim.api.nvim_win_get_cursor(0))
 end
 
-utils.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
-utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
-utils.map("n", '<leader>o', '<cmd> lua content_selector(vim.api.nvim_get_current_buf(), vim.api.nvim_win_get_cursor(0), "~/Documents/dsa")<cr>', {noremap = true})
+-- utils.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
+-- utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
+-- utils.map("n", '<leader>o', '<cmd> lua content_selector()<cr>', {noremap = true})
 
-return customs
+return telescope

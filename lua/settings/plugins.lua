@@ -37,7 +37,8 @@ return require('packer').startup(function()
 
   -- use 'sheerun/vim-polyglot'
 
-  use 'jiangmiao/auto-pairs'
+  -- use 'jiangmiao/auto-pairs'
+  use 'windwp/nvim-autopairs'
 
   use 'flazz/vim-colorschemes'
 

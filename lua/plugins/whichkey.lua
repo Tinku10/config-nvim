@@ -11,14 +11,18 @@ wk.config{
 
 local keymap = {
 
-    w = {':w!<CR>', 'save file'}, -- set a single command and text
+    -- w = {':w!<CR>', 'save file'}, -- set a single command and text
     -- j = 'split args', -- only set a text for an already configured keymap
     -- ['<CR>'] = {'@q', 'macro q'}, -- setting a special key
+    n = {':Neoformat<CR>', 'format buffer'},
+    z = {':Goyo<CR>', 'goyo toggle'},
     f = { -- set a nested structure
         name = '+find',
         f = {'<cmd>Telescope find_files<cr>', 'files'},
         b = {'<cmd>Telescope buffers<cr>', 'buffers'},
         h = {'<cmd>Telescope help_tags<cr>', 'help tags'},
+        d = {'<cmd>lua require("plugins/telescope").dotfiles()<cr>', 'dot files'},
+        l = {'<cmd>lua require("plugins/telescope").content_selector()<cr>', 'dsa'},
         c = {
             name = '+commands',
             c = {'<cmd>Telescope commands<cr>', 'commands'},
@@ -28,17 +32,29 @@ local keymap = {
         g = {
             name = '+git',
             g = {'<cmd>Telescope git_commits<cr>', 'commits'},
-            c = {'<Cmd>Telescope git_bcommits<CR>', 'bcommits'},
-            b = {'<Cmd>Telescope git_branches<CR>', 'branches'},
-            s = {'<Cmd>Telescope git_status<CR>', 'status'},
+            c = {'<cmd>Telescope git_bcommits<CR>', 'bcommits'},
+            b = {'<cmd>Telescope git_branches<CR>', 'branches'},
+            s = {'<cmd>Telescope git_status<CR>', 'status'},
         },
+    },
+    w = {
+      name = '+split-movements',
+      h = {"<C-w>h", 'focus left window'},
+      j = {"<C-w>j", 'focus down window'},
+      k = {"<C-w>k", 'focus up window'},
+      l = {"<C-w>l", 'focus right window'},
+    },
+    t = {
+      name = '+tree-sitter',
+      p = {":TSPlaygroundToggle<cr>", 'toggle playground'},
+      t = {":TSHighlightCapturesUnderCursor<cr>", 'type of'},
     }
 }
 
 -- Local leader and visual
 local visual_keymap = {
-    K = {':move \'<-2<CR>gv-gv', 'move lines up'},
-    J = {':move \'>+1<CR>gv-gv', 'move lines down'},
+  K = {":move '<-2<CR>gv=gv", 'move lines up'},
+  J = {":move '>+1<CR>gv=gv", 'move lines down'},
 }
 local local_keymap = {
     r = {':!python %', 'run python'},

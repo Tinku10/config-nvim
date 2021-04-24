@@ -7,15 +7,21 @@ local utils = require('settings/utils')
 utils.map('i', 'jj', '<Esc>')
 
 -- move selected text up and down
-utils.map('v', 'J', ":m '>+1<CR>gv=gv", {noremap = true})
-utils.map('v', 'K', ":m '<-2<CR>gv=gv", {noremap = true})
+utils.map('v', 'J', ":m '>+1<CR>gv=gv", {noremap = true, silent = true})
+utils.map('v', 'K', ":m '<-2<CR>gv=gv", {noremap = true, silent = true})
 
 -- go to normal mode in terminal buffer
 utils.map('t', 'jj', "<C-\\><C-N>", {noremap = true})
 
 -- move between windows
-utils.map('n', '<A-l>', "<C-w>l", {noremap = true})
-utils.map('n', '<A-j>', "<C-w>j", {noremap = true})
-utils.map('n', '<A-k>', "<C-w>k", {noremap = true})
-utils.map('n', '<A-h>', "<C-w>h", {noremap = true})
+utils.map('n', '<leader>wl', "<C-w>l", {noremap = true})
+utils.map('n', '<leader>wj', "<C-w>j", {noremap = true})
+utils.map('n', '<leader>wk', "<C-w>k", {noremap = true})
+utils.map('n', '<leader>wh', "<C-w>h", {noremap = true})
 
+-- format buffer using Neoformat
+utils.map('n', '<leader>n', ":Neoformat", {noremap = true, silent = true})
+
+-- utils.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
+-- utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
+-- utils.map("n", '<leader>o', '<cmd> lua content_selector()<cr>', {noremap = true})
