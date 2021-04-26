@@ -22,6 +22,9 @@ utils.map('n', '<leader>wh', "<C-w>h", {noremap = true})
 -- format buffer using Neoformat
 utils.map('n', '<leader>n', ":Neoformat", {noremap = true, silent = true})
 
+-- sourcing init.lua
+utils.map('n', '<leader>s', ":luafile ~/.config/nvim/init.lua<CR> :echo 'Sourced Successfully'<CR>", {noremap = true})
+
 -- utils.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
 -- utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
 -- utils.map("n", '<leader>o', '<cmd> lua content_selector()<cr>', {noremap = true})

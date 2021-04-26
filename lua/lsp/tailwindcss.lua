@@ -1,8 +1,5 @@
 -- uses tailwindcss intellisense
 
-vim.cmd [[ packadd completion-nvim ]]
-local completion = require('completion')
-
 require"lspconfig".tailwindls.setup {
     cmd = { "node", "~/Downloads/tailwind/extension/dist/server/index.js", "--stdio" },
     -- filetypes = O.tailwindls.filetypes,
@@ -13,5 +10,5 @@ require"lspconfig".tailwindls.setup {
             vim.lsp.buf_notify(bufnr, "tailwindcss/getConfigurationResponse", {_id = params._id})
         end
     },
-    on_attach = completion.on_attach
+  on_attach=require('lsp/common').on_attach,
 }

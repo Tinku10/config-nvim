@@ -245,7 +245,7 @@ section.right[12] = {
 
 section.right[13] = {
   DiagnosticInfo = {
-    -- separator = " ",
+    separator = " ",
     provider = "DiagnosticInfo",
     -- icon = " ",
     icon = "ﯧ ",

@@ -9,11 +9,11 @@ npairs.setup({
   disable_filetype = { "TelescopePrompt" },
 })
 
-_G.MUtils= {}
+_G.calls= {}
 
 vim.g.completion_confirm_key = ""
 
-MUtils.completion_confirm = function()
+calls.completion_confirm = function()
   if vim.fn.pumvisible() ~= 0  then
     if vim.fn.complete_info()["selected"] ~= -1 then
       require'completion'.confirmCompletion()
@@ -30,4 +30,4 @@ end
 
 local utils = require('settings/utils')
 
-utils.map('i', '<CR>', 'v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+utils.map('i', '<CR>', 'v:lua.calls.completion_confirm()', {expr = true , noremap = true})

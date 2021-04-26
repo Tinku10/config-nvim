@@ -16,6 +16,7 @@ local keymap = {
     -- ['<CR>'] = {'@q', 'macro q'}, -- setting a special key
     n = {':Neoformat<CR>', 'format buffer'},
     z = {':Goyo<CR>', 'goyo toggle'},
+    s = {':luafile ~/.config/nvim/init.lua<CR>: echo "Sourced Successfully"<CR>', 'source'},
     f = { -- set a nested structure
         name = '+find',
         f = {'<cmd>Telescope find_files<cr>', 'files'},

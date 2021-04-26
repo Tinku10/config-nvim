@@ -75,10 +75,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/FTerm.nvim"
   },
-  ["auto-pairs"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/auto-pairs"
-  },
   ["completion-nvim"] = {
     after = { "vim-vsnip", "vim-vsnip-integ" },
     loaded = false,
@@ -109,9 +105,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nlua.nvim"
   },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["nvim-toggleterm.lua"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-toggleterm.lua"
   },
   ["nvim-tree.lua"] = {
     loaded = true,

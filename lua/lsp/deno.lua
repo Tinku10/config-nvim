@@ -1,11 +1,8 @@
 -- this uses builtin deno server for javascript as well as typescript
 -- this server can be omitted for tsserver
 
-vim.cmd [[ packadd completion-nvim ]]
-local completion = require('completion')
-
 require'lspconfig'.denols.setup{
-    on_attach=completion.on_attach,
+    on_attach=require('lsp/common').on_attach,
     cmd = { "deno", "lsp" },
     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
     handlers = {
