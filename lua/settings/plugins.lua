@@ -78,14 +78,14 @@ return require('packer').startup(function()
 
   use 'tjdevries/nlua.nvim'
 
-  use {
-    'AckslD/nvim-whichkey-setup.lua',
-    requires = {
-      'liuchengxu/vim-which-key',
-      opt = true,
-      cmd = {'WhichKey'}
-    },
-  }
+  -- use {
+  --   'AckslD/nvim-whichkey-setup.lua',
+  --   requires = {
+  --     'liuchengxu/vim-which-key',
+  --     opt = true,
+  --     cmd = {'WhichKey'}
+  --   },
+  -- }
 
   -- use {
   --   'junegunn/fzf',

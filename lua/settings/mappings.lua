@@ -19,9 +19,6 @@ utils.map('n', '<leader>wj', "<C-w>j", {noremap = true})
 utils.map('n', '<leader>wk', "<C-w>k", {noremap = true})
 utils.map('n', '<leader>wh', "<C-w>h", {noremap = true})
 
--- format buffer using Neoformat
-utils.map('n', '<leader>n', ":Neoformat", {noremap = true, silent = true})
-
 -- sourcing init.lua
 utils.map('n', '<leader>s', ":luafile ~/.config/nvim/init.lua<CR> :echo 'Sourced Successfully'<CR>", {noremap = true})
 
