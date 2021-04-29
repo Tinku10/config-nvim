@@ -13,5 +13,5 @@ utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({sea
 utils.map("n", '<leader>fl', '<cmd> lua require("plugins/telescope").content_selector(vim.api.nvim_get_current_buf(), vim.api.nvim_win_get_cursor(0), "~/.vim/plugged/dsa")<cr>', {noremap = true})
 
 -- format buffer using Neoformat
-utils.map('n', '<leader>n', ":Neoformat", {noremap = true, silent = true})
+utils.map('n', '<leader>n', ":Neoformat<cr>", {noremap = true, silent = true})
 

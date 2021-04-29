@@ -5,6 +5,7 @@ require "lsp.lua"
 require "lsp.deno"
 require "lsp.typescript"
 require "lsp.python"
+require "lsp.groovy"
 -- require "lsp.tailwindcss"
 require "lsp.vimls"
 

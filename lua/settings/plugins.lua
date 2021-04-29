@@ -94,4 +94,6 @@ return require('packer').startup(function()
 
   -- use 'Tinku10/dsa'
 
+  -- use 'pseewald/vim-anyfold'
+
 end)

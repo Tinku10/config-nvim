@@ -2,7 +2,7 @@ local cmd = vim.api.nvim_command
 local fn = vim.fn
 local gl = require('galaxyline')
 local section = gl.section
-gl.short_line_list = {"NerdTree", "packager", "Floaterm", "coc-eplorer", "NvimTree", "packer", "Goyo"}
+gl.short_line_list = {"NerdTree", "packager", "Floaterm", "coc-eplorer", "NvimTree", "packer", "Goyo", "Undotree"}
 
 -- color palette
 local colors = {
@@ -228,7 +228,7 @@ section.right[11] = {
   DiagnosticError = {
     provider = "DiagnosticError",
     separator = " ",
-    icon = " ",
+    icon = " ",
     highlight = {colors.orange, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
@@ -237,7 +237,7 @@ section.right[12] = {
   DiagnosticWarn = {
     provider = "DiagnosticWarn",
     separator = " ",
-    icon = " ",
+    icon = " ",
     highlight = {colors.yellow, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
@@ -248,7 +248,7 @@ section.right[13] = {
     separator = " ",
     provider = "DiagnosticInfo",
     -- icon = " ",
-    icon = "ﯧ ",
+    icon = " ",
     highlight = {colors.green, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
