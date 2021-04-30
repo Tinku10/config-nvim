@@ -80,10 +80,10 @@ vim.g.nvim_tree_icons = {
     ignored = " "
   },
   folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = ""
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = ""
     -- default = " ",
     -- open = " ",
     -- empty = " ",
@@ -94,7 +94,7 @@ vim.g.nvim_tree_icons = {
 
 -------------------------------- Mappings ---------------------------------------
 
-local utils = require('settings/utils')
+-- local utils = require('settings/utils')
 
 vim.api.nvim_set_keymap('n', '<F3>', ':NvimTreeToggle<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>v', ':NvimTreeFind<cr>', { noremap = true, silent = true })
