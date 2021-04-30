@@ -2,7 +2,7 @@
 
 require "settings.plugins"
 require "settings.utils"
-require "settings.mappings"
+require "settings.common"
 vim.cmd('source ~/.config/nvim/lua/settings/settings.vim')
 
 local fn = vim.fn

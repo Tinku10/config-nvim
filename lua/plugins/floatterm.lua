@@ -14,8 +14,8 @@ require'FTerm'.setup({
 local opts = { noremap = true, silent = true }
 
 -- Closer to the metal
-utils.map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-utils.map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+vim.api.nvim_set_keymap('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 vim.g.floaterm_keymap_next   = '<A-j>'
 vim.g.floaterm_keymap_prev   = '<A-k>'
 vim.g.floaterm_keymap_new    = '<A-n>'

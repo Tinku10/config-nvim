@@ -30,4 +30,4 @@ end
 
 local utils = require('settings/utils')
 
-utils.map('i', '<CR>', 'v:lua.calls.completion_confirm()', {expr = true , noremap = true})
+vim.api.nvim_set_keymap('i', '<CR>', 'v:lua.calls.completion_confirm()', {expr = true , noremap = true})

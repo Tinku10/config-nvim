@@ -30,7 +30,7 @@ require 'nvim-treesitter.configs'.setup{
 
 local utils = require('settings/utils')
 
-utils.map('n', '<leader>ts', ':TSPlaygroundToggle<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ts', ':TSPlaygroundToggle<cr>', { noremap = true, silent = true })
 
 -- R: Refreshes the playground view when focused or reloads the query when the query editor is focused.
 -- o: Toggles the query editor when the playground is focused.
