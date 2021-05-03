@@ -22,6 +22,16 @@ vim.api.nvim_set_keymap('n', 'wh', "<C-w>h", {noremap = true})
 -- sourcing init.lua (does not source all files, TODO: figure out why?)
 vim.api.nvim_set_keymap('n', '<leader>s', ":luafile ~/.config/nvim/init.lua<CR> :w ~/.config/nvim/init.lua<CR> :echo 'Sourced Successfully'<CR>", {noremap = true})
 
+-- quickfix list and location list mappings
+vim.api.nvim_set_keymap('n', 'co', ":copen<CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', 'cj', ":cnext<CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', 'ck', ":cprevious<CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', 'lo', ":lopen<CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', 'lj', ":lnext<CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', 'lk', ":lprevious<CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', 'tco', ":Telescope quickfix<CR>", {noremap = true})
+vim.api.nvim_set_keymap('n', 'tlo', ":Telescope loclist<CR>", {noremap = true})
+
 -- utils.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
 -- utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
 -- utils.map("n", '<leader>o', '<cmd> lua content_selector()<cr>', {noremap = true})

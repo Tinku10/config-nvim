@@ -60,7 +60,8 @@ return require('packer').startup(function()
 
   -- use 'kabouzeid/nvim-lspinstall'
 
-  use 'mhinz/vim-startify'
+  -- use 'mhinz/vim-startify'
+  use 'glepnir/dashboard-nvim'
 
   use 'numtostr/FTerm.nvim'
 
@@ -86,6 +87,7 @@ return require('packer').startup(function()
   --     cmd = {'WhichKey'}
   --   },
   -- }
+  use 'folke/which-key.nvim'
 
   -- use {
   --   'junegunn/fzf',

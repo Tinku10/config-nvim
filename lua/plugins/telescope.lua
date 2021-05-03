@@ -84,10 +84,20 @@ local telescope = {  }
 telescope.dotfiles = function()
   require('telescope.builtin').find_files({
       prompt_title = "Neovim Configs",
-      cwd = "~/.config/nvim/"
+      cwd = '~/.config/nvim'
   })
 end
 
+telescope.anyjump = function()
+  local dir = vim.fn.input("Folder Path > ")
+  if dir == '' then
+    dir = "~/.config/nvim"
+  end
+  require('telescope.builtin').find_files({
+      prompt_title = "Files",
+      cwd = dir
+  })
+end
 local function get_file_contents(path_to_file, buff, line)
   -- Path comes from plenary.path
   local content = vim.fn.systemlist('cat ' .. require('plenary/path'):new(path_to_file):absolute())
