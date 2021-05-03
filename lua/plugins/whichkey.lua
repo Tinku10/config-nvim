@@ -50,6 +50,7 @@ local opts = {
   noremap = true, -- use `noremap` when creating keymaps
   nowait = false, -- use `nowait` when creating keymaps
 }
+
 wk.register({
   ["<leader>"] = {
     f = { -- set a nested structure
@@ -59,6 +60,7 @@ wk.register({
       h = {'<cmd>Telescope help_tags<cr>', 'help tags'},
       d = {'<cmd>lua require("plugins/telescope").dotfiles()<cr>', 'dot files'},
       l = {'<cmd>lua require("plugins/telescope").content_selector()<cr>', 'dsa'},
+      a = {'<cmd>lua require("plugins/telescope").anyjump()<cr>', 'anyjump'},
       c = {
         name = '+commands',
         c = {'<cmd>Telescope commands<cr>', 'commands'},
@@ -72,7 +74,8 @@ wk.register({
         b = {'<cmd>Telescope git_branches<CR>', 'branches'},
         s = {'<cmd>Telescope git_status<CR>', 'status'},
       }
-    }
+    },
+    q = {'<cmd>lua vim.lsp.set_loclist()<cr>', 'locallist diagnostic'}
   },
   ['w'] = {
     name = '+split-movements',
@@ -86,15 +89,24 @@ wk.register({
     p = {":TSPlaygroundToggle<cr>", 'toggle playground'},
     t = {":TSHighlightCapturesUnderCursor<cr>", 'type of'},
   },
+  -- d = {'<Cmd>lua vim.lsp.buf.definition()<CR>', 'definition'},
+  -- D = {'<Cmd>lua vim.lsp.buf.declaration()<CR>', 'declaration'},
+  -- r = {'<cmd>lua vim.lsp.buf.references()<CR>', 'references'},
+  -- K = {'<Cmd>lua vim.lsp.buf.hover()<CR>', 'hover'},
+  -- i = {'<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation'},
+  -- s = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature'},
+  -- wa = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'add workspace folder'},
+  -- wd = {'<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'delete workspace folder'},
+  -- wl = {'<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'list workspace folder'},
+  -- td = {'<cmd>lua vim.lsp.buf.type_definition()<CR>', 'type definition'},
+  -- rn = {'<cmd>lua vim.lsp.buf.rename()<CR>', 'rename'},
+  -- ld = {'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', 'show line diagnostics'},
+  -- p = {'<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', 'prev diagnostic'},
+  -- n = {'<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', 'next diagnostic'},
+  -- ll = {'<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', 'set local list'}
 })
 
 -- wk.register(mappings, opts)
-
-
-
-
-
-
 
 
 
