@@ -81,6 +81,10 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/completion-nvim"
   },
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
+  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
@@ -120,6 +124,10 @@ _G.packer_plugins = {
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
+  ["nvim-treesitter-refactor"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -180,10 +188,6 @@ _G.packer_plugins = {
   ["vim-signify"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-signify"
-  },
-  ["vim-startify"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-startify"
   },
   ["vim-vsnip"] = {
     load_after = {

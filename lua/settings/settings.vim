@@ -53,12 +53,20 @@ function Template(tmpl_file)
     let substDict = {}
     let substDict["name"] = "pasnger" 
     let substDict["date"] = strftime("%Y %b %d %X")
-    exe '%s/<<\([^>]*\)>>/\=substDict[submatch(1)]/g'
+    " exe '%s/<<\([^>]*\)>>/\=substDict[submatch(1)]/g'
     set nomodified
     normal G
 endfunction
 
-autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template("~/.vim/tmpl.cpp")
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+command! TrimWhitespace call TrimWhitespace()
+
+autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template("~/Documents/dsa/BaseTemplate/template.h")
 " hi MatchParen cterm=bold ctermbg=none ctermfg=229
 " kind of autosave 
 " autocmd TextChanged,TextChangedI <buffer> silent write

@@ -24,11 +24,31 @@ require 'nvim-treesitter.configs'.setup{
     use_virtual_text = true,
     lint_events = {"BufWrite", "CursorHold"},
   },
+  refactor = {
+    highlight_definitions = { enable = true },
+    highlight_current_scope = { enable = true },
+    smart_rename = {
+      enable = true,
+      keymaps = {
+        smart_rename = "<leader>tr",
+      },
+    },
+    navigation = {
+      enable = true,
+      keymaps = {
+        goto_definition = "gnd",
+        list_definitions = "gnD",
+        list_definitions_toc = "gO",
+        goto_next_usage = "<a-*>",
+        goto_previous_usage = "<a-#>",
+      },
+    },
+  }
 }
 
 -------------------------------- Mappings ---------------------------------------
 
-local utils = require('settings/utils')
+-- local utils = require('settings/utils')
 
 vim.api.nvim_set_keymap('n', '<leader>ts', ':TSPlaygroundToggle<cr>', { noremap = true, silent = true })
 

@@ -79,9 +79,24 @@ section.left[1] = {
 section.left[2] = {
   ViMode = {
     provider = function()
+      -- local mode = fn.mode()
       cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
       --   ҟαĺ          
       return "     "
+
+      -- if (mode=='n') then
+      --   return '  NORMAL  '
+      -- elseif (mode=='i') then
+      --   return '  INSERT  '
+      -- elseif (mode=='v') then
+      --   return '  VISUAL  '
+      -- elseif (mode=='V') then
+      --   return '  VISUAL-LINE  '
+      -- else if (mode=='') then
+      --   return '  VISUAL-BLOCK  '
+      -- end
+    -- end
+
     end,
     highlight = {colors.red, colors.line_bg, "bold"}
   }

@@ -8,7 +8,11 @@ return require('packer').startup(function()
     requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
   }
 
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {'nvim-treesitter/nvim-treesitter-refactor'},
+    run = ':TSUpdate' 
+  }
 
   use 'nvim-treesitter/playground'
 

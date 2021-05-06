@@ -12,21 +12,26 @@ vim.g.dashboard_custom_header = {
 -- '   _  /|  / /  __/ /_/ /_ |/ / _  / _  / / / / /',
 -- '   /_/ |_/  \\___/\\____/_____/  /_/  /_/ /_/ /_/ ',
 -- '                                                '
-
 }
 
 vim.g.dashboard_default_executive = 'telescope'
 
-vim.g.dashboard_custom_shortcut = {
-  last_session       = 'SPC s l',
-  find_history       = 'SPC f h',
-  find_file          = 'SPC f f',
-  new_file           = 'SPC c n',
-  change_colorscheme = 'SPC t c',
-  find_word          = 'SPC f a',
-  book_marks         = 'SPC f b',
+-- vim.g.dashboard_custom_shortcut = {
+--   last_session       = 'SPC s l',
+--   find_history       = 'SPC f h',
+--   find_file          = 'SPC f f',
+--   new_file           = 'SPC c n',
+--   change_colorscheme = 'SPC t c',
+--   find_word          = 'SPC f a',
+--   book_marks         = 'SPC f b',
+-- }
+vim.g.dashboard_custom_section = {
+    a = {description = {'  Find File                              SPC f f'}, command = 'Telescope find_files'},
+    b = {description = {'  Recently Used Files                    SPC f h'}, command = 'Telescope oldfiles'},
+    c = {description = {'  Load Last Session                      SPC s l'}, command = 'SessionLoad'},
+    d = {description = {'  Grep Word                              SPC f g'}, command = 'Telescope live_grep'},
+    e = {description = {'  Configuration                          SPC f d'}, command = ':<leader>fd <cr>'}
 }
-
 -- vim.g.dashboard_custom_shortcut_icon['last_session'] = ' '
 -- vim.g.dashboard_custom_shortcut_icon['find_history'] = 'ﭯ '
 -- vim.g.dashboard_custom_shortcut_icon['find_file'] = ' '
