@@ -76,7 +76,7 @@ _G.packer_plugins = {
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/FTerm.nvim"
   },
   ["completion-nvim"] = {
-    after = { "vim-vsnip-integ", "vim-vsnip" },
+    after = { "vim-vsnip", "vim-vsnip-integ" },
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/completion-nvim"
@@ -164,10 +164,6 @@ _G.packer_plugins = {
   undotree = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/undotree"
-  },
-  ["vim-colorschemes"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-colorschemes"
   },
   ["vim-commentary"] = {
     loaded = true,
