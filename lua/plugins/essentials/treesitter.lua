@@ -25,8 +25,8 @@ require 'nvim-treesitter.configs'.setup{
     lint_events = {"BufWrite", "CursorHold"},
   },
   refactor = {
-    highlight_definitions = { enable = true },
-    highlight_current_scope = { enable = true },
+    highlight_definitions = { enable = false },
+    highlight_current_scope = { enable = false },
     smart_rename = {
       enable = true,
       keymaps = {

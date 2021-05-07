@@ -11,7 +11,7 @@ return require('packer').startup(function()
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = {'nvim-treesitter/nvim-treesitter-refactor'},
-    run = ':TSUpdate' 
+    run = ':TSUpdate'
   }
 
   use 'nvim-treesitter/playground'

@@ -28,6 +28,6 @@ calls.completion_confirm = function()
   end
 end
 
-local utils = require('settings/utils')
+-- local utils = require('settings/utils')
 
 vim.api.nvim_set_keymap('i', '<CR>', 'v:lua.calls.completion_confirm()', {expr = true , noremap = true})

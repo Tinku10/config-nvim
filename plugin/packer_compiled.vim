@@ -85,6 +85,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/diffview.nvim"
+  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
@@ -96,6 +100,10 @@ _G.packer_plugins = {
   gruvbox = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/gruvbox"
+  },
+  ["lsp-trouble.nvim"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/lsp-trouble.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
