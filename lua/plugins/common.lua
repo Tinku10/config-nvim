@@ -1,11 +1,6 @@
 ------------------------ Common Mappings & Setup -------------------------------
 
--- general mappings for which I don't have a separate file
--- just because they are not so many to have an individual file for
 -- these are plugins related mappings (editor related are placed in mappings.lua)
-local utils = require('settings/utils')
-
--- utils.map('n', '<leader>o', ":JJ<cr>", {noremap = true})
 
 -- custom telescope commands
 vim.api.nvim_set_keymap("n", '<leader>fd', '<cmd> lua require("plugins/telescope").dotfiles()<cr>', {noremap = true})

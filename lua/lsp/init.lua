@@ -1,13 +1,7 @@
 ------------------------------- Sourcing ----------------------------------------
 
-require "lsp.cpp"
-require "lsp.lua"
-require "lsp.deno"
-require "lsp.typescript"
-require "lsp.python"
-require "lsp.groovy"
--- require "lsp.tailwindcss"
-require "lsp.vimls"
+require "lsp.essentials"
+require "lsp.non-essentials"
 
 -- uncomment this if you want to use lspinstall
 -- no need to install lsp server manually (comment the above two require if you uncomment this)
