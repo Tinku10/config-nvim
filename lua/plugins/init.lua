@@ -5,3 +5,4 @@
 
 require "plugins.essentials"
 require "plugins.non-essentials"
+require "plugins.common"

@@ -102,4 +102,11 @@ return require('packer').startup(function()
 
   -- use 'pseewald/vim-anyfold'
 
+  use {
+    'folke/lsp-trouble.nvim',
+    requires = "kyazdani42/nvim-web-devicons"
+  }
+
+  use 'sindrets/diffview.nvim'
+
 end)

@@ -2,6 +2,7 @@
 
 require "lsp.essentials"
 require "lsp.non-essentials"
+require "lsp.common"
 
 -- uncomment this if you want to use lspinstall
 -- no need to install lsp server manually (comment the above two require if you uncomment this)
