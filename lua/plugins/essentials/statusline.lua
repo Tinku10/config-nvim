@@ -2,7 +2,7 @@ local cmd = vim.api.nvim_command
 local fn = vim.fn
 local gl = require('galaxyline')
 local section = gl.section
-gl.short_line_list = {"NerdTree", "packager", "Floaterm", "coc-eplorer", "NvimTree", "packer", "Goyo", "Undotree"}
+gl.short_line_list = {"NerdTree", "packager", "Floaterm", "coc-eplorer", "NvimTree", "packer", "Goyo", "Undotree", "dashboard", "LspTrouble"}
 
 -- color palette
 local colors = {
