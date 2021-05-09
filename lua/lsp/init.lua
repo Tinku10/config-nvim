@@ -1,10 +1,10 @@
 ------------------------------- Sourcing ----------------------------------------
 
-require "lsp.essentials"
-require "lsp.non-essentials"
-require "lsp.common"
+-- include all libraries/frameworks
+require "lsp.lib"
 
--- uncomment this if you want to use lspinstall
--- no need to install lsp server manually (comment the above two require if you uncomment this)
--- may need toeinstall existing lsp servers with the command :LspInstall <server-name>
--- require "lsp.lspinstall"
+-- include all languages
+require "lsp.lang"
+
+-- include common setup for all
+require "lsp.common"

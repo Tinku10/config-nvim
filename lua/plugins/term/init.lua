@@ -1,0 +1,2 @@
+require "plugins.term.floatterm"
+

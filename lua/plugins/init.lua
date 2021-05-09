@@ -1,8 +1,19 @@
 ------------------------------- Sourcing ----------------------------------------
 
--- some files are autosourced by neovim when placed in a certain folder
--- but manually sourcing every file here
-
-require "plugins.essentials"
-require "plugins.non-essentials"
-require "plugins.common"
+require "plugins.completion"
+require "plugins.diff"
+require "plugins.finder"
+require "plugins.icons"
+require "plugins.statusline"
+require "plugins.syntax-highlighter"
+require "plugins.term"
+require "plugins.theme"
+require "plugins.tree"
+require "plugins.undos"
+require "plugins.whichkey"
+require "plugins.launch-screen"
+require "plugins.pairs"
+require "plugins.etc"
+require "plugins.tabline"
+require "plugins.focus"
+require "plugins.error-navigator"

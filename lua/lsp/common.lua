@@ -12,7 +12,7 @@ common.on_attach = function(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-  vim.api.nvim_set_current_dir(client.config.root_dir)
+  -- vim.api.nvim_set_current_dir(client.config.root_dir)
 
   -- More options     
   vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = " ", numhl = "LspDiagnosticsSignError"})
