@@ -62,7 +62,7 @@ return require('packer').startup(function()
 
   use 'onsails/lspkind-nvim'
 
-  -- use 'kabouzeid/nvim-lspinstall'
+  use 'kabouzeid/nvim-lspinstall'
 
   -- use 'mhinz/vim-startify'
   use 'glepnir/dashboard-nvim'

@@ -2,4 +2,5 @@
 
 require "lsp.non-essentials.deno"
 require "lsp.non-essentials.groovy"
--- require "lsp.tailwindcss"
+require "lsp.non-essentials.tailwindcss"
+require "lsp.non-essentials.vue"
