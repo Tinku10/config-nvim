@@ -58,9 +58,9 @@ wk.register({
       f = {'<cmd>Telescope find_files<cr>', 'files'},
       b = {'<cmd>Telescope buffers<cr>', 'buffers'},
       h = {'<cmd>Telescope help_tags<cr>', 'help tags'},
-      d = {'<cmd>lua require("plugins/essentials/telescope").dotfiles()<cr>', 'dot files'},
-      l = {'<cmd>lua require("plugins/essentials/telescope").content_selector()<cr>', 'dsa'},
-      a = {'<cmd>lua require("plugins/essentials/telescope").anyjump()<cr>', 'anyjump'},
+      d = {'<cmd>lua require("plugins.finder.setup").dotfiles()<cr>', 'dot files'},
+      l = {'<cmd>lua require("plugins.finder.setup").content_selector()<cr>', 'dsa'},
+      a = {'<cmd>lua require("plugins.finder.setup").anyjump()<cr>', 'anyjump'},
       c = {
         name = '+commands',
         c = {'<cmd>Telescope commands<cr>', 'commands'},

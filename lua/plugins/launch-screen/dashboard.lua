@@ -41,7 +41,7 @@ vim.g.dashboard_custom_section = {
     b = {description = {'  Recently Used Files                    SPC f h'}, command = 'Telescope oldfiles'},
     c = {description = {'  Load Last Session                      SPC s l'}, command = 'SessionLoad'},
     d = {description = {'  Grep Word                              SPC f g'}, command = 'Telescope live_grep'},
-    e = {description = {'  Configuration                          SPC f d'}, command = 'lua require("plugins/essentials/telescope").dotfiles()'}
+    e = {description = {'  Configuration                          SPC f d'}, command = 'lua require("plugins.finder.setup").dotfiles()'}
 }
 -- vim.g.dashboard_custom_shortcut_icon['last_session'] = ' '
 -- vim.g.dashboard_custom_shortcut_icon['find_history'] = 'ﭯ '
