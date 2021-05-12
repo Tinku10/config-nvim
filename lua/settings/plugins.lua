@@ -49,7 +49,10 @@ return require('packer').startup(function()
   use 'gruvbox-community/gruvbox'
   -- use 'morhetz/gruvbox'
 
-  use 'jremmen/vim-ripgrep'
+  -- use 'jremmen/vim-ripgrep'
+  use 'mhinz/vim-grepper'
+
+  use 'tpope/vim-surround'
 
   use 'tpope/vim-commentary'
 

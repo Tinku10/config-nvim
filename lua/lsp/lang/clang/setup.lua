@@ -1,9 +1,7 @@
--- clangd server
+-- list of names of the language servers used
+-- available servers : clangd
+local servers = {'clangd'}
 
--- vim.cmd [[ packadd completion-nvim ]]
--- local completion = require('completion')
-
-require'lspconfig'.clangd.setup {
-    -- on_attach=completion.on_attach
-    on_attach=require('lsp/common').on_attach
-}
+for _, server in ipairs(servers) do
+  require('lsp.lang.clang.servers.' .. server .. '.setup')
+end
