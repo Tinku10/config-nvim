@@ -1,7 +1,5 @@
--- list of names of the language servers used
--- available servers : clangd
-local servers = {'clangd'}
+-- clangd server
 
-for _, server in ipairs(servers) do
-  require('lsp.lang.clang.servers.' .. server .. '.setup')
-end
+require'lspconfig'.clangd.setup {
+    on_attach=require('lsp/common').on_attach
+}
