@@ -50,12 +50,41 @@ local mode_color = {
   t = colors.cyan
 }
 
+local modes = {
+   ['__'] = '------',
+   ['c']  = 'COMMAND',
+   ['i']  = 'INSERT',
+   ['ic'] = 'INSERT COMPL',
+   ['ix'] = 'INSERT COMPL',
+   ['multi'] = 'MULTI',
+   ['n']  = 'NORMAL',
+   ['ni'] = '(INSERT)',
+   ['no'] = 'OP PENDING',
+   ['R']  = 'REPLACE',
+   ['Rv'] = 'V REPLACE',
+   ['s']  = 'SELECT',
+   ['S']  = 'S-LINE',
+   [''] = 'S-BLOCK',
+   ['t']  = 'TERMINAL',
+   ['v']  = 'VISUAL',
+   ['V']  = 'V-LINE',
+   [''] = 'V-BLOCK',
+}
+
 local buffer_not_empty = function()
   if fn.empty(fn.expand("%:t")) ~= 1 then
     return true
   end
   return false
 end
+
+local whichmode = function()
+  local mode = fn.mode()
+
+  return "  " .. modes[mode] .. "  ";
+
+end
+
 
 -- section.left[0] = {
 --   RainbowRed = {
@@ -79,23 +108,11 @@ section.left[1] = {
 section.left[2] = {
   ViMode = {
     provider = function()
-      -- local mode = fn.mode()
       cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
       --   ҟαĺ          
-      return "     "
+      -- return "     "
 
-      -- if (mode=='n') then
-      --   return '  NORMAL  '
-      -- elseif (mode=='i') then
-      --   return '  INSERT  '
-      -- elseif (mode=='v') then
-      --   return '  VISUAL  '
-      -- elseif (mode=='V') then
-      --   return '  VISUAL-LINE  '
-      -- else if (mode=='') then
-      --   return '  VISUAL-BLOCK  '
-      -- end
-    -- end
+      return whichmode()
 
     end,
     highlight = {colors.red, colors.line_bg, "bold"}
