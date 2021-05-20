@@ -10,11 +10,9 @@ return require('packer').startup(function()
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    requires = {'nvim-treesitter/nvim-treesitter-refactor'},
+    requires = {'nvim-treesitter/nvim-treesitter-refactor', 'nvim-treesitter/playground'},
     run = ':TSUpdate'
   }
-
-  use 'nvim-treesitter/playground'
 
   use {
     'glepnir/galaxyline.nvim', branch = 'main',
@@ -44,13 +42,13 @@ return require('packer').startup(function()
   -- use 'jiangmiao/auto-pairs'
   use 'windwp/nvim-autopairs'
 
-  use 'flazz/vim-colorschemes'
+  -- use 'flazz/vim-colorschemes'
 
   use 'gruvbox-community/gruvbox'
   -- use 'morhetz/gruvbox'
 
   -- use 'jremmen/vim-ripgrep'
-  use 'mhinz/vim-grepper'
+  -- use 'mhinz/vim-grepper'
 
   use 'tpope/vim-surround'
 
@@ -62,6 +60,7 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
 
   -- use 'romgrk/barbar.nvim'
+  -- use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 
   use 'onsails/lspkind-nvim'
 
@@ -78,13 +77,14 @@ return require('packer').startup(function()
 
   -- use 'matze/vim-move'
 
-  use 'junegunn/goyo.vim'
+  -- use 'junegunn/goyo.vim'
+  -- use 'kdav5758/TrueZen.nvim'
 
   -- use 'kabouzeid/nvim-lspinstall'
 
   use 'tpope/vim-fugitive'
 
-  use 'tjdevries/nlua.nvim'
+  -- use 'tjdevries/nlua.nvim'
 
   -- use {
   --   'AckslD/nvim-whichkey-setup.lua',
@@ -111,5 +111,11 @@ return require('packer').startup(function()
   }
 
   use 'sindrets/diffview.nvim'
+
+  use {
+    'norcalli/nvim-colorizer.lua',
+    -- load on specific filetypes
+    ft = {'html', 'css', 'javascript', 'javascriptreact', 'typescriptreact'}
+  }
 
 end)

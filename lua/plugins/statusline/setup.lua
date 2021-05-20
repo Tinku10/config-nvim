@@ -209,7 +209,7 @@ section.right[9] = {
   DiagnosticError = {
     provider = "DiagnosticError",
     separator = " ",
-    icon = " ",
+    icon = " ",
     highlight = {colors.orange, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
@@ -219,29 +219,30 @@ section.right[10] = {
   DiagnosticWarn = {
     provider = "DiagnosticWarn",
     separator = " ",
-    icon = " ",
+    icon = " ",
     highlight = {colors.yellow, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
 }
 
 section.right[11] = {
+  DiagnosticHint = {
+    provider = "DiagnosticHint",
+    separator = " ",
+    -- icon = " ",
+    icon = " ",
+    highlight = {colors.blue, colors.line_bg},
+    separator_highlight = {colors.bg, colors.bg}
+  }
+}
+
+section.right[12] = {
   DiagnosticInfo = {
     separator = " ",
     provider = "DiagnosticInfo",
     -- icon = " ",
     icon = " ",
     highlight = {colors.green, colors.line_bg},
-    separator_highlight = {colors.bg, colors.bg}
-  }
-}
-
-section.right[12] = {
-  DiagnosticHint = {
-    provider = "DiagnosticHint",
-    separator = " ",
-    icon = " ",
-    highlight = {colors.blue, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
 }

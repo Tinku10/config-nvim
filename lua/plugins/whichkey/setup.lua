@@ -103,6 +103,11 @@ wk.register({
       q = {'<cmd>LspTroubleToggle quickfix<cr>', 'toggle quickfix list'},
       w = {'<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>', 'toggle ws diagnostics'},
       d = {'<cmd>LspTroubleToggle lsp_document_diagnostics<cr>', 'toggle doc diagnostics'},
+    },
+    ['s'] = {
+      name = '+session',
+      s = {':<C-u>SessionSave<CR>', 'save'},
+      l = {':<C-u>SessionLoad<CR>', 'load'},
     }
   },
   ['w'] = {

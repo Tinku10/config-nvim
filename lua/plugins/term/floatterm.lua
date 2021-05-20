@@ -1,4 +1,4 @@
-local utils = require('settings/utils')
+-- local utils = require('settings/utils')
 
 require'FTerm'.setup({
     dimensions  = {
@@ -28,3 +28,22 @@ vim.g.floaterm_autoinsert=1
 -- vim.g.floaterm_height=0.8
 -- vim.g.floaterm_wintitle=0
 -- vim.g.floaterm_autoclose=1
+
+local floatterm = { }
+
+local term = require("FTerm.terminal")
+
+local lazygit = term:new():setup({
+    cmd = "lazygit",
+    dimensions = {
+        height = 0.9,
+        width = 0.9
+    }
+})
+
+ -- Use this to toggle gitui in a floating terminal
+floatterm.lazygit = function()
+    lazygit:toggle()
+end
+
+return floatterm

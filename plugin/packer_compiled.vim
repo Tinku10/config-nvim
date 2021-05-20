@@ -76,7 +76,7 @@ _G.packer_plugins = {
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/FTerm.nvim"
   },
   ["completion-nvim"] = {
-    after = { "vim-vsnip", "vim-vsnip-integ" },
+    after = { "vim-vsnip-integ", "vim-vsnip" },
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/completion-nvim"
@@ -92,10 +92,6 @@ _G.packer_plugins = {
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
-  },
-  ["goyo.vim"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/goyo.vim"
   },
   gruvbox = {
     loaded = true,
@@ -113,13 +109,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/neoformat"
   },
-  ["nlua.nvim"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nlua.nvim"
-  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -177,10 +174,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/undotree"
   },
-  ["vim-colorschemes"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-colorschemes"
-  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-commentary"
@@ -193,13 +186,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-man"
   },
-  ["vim-ripgrep"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-ripgrep"
-  },
   ["vim-signify"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-signify"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-surround"
   },
   ["vim-vsnip"] = {
     load_after = {
@@ -225,6 +218,17 @@ _G.packer_plugins = {
 }
 
 time("Defining packer_plugins", false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time("Defining lazy-load filetype autocommands", true)
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "css" }, _G.packer_plugins)]]
+time("Defining lazy-load filetype autocommands", false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 END

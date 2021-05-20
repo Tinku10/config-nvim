@@ -14,11 +14,11 @@ common.on_attach = function(client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
   -- vim.api.nvim_set_current_dir(client.config.root_dir)
 
-  -- More options     
-  vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = " ", numhl = "LspDiagnosticsSignError"})
-  vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = " ", numhl = "LspDiagnosticsSignWarning"})
-  vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint", text = " ", numhl = "LspDiagnosticsSignHint"})
-  vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = " ", numhl = "LspDiagnosticsSignInformation"})
+  -- More options      
+  vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = " ", numhl = "LspDiagnosticsSignError"})
+  vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = " ", numhl = "LspDiagnosticsSignWarning"})
+  vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint", text = " ", numhl = "LspDiagnosticsSignHint"})
+  vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = " ", numhl = "LspDiagnosticsSignInformation"})
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
