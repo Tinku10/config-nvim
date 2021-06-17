@@ -23,10 +23,10 @@
 
 I also have a ```.vimrc``` file minfied in my [dotfiles](https://github.com/Tinku10/dotfiles) repo.
 
- ### Font
+### Font
  JetBrains Mono Nerd Font (non-ligature), downloaded from [Nerd Fonts](https://www.nerdfonts.com/)
 
- ### Terminal
+## Terminal
 [Kitty](https://sw.kovidgoyal.net/kitty/index.html)
 
 <b>NOTE</b>

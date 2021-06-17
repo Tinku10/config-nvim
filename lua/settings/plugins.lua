@@ -5,12 +5,19 @@ return require('packer').startup(function()
   use {
     'haorenW1025/completion-nvim',
     opt = true,
-    requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
+    requires = {
+      {'hrsh7th/vim-vsnip', opt = true}, 
+      {'hrsh7th/vim-vsnip-integ', opt = true}
+    }
   }
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    requires = {'nvim-treesitter/nvim-treesitter-refactor', 'nvim-treesitter/playground'},
+    requires = {
+      'nvim-treesitter/nvim-treesitter-refactor',
+      'nvim-treesitter/playground',
+      'JoosepAlviste/nvim-ts-context-commentstring'
+    },
     run = ':TSUpdate'
   }
 
@@ -20,15 +27,22 @@ return require('packer').startup(function()
   }
 
   use {
-      'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-fzy-native.nvim'}, {'nvim-telescope/telescope-media-files.nvim'}}
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      {'nvim-lua/popup.nvim'},
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-fzy-native.nvim'},
+      {'nvim-telescope/telescope-media-files.nvim'}
+    }
   }
 
   -- use 'scrooloose/nerdtree'
 
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = {'kyazdani42/nvim-web-devicons'}
+    requires = {
+      'kyazdani42/nvim-web-devicons'
+    }
   }
 
   -- use 'vim-scripts/Tabtastic'
@@ -46,6 +60,7 @@ return require('packer').startup(function()
 
   use 'gruvbox-community/gruvbox'
   -- use 'morhetz/gruvbox'
+  -- use 'arcticicestudio/nord-vim'
 
   -- use 'jremmen/vim-ripgrep'
   -- use 'mhinz/vim-grepper'
@@ -79,6 +94,7 @@ return require('packer').startup(function()
 
   -- use 'junegunn/goyo.vim'
   -- use 'kdav5758/TrueZen.nvim'
+  use 'folke/zen-mode.nvim'
 
   -- use 'kabouzeid/nvim-lspinstall'
 
@@ -117,5 +133,6 @@ return require('packer').startup(function()
     -- load on specific filetypes
     ft = {'html', 'css', 'javascript', 'javascriptreact', 'typescriptreact'}
   }
+
 
 end)

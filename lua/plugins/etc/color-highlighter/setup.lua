@@ -1,4 +1,5 @@
-require 'colorizer'.setup({
+vim.cmd [[ packadd nvim-colorizer.lua ]]
+require('colorizer').setup({
   -- Attach to certain Filetypes, add special configuration for `html`
   --
   -- Use the `default_options` as the second parameter, which uses
@@ -14,4 +15,4 @@ require 'colorizer'.setup({
   html = { mode = 'background' };
   -- '!vim'; -- Exclude vim from highlighting.
   -- Exclusion Only makes sense if '*' is specified!
-}, { mode = 'foreground' })
+}, { mode = 'background' })

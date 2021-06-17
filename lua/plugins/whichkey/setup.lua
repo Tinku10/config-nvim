@@ -108,7 +108,8 @@ wk.register({
       name = '+session',
       s = {':<C-u>SessionSave<CR>', 'save'},
       l = {':<C-u>SessionLoad<CR>', 'load'},
-    }
+    },
+    z = {':ZenMode<cr>', 'toggle zenmode'}
   },
   ['w'] = {
     name = '+split-movements',
@@ -127,7 +128,7 @@ wk.register({
     d = {'<Cmd>lua vim.lsp.buf.definition()<CR>', 'definition'},
     D = {'<Cmd>lua vim.lsp.buf.declaration()<CR>', 'declaration'},
     r = {'<cmd>lua vim.lsp.buf.references()<CR>', 'references'},
-    i = {'<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation'},
+    I = {'<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation'},
   },
   ['K'] = {'<Cmd>lua vim.lsp.buf.hover()<CR>', 'hover'},
   -- s = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature'},

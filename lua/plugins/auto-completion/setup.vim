@@ -15,7 +15,7 @@ set shortmess+=c
 " imap <silent> <c-p> <Plug>(completion_trigger)
 
 " possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
-" let g:completion_enable_snippet = 'UltiSnips'
+let g:completion_enable_snippet = 'vim-vsnip'
 
 " let g:completion_confirm_key = ""
 " imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?

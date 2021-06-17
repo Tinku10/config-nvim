@@ -76,6 +76,8 @@ autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template("~/Documents/dsa/BaseTemplat
 "     autocmd FileType * autocmd TextChanged,InsertLeave <buffer> if &readonly == 0 | silent write | endif
 " augroup END
 "
+
+autocmd InsertLeave * write
 autocmd TermOpen * startinsert
 " autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert

@@ -8,3 +8,7 @@ let g:gruvbox_contrast_dark = 'medium'
 
 " 1 -> inverted selection on
 let g:gruvbox_invert_selection='1'
+
+" using highlight group after inseting the colorscheme
+" otherwise colorscheme can overwrite this setting
+highlight Comment cterm=italic gui=italic

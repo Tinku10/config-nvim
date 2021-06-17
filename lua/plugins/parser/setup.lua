@@ -43,6 +43,31 @@ require 'nvim-treesitter.configs'.setup{
         goto_previous_usage = "<a-#>",
       },
     },
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  -- indent = {
+  --   enable = true
+  -- },
+  context_commentstring = {
+    enable = true,
+    -- enable_autocmd = false,
+    -- config = {
+    --   javascript = {
+    --     __default = '// %s',
+    --     jsx_element = '{/* %s */}',
+    --     jsx_fragment = '{/* %s */}',
+    --     jsx_attribute = '// %s',
+    --     comment = '// %s'
+    --   }
+    -- }
   }
 }
 
@@ -51,6 +76,7 @@ require 'nvim-treesitter.configs'.setup{
 -- local utils = require('settings/utils')
 
 vim.api.nvim_set_keymap('n', '<leader>ts', ':TSPlaygroundToggle<cr>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>c', '<cmd>lua require("ts_context_commentstring.internal").update_commentstring()<cr>', { noremap = true, silent = true })
 
 -- R: Refreshes the playground view when focused or reloads the query when the query editor is focused.
 -- o: Toggles the query editor when the playground is focused.
