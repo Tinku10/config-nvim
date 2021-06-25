@@ -1,3 +1,5 @@
+vim.cmd [[ packadd FTerm.nvim ]]
+
 -- local utils = require('settings/utils')
 
 require'FTerm'.setup({

@@ -1,4 +1,4 @@
-return require('packer').startup(function()
+return require('packer').startup({function()
 
   use 'wbthomason/packer.nvim'
 
@@ -6,6 +6,7 @@ return require('packer').startup(function()
     'haorenW1025/completion-nvim',
     opt = true,
     requires = {
+      {'onsails/lspkind-nvim'},
       {'hrsh7th/vim-vsnip', opt = true}, 
       {'hrsh7th/vim-vsnip-integ', opt = true}
     }
@@ -14,8 +15,8 @@ return require('packer').startup(function()
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = {
-      'nvim-treesitter/nvim-treesitter-refactor',
-      'nvim-treesitter/playground',
+      {'nvim-treesitter/nvim-treesitter-refactor', opt = true},
+      {'nvim-treesitter/playground', opt = true},
       'JoosepAlviste/nvim-ts-context-commentstring'
     },
     run = ':TSUpdate'
@@ -23,7 +24,9 @@ return require('packer').startup(function()
 
   use {
     'glepnir/galaxyline.nvim', branch = 'main',
-    requires = {'kyazdani42/nvim-web-devicons'}
+    requires = {
+      {'kyazdani42/nvim-web-devicons'}
+    }
   }
 
   use {
@@ -32,7 +35,7 @@ return require('packer').startup(function()
       {'nvim-lua/popup.nvim'},
       {'nvim-lua/plenary.nvim'},
       {'nvim-telescope/telescope-fzy-native.nvim'},
-      {'nvim-telescope/telescope-media-files.nvim'}
+      -- {'nvim-telescope/telescope-media-files.nvim'}
     }
   }
 
@@ -40,16 +43,22 @@ return require('packer').startup(function()
 
   use {
     'kyazdani42/nvim-tree.lua',
+    opt = true,
     requires = {
-      'kyazdani42/nvim-web-devicons'
+      {'kyazdani42/nvim-web-devicons'}
     }
   }
 
   -- use 'vim-scripts/Tabtastic'
 
-  use 'vim-utils/vim-man'
+  use {
+    'vim-utils/vim-man',
+    opt = true
+  }
 
-  use 'mbbill/undotree'
+  use {
+    'mbbill/undotree',
+  }
 
   -- use 'sheerun/vim-polyglot'
 
@@ -65,52 +74,66 @@ return require('packer').startup(function()
   -- use 'jremmen/vim-ripgrep'
   -- use 'mhinz/vim-grepper'
 
-  use 'tpope/vim-surround'
+  use {
+    'tpope/vim-surround',
+  }
 
-  use 'tpope/vim-commentary'
+  use {
+    'tpope/vim-commentary'
+  }
 
   -- use 'airblade/vim-gitgutter'
-  use 'mhinz/vim-signify'
+  use {
+    'mhinz/vim-signify',
+  }
 
   use 'neovim/nvim-lspconfig'
 
   -- use 'romgrk/barbar.nvim'
   -- use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 
-  use 'onsails/lspkind-nvim'
-
-  use 'kabouzeid/nvim-lspinstall'
+  use {
+    'kabouzeid/nvim-lspinstall',
+    -- opt = true
+  }
 
   -- use 'mhinz/vim-startify'
-  use 'glepnir/dashboard-nvim'
+  use {
+    'glepnir/dashboard-nvim',
+    opt = true
+  }
 
-  use 'numtostr/FTerm.nvim'
+  use {
+    'numtostr/FTerm.nvim',
+    opt = true
+  }
 
   -- use 'akinsho/nvim-toggleterm.lua'
 
-  use 'sbdchd/neoformat'
+  use {
+    'sbdchd/neoformat',
+  }
 
   -- use 'matze/vim-move'
 
   -- use 'junegunn/goyo.vim'
   -- use 'kdav5758/TrueZen.nvim'
-  use 'folke/zen-mode.nvim'
+  use {
+    'folke/zen-mode.nvim',
+    opt = true
+  }
 
-  -- use 'kabouzeid/nvim-lspinstall'
-
-  use 'tpope/vim-fugitive'
+  use {
+    'tpope/vim-fugitive',
+    opt = true
+  }
 
   -- use 'tjdevries/nlua.nvim'
 
-  -- use {
-  --   'AckslD/nvim-whichkey-setup.lua',
-  --   requires = {
-  --     'liuchengxu/vim-which-key',
-  --     opt = true,
-  --     cmd = {'WhichKey'}
-  --   },
-  -- }
-  use 'folke/which-key.nvim'
+  use {
+    'folke/which-key.nvim',
+    opt = true
+  }
 
   -- use {
   --   'junegunn/fzf',
@@ -123,16 +146,28 @@ return require('packer').startup(function()
 
   use {
     'folke/lsp-trouble.nvim',
+    opt = true,
     requires = "kyazdani42/nvim-web-devicons"
   }
 
-  use 'sindrets/diffview.nvim'
+  use {
+    'sindrets/diffview.nvim',
+    opt = true,
+  }
 
   use {
     'norcalli/nvim-colorizer.lua',
+    opt = true,
     -- load on specific filetypes
     ft = {'html', 'css', 'javascript', 'javascriptreact', 'typescriptreact'}
   }
 
 
-end)
+end,
+config = {
+  -- display = {
+  --   open_fn = function()
+  --     return require('packer.util').float({border = 'single'})
+  --   end
+  -- }
+}})

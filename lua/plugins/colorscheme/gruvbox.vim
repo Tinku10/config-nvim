@@ -1,5 +1,11 @@
+let g:gruvbox_italic ='1' 
+let g:gruvbox_italicize_strings ='1' 
 colorscheme gruvbox
 set background=dark
+
+" using highlight group after inseting the colorscheme
+" otherwise colorscheme can overwrite this setting
+highlight Comment cterm=italic gui=italic
 
 let g:gruvbox_contrast_dark = 'medium'
 

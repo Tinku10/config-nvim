@@ -1,3 +1,5 @@
+vim.cmd [[ packadd lsp-trouble.nvim ]]
+
 require('trouble').setup {
   height = 10, -- height of the trouble list
     icons = true, -- use devicons for filenames

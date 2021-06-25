@@ -1,3 +1,5 @@
+vim.cmd [[ packadd lspkind-nvim ]]
+
 require('lspkind').init({
     -- with_text = true,
     -- symbol_map = {

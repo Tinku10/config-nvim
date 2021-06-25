@@ -1,3 +1,5 @@
+vim.cmd [[ packadd nvim-lspinstall ]]
+
 require('lspinstall').setup()
 
 -- setup servers automatically

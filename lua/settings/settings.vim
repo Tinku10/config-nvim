@@ -47,6 +47,9 @@ let mapleader = " "
 let g:move_key_modifier = 'S'
 " nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
+" let &t_ZH="\e[3m"
+" let &t_ZR="\e[23m"
+
 " prepopulate the file with a template
 function Template(tmpl_file)
     exe "0read " . a:tmpl_file

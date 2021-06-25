@@ -1,3 +1,5 @@
+vim.cmd [[ packadd dashboard-nvim ]]
+
 vim.g.dashboard_custom_header = {
 
   -- ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',

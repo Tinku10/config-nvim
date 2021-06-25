@@ -1,3 +1,5 @@
+vim.cmd [[ packadd nvim-tree.lua ]]
+
 -- vim.g.nvim_tree_side = 'right' --left by default
 -- vim.g.nvim_tree_width = 40 --"30 by default
 vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' } --"empty by default
