@@ -26,6 +26,7 @@ require('telescope').setup{
       vertical = {
         mirror = false,
       },
+      preview_width = 0.5
     },
     -- file_sorter =  require'telescope.sorters'.get_fuzzy_file,
     file_sorter =  require'telescope.sorters'.get_fzy_sorter,

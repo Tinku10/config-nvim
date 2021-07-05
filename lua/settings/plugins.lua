@@ -15,8 +15,8 @@ return require('packer').startup({function()
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = {
-      {'nvim-treesitter/nvim-treesitter-refactor', opt = true},
-      {'nvim-treesitter/playground', opt = true},
+      {'nvim-treesitter/nvim-treesitter-refactor'},
+      {'nvim-treesitter/playground'},
       'JoosepAlviste/nvim-ts-context-commentstring'
     },
     run = ':TSUpdate'
@@ -125,7 +125,7 @@ return require('packer').startup({function()
 
   use {
     'tpope/vim-fugitive',
-    opt = true
+    -- opt = true
   }
 
   -- use 'tjdevries/nlua.nvim'
