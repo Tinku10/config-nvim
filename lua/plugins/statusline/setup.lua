@@ -1,8 +1,9 @@
 local cmd = vim.api.nvim_command
 local fn = vim.fn
-local gl = require('galaxyline')
-local section = gl.section
-gl.short_line_list = {"NerdTree", "packager", "Floaterm", "coc-eplorer", "NvimTree", "packer", "Goyo", "Undotree", "dashboard", "LspTrouble"}
+-- local gl = require('galaxyline')
+local section = require('galaxyline').section
+
+require('galaxyline').short_line_list = {"NerdTree", "packager", "Floaterm", "coc-eplorer", "NvimTree", "packer", "Goyo", "Undotree", "dashboard", "LspTrouble"}
 
 -- color palette
 local colors = {
@@ -88,16 +89,15 @@ end
 
 local whichmode = function()
   local mode = fn.mode()
-  return "  " .. modes[mode] .. "  ";
+  return modes[mode];
 end
 
 section.left[1] = {
-  FirstElement = {
-    -- provider = function() return '▊ ' end,
-    provider = function()
-      return "  "
-    end,
-    highlight = {colors.blue, colors.line_bg}
+  Space = {
+    provider = function() return " " end,
+    -- provider = " ",
+    highlight = {colors.line_bg, colors.line_bg},
+    separator_highlight = {colors.purple, colors.bg},
   }
 }
 
@@ -106,8 +106,10 @@ section.left[2] = {
     provider = function()
       cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
       --   ҟαĺ           
-      return whichmode()
+      return '[ ' .. whichmode() .. ' ]'
     end,
+    separator = "  ",
+    separator_highlight = {colors.purple, colors.bg},
     highlight = {colors.red, colors.line_bg, "bold"}
   }
 }
@@ -118,8 +120,8 @@ section.left[3] = {
     provider = function()
       return fn.expand("%:f")
     end,
+    separator = "  ",
     condition = buffer_not_empty,
-    separator = " ",
     separator_highlight = {colors.purple, colors.bg},
     highlight = {colors.yellow, colors.line_bg, "bold"}
   }
@@ -130,7 +132,7 @@ section.right[1] = {
     condition = require("galaxyline.condition").check_git_workspace,
     provider = function()
       -- return "  "
-      return "  "
+      return ""
     end,
     highlight = {colors.green, colors.line_bg}
   }
@@ -138,10 +140,10 @@ section.right[1] = {
 
 section.right[2] = {
   GitBranch = {
-    provider = "GitBranch",
+    provider = 'GitBranch',
     condition = require("galaxyline.provider_vcs").check_git_workspace,
-    separator = "",
-    separator_highlight = {colors.purple, colors.bg},
+    separator = " ",
+    separator_highlight = {colors['yellow'], colors.bg},
     highlight = {colors.green, colors.line_bg, "bold"}
   }
 }
@@ -151,24 +153,33 @@ section.right[3] = {
     provider = "FileFormat",
     condition = checkwidth,
     separator = "  ",
-    separator_highlight = {colors.blue, colors.line_bg},
+    separator_highlight = {colors['yellow'], colors.bg},
     highlight = {colors.blue, colors.line_bg}
   }
 }
 
 section.right[4] = {
   FileEncode = {
-    provider = "FileEncode",
+    provider = function()
+      local encode = vim.bo.fenc ~= '' and vim.bo.fenc or vim.o.enc
+      return encode:upper()
+    end,
+    -- provider = "FileEncode",
     condition = checkwidth,
-    separator = " ",
-    separator_highlight = {colors.blue, colors.line_bg},
+    -- extra space present in the provider name
+    separator = "  ",
+    separator_highlight = {colors.yellow, colors.line_bg},
     highlight = {colors.blue, colors.line_bg}
   }
 }
 
 section.right[5] = {
   DiffAdd = {
-    provider = "DiffAdd",
+    -- provider = "DiffAdd",
+    provider = function()
+      local add = vim.fn['sy#repo#get_stats']()[1]
+      return add
+    end,
     condition = checkwidth,
     separator = "  ",
     icon = " ",
@@ -179,37 +190,45 @@ section.right[5] = {
 
 section.right[6] = {
   DiffModified = {
-    provider = "DiffModified",
+    -- provider = "DiffModified",
+    provider = function()
+      local mod = vim.fn['sy#repo#get_stats']()[2]
+      return mod
+    end,
     condition = checkwidth,
+    separator = "  ",
     icon = "柳",
-    highlight = {colors.yellow, colors.line_bg}
+    highlight = {colors.yellow, colors.line_bg},
+    separator_highlight = {colors.yellow, colors.bg}
   }
 }
 
 section.right[7] = {
   DiffRemove = {
-    provider = "DiffRemove",
+    -- provider = "DiffRemove",
+    provider = function()
+      local rem = vim.fn['sy#repo#get_stats']()[3]
+      return rem
+    end,
     condition = checkwidth,
+    separator = "  ",
     icon = " ",
-    highlight = {colors.orange, colors.line_bg}
-  }
-}
-
-section.right[8] = {
-  LineInfo = {
-    provider = "LineColumn",
-    condition = checkwidth,
-    separator = " ",
-    separator_highlight = {colors.blue, colors.line_bg},
-    highlight = {colors.green, colors.line_bg}
+    highlight = {colors.orange, colors.line_bg},
+    separator_highlight = {colors.yellow, colors.bg}
   }
 }
 
 section.right[9] = {
   DiagnosticError = {
-    provider = "DiagnosticError",
-    separator = " ",
+    -- provider = "DiagnosticError",
+    provider = function()
+      return vim.lsp.diagnostic.get_count(0, 'Error')
+    end,
+    condition = function()
+      return vim.lsp.diagnostic.get_count(0, 'Error') > 0
+    end,
     icon = " ",
+    separator = "  ",
     highlight = {colors.orange, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
@@ -217,8 +236,14 @@ section.right[9] = {
 
 section.right[10] = {
   DiagnosticWarn = {
-    provider = "DiagnosticWarn",
-    separator = " ",
+    -- provider = "DiagnosticWarn",
+    provider = function()
+      return vim.lsp.diagnostic.get_count(0, 'Warning')
+    end,
+    condition = function()
+      return vim.lsp.diagnostic.get_count(0, 'Warning') > 0
+    end,
+    separator = "  ",
     icon = " ",
     highlight = {colors.yellow, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
@@ -227,23 +252,58 @@ section.right[10] = {
 
 section.right[11] = {
   DiagnosticHint = {
-    provider = "DiagnosticHint",
-    separator = " ",
+    -- provider = "DiagnosticHint",
+    provider = function()
+      return vim.lsp.diagnostic.get_count(0, 'Hint')
+    end,
+    condition = function()
+      return vim.lsp.diagnostic.get_count(0, 'Hint') > 0
+    end,
     -- icon = " ",
     icon = " ",
+    separator = "  ",
+    separator_highlight = {colors.yellow, colors.bg},
     highlight = {colors.blue, colors.line_bg},
-    separator_highlight = {colors.bg, colors.bg}
   }
 }
 
 section.right[12] = {
   DiagnosticInfo = {
-    separator = " ",
-    provider = "DiagnosticInfo",
+    -- provider = "DiagnosticInfo",
+    provider = function()
+      return vim.lsp.diagnostic.get_count(0, 'Information')
+    end,
+    condition = function()
+      return vim.lsp.diagnostic.get_count(0, 'Information') > 0
+    end,
+    separator = "  ",
     -- icon = " ",
     icon = " ",
     highlight = {colors.green, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
+  }
+}
+
+section.right[13] = {
+  LineInfo = {
+    -- provider = "LineColumn",
+    provider = function()
+      local cursor = vim.api.nvim_win_get_cursor(0)
+      return '[ ' .. cursor[1] .. ' : ' .. cursor[2] .. ' ]'
+    end,
+    -- condition = checkwidth,
+    separator = "  ",
+    separator_highlight = {colors.blue, colors.line_bg},
+    highlight = {colors.green, colors.line_bg}
+  }
+}
+
+section.right[14] = {
+  Space = {
+    provider = function() return " " end,
+    -- provider = " ",
+    highlight = {colors.line_bg, colors.line_bg},
+    separator_highlight = {colors.purple, colors.bg},
   }
 }
 
@@ -272,82 +332,3 @@ section.short_line_right[1] = {
     highlight = {colors.fg, colors.lbg}
   }
 }
-
--- extra options
- 
--- section.left[0] = {
---   RainbowRed = {
---     provider = function()
---       cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
---       return '▊ '
---     end,
---     highlight = {colors.blue,colors.bg}
---   },
--- }
---
--- section.short_line_left[1] = {
---   BufferType = {
---     provider = "FileIcon",
---     separator = " ",
---     separator_highlight = {"NONE", colors.lbg},
---     highlight = {colors.blue, colors.lbg, "bold"}
---   }
--- }
-
--- section.short_line_left[2] = {
---   SFileName = {
---     provider = function()
---       local fileinfo = require("galaxyline.provider_fileinfo")
---       local fname = fileinfo.get_current_file_name()
---       for _, v in ipairs(gl.short_line_list) do
---         if v == vim.bo.filetype then
---           return ""
---         end
---       end
---       return fname
---     end,
---     condition = buffer_not_empty,
---     seperator = "  ",
---     highlight = {colors.white, colors.lbg, "bold"}
---   }
--- }
---
--- section.left[3] = {
---   FileIcon = {
---     provider = "FileIcon",
---     condition = buffer_not_empty,
---     highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, colors.line_bg}
---   }
--- }
---
--- section.right[19] = {
---   PerCent = {
---     provider = 'LinePercent',
---     separator = ' ',
---     separator_highlight = {'NONE',colors.bg},
---     highlight = {colors.fg,colors.bg,'bold'},
---   }
--- }
-
--- section.right[16] = {
---     ShowLspClient = {
---         provider = 'GetLspClient',
---         condition = function()
---             local tbl = {['dashboard'] = true, [' '] = true}
---             if tbl[vim.bo.filetype] then return false end
---             return true
---         end,
---         icon = ' ',
---         highlight = {colors.grey, colors.bg}
---     }
--- }
-
--- section.right[7] = {
---   FileSize = {
---    provider = "FileSize",
---     separator = " ",
---     condition = buffer_not_empty,
---     separator_highlight = {colors.blue, colors.line_bg},
---     highlight = {colors.fg, colors.line_bg}
---   }
--- }

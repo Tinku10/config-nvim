@@ -1,6 +1,9 @@
 return require('packer').startup({function()
 
-  use 'wbthomason/packer.nvim'
+  use {
+    'wbthomason/packer.nvim',
+    -- opt = true
+  }
 
   use {
     'haorenW1025/completion-nvim',
@@ -29,6 +32,9 @@ return require('packer').startup({function()
     }
   }
 
+  use 'famiu/feline.nvim'
+
+
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -43,7 +49,7 @@ return require('packer').startup({function()
 
   use {
     'kyazdani42/nvim-tree.lua',
-    opt = true,
+    -- opt = true,
     requires = {
       {'kyazdani42/nvim-web-devicons'}
     }
@@ -53,7 +59,7 @@ return require('packer').startup({function()
 
   use {
     'vim-utils/vim-man',
-    opt = true
+    -- opt = true
   }
 
   use {
@@ -86,6 +92,13 @@ return require('packer').startup({function()
   use {
     'mhinz/vim-signify',
   }
+
+  -- use {
+  --   'lewis6991/gitsigns.nvim',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim'
+  --   }
+  -- }
 
   use 'neovim/nvim-lspconfig'
 
@@ -148,6 +161,11 @@ return require('packer').startup({function()
     'folke/lsp-trouble.nvim',
     opt = true,
     requires = "kyazdani42/nvim-web-devicons"
+  }
+
+  use {
+    'folke/twilight.nvim',
+    opt = true
   }
 
   use {

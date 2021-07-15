@@ -7,7 +7,7 @@ end
 
 vim.api.nvim_command('packadd packer.nvim')
 
-local no_errors = pcall(function()
+local no_errors, error_msg = pcall(function()
 
   local time
   local profile_info
@@ -75,7 +75,7 @@ _G.packer_plugins = {
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/FTerm.nvim"
   },
   ["completion-nvim"] = {
-    after = { "lspkind-nvim", "vim-vsnip-integ", "vim-vsnip" },
+    after = { "lspkind-nvim", "vim-vsnip", "vim-vsnip-integ" },
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/completion-nvim"
@@ -89,6 +89,10 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/diffview.nvim"
+  },
+  ["feline.nvim"] = {
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/feline.nvim"
   },
   ["galaxyline.nvim"] = {
     loaded = true,
@@ -133,9 +137,8 @@ _G.packer_plugins = {
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-tree.lua"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua"
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -177,6 +180,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["twilight.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/twilight.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/undotree"
@@ -190,9 +198,8 @@ _G.packer_plugins = {
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-man"] = {
-    loaded = false,
-    needs_bufread = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/vim-man"
+    loaded = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-man"
   },
   ["vim-signify"] = {
     loaded = true,
@@ -248,5 +255,5 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
-  vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: ".v:exception | echom "Please check your config for correctness" | echohl None')
+  vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end
