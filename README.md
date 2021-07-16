@@ -1,18 +1,19 @@
-<center>
-<h2>Neovim Configs</h2>
-</center>
+<!-- <center>
+<h2>Neovim Configs</h2> -->
+<img align="center" src="assets/images/logo.png">
+<!-- </center> -->
 
 ---
 
-![Setup1](assets/images/setup2.png)
-![Setup2](assets/images/setup.png)
-![Setup3](assets/images/setup3.png)
+![Setup1](assets/images/setup01.png)
+![Setup2](assets/images/setup02.png)
+![Setup3](assets/images/setup03.png)
 
 
 
 ### Plugins
 
- Checkout [this](lua/settings/plugins.vim) file for all the plugins I am using. Listing all here is taking too much time.
+ Checkout [this](lua/settings/plugins.lua) file for all the plugins I am using. Listing all here is taking too much time.
 
 
 ### Branches
@@ -26,11 +27,10 @@ I also have a ```.vimrc``` file minfied in my [dotfiles](https://github.com/Tink
 ### Font
  JetBrains Mono Nerd Font (non-ligature), downloaded from [Nerd Fonts](https://www.nerdfonts.com/)
 
-## Terminal
+### Terminal
 [Kitty](https://sw.kovidgoyal.net/kitty/index.html)
 
-<b>NOTE</b>
-<br>
+### **NOTE**
 I have disabled some installed plugins, which can be enabled by ```require```ing it in the appropriate file.
 
 ### Support
@@ -47,4 +47,4 @@ Also if you have a good name suggestion for this repo, please feel free to leave
 
 * My initial ```.vimrc``` was a copy of [ThePrimegean](https://github.com/ThePrimeagen)'s ```.vimrc``` after I saw his video and shifted to vim permanently. A huge thanks to him.
 
-* Also thanks to [Dimytr](https://github.com/voitd). I built my statusline with the help of his statusfile setup.
+* Also thanks to [Dimytr](https://github.com/voitd). I built my initial statusline with the help of his statusfile setup.
