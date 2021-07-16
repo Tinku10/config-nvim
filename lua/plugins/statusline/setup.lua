@@ -180,7 +180,7 @@ section.right[5] = {
       local add = vim.fn['sy#repo#get_stats']()[1]
       return add
     end,
-    condition = checkwidth,
+    condition = require("galaxyline.condition").check_git_workspace,
     separator = "  ",
     icon = " ",
     separator_highlight = {colors.blue, colors.line_bg},
@@ -195,7 +195,7 @@ section.right[6] = {
       local mod = vim.fn['sy#repo#get_stats']()[2]
       return mod
     end,
-    condition = checkwidth,
+    condition = require("galaxyline.condition").check_git_workspace,
     separator = "  ",
     icon = "柳",
     highlight = {colors.yellow, colors.line_bg},
@@ -210,7 +210,7 @@ section.right[7] = {
       local rem = vim.fn['sy#repo#get_stats']()[3]
       return rem
     end,
-    condition = checkwidth,
+    condition = require("galaxyline.condition").check_git_workspace,
     separator = "  ",
     icon = " ",
     highlight = {colors.orange, colors.line_bg},
