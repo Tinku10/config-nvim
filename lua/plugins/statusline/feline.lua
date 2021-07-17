@@ -108,7 +108,7 @@ local checkwidth = function()
 end
 
 local whichmode = function()
-  local mode = fn.mode()
+  local mode = vim.fn.mode()
   return "  " .. modes[mode] .. "  ";
 end
 

@@ -92,6 +92,25 @@ local whichmode = function()
   return modes[mode];
 end
 
+local get_diagnostics = function(type)
+  if next(vim.lsp.buf_get_clients(0)) == nil then return 0 end
+  local clients = vim.lsp.get_active_clients()
+
+  local count = 0
+
+  if clients then
+    for _, client in ipairs(clients) do
+      count = count + vim.lsp.diagnostic.get_count(vim.api.nvim_get_current_buf(), type, client.id)
+    end
+  end
+
+  return count
+end
+
+local diagnostics_exist = function(type)
+  return get_diagnostics(type) > 0
+end
+
 section.left[1] = {
   Space = {
     provider = function() return " " end,
@@ -220,15 +239,19 @@ section.right[7] = {
 
 section.right[9] = {
   DiagnosticError = {
-    -- provider = "DiagnosticError",
     provider = function()
-      return vim.lsp.diagnostic.get_count(0, 'Error')
+      local s = require('galaxyline.provider_diagnostic').get_diagnostic_error()
+      if s ~= nil then
+        s = s:sub(1, -2)
+      end
+      return s
     end,
-    condition = function()
-      return vim.lsp.diagnostic.get_count(0, 'Error') > 0
-    end,
-    icon = " ",
-    separator = "  ",
+    -- provider = function()
+    --   return get_diagnostics('Error')
+    -- end,
+    -- condition = diagnostics_exist('Error'),
+    icon = "    ",
+    -- separator = "  ",
     highlight = {colors.orange, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
@@ -238,13 +261,15 @@ section.right[10] = {
   DiagnosticWarn = {
     -- provider = "DiagnosticWarn",
     provider = function()
-      return vim.lsp.diagnostic.get_count(0, 'Warning')
+      local s = require('galaxyline.provider_diagnostic').get_diagnostic_warn()
+      if s ~= nil then
+        s = s:sub(1, -2)
+      end
+      return s
     end,
-    condition = function()
-      return vim.lsp.diagnostic.get_count(0, 'Warning') > 0
-    end,
-    separator = "  ",
-    icon = " ",
+    -- condition = get_diagnostics('Warning') and get_diagnostics('Warning') > 0 ,
+    -- separator = "  ",
+    icon = "    ",
     highlight = {colors.yellow, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
@@ -254,14 +279,16 @@ section.right[11] = {
   DiagnosticHint = {
     -- provider = "DiagnosticHint",
     provider = function()
-      return vim.lsp.diagnostic.get_count(0, 'Hint')
+      local s = require('galaxyline.provider_diagnostic').get_diagnostic_hint()
+      if s ~= nil then
+        s = s:sub(1, -2)
+      end
+      return s
     end,
-    condition = function()
-      return vim.lsp.diagnostic.get_count(0, 'Hint') > 0
-    end,
+    -- condition = get_diagnostics('Hint') and get_diagnostics('Hint') > 0 ,
     -- icon = " ",
-    icon = " ",
-    separator = "  ",
+    icon = "    ",
+    -- separator = "  ",
     separator_highlight = {colors.yellow, colors.bg},
     highlight = {colors.blue, colors.line_bg},
   }
@@ -271,14 +298,16 @@ section.right[12] = {
   DiagnosticInfo = {
     -- provider = "DiagnosticInfo",
     provider = function()
-      return vim.lsp.diagnostic.get_count(0, 'Information')
+      local s = require('galaxyline.provider_diagnostic').get_diagnostic_info()
+      if s ~= nil then
+        s = s:sub(1, -2)
+      end
+      return s
     end,
-    condition = function()
-      return vim.lsp.diagnostic.get_count(0, 'Information') > 0
-    end,
-    separator = "  ",
+    -- condition = get_diagnostics('Information') and get_diagnostics('Information') > 0 ,
+    -- separator = "  ",
     -- icon = " ",
-    icon = " ",
+    icon = "    ",
     highlight = {colors.green, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
