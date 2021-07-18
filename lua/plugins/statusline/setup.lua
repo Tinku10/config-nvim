@@ -147,17 +147,31 @@ section.left[3] = {
 }
 
 section.right[1] = {
+  FileType = {
+    provider = function()
+      return '[ ' ..  require('galaxyline.provider_buffer').get_buffer_filetype() .. ' ]'
+    end,
+    -- condition = require("galaxyline.condition").check_git_workspace,
+    separator = "  ",
+    separator_highlight = {colors['yellow'], colors.bg},
+    highlight = {colors.blue, colors.line_bg}
+  }
+}
+
+section.right[2] = {
   GitIcon = {
     condition = require("galaxyline.condition").check_git_workspace,
     provider = function()
       -- return "  "
       return ""
     end,
+    separator = "  ",
+    separator_highlight = {colors['yellow'], colors.bg},
     highlight = {colors.green, colors.line_bg}
   }
 }
 
-section.right[2] = {
+section.right[3] = {
   GitBranch = {
     provider = 'GitBranch',
     condition = require("galaxyline.condition").check_git_workspace,
@@ -167,7 +181,7 @@ section.right[2] = {
   }
 }
 
-section.right[3] = {
+section.right[4] = {
   FileFormat = {
     provider = "FileFormat",
     condition = checkwidth,
@@ -177,7 +191,7 @@ section.right[3] = {
   }
 }
 
-section.right[4] = {
+section.right[5] = {
   FileEncode = {
     provider = function()
       local encode = vim.bo.fenc ~= '' and vim.bo.fenc or vim.o.enc
@@ -192,7 +206,7 @@ section.right[4] = {
   }
 }
 
-section.right[5] = {
+section.right[6] = {
   DiffAdd = {
     -- provider = "DiffAdd",
     provider = function()
@@ -207,7 +221,7 @@ section.right[5] = {
   }
 }
 
-section.right[6] = {
+section.right[7] = {
   DiffModified = {
     -- provider = "DiffModified",
     provider = function()
@@ -222,7 +236,7 @@ section.right[6] = {
   }
 }
 
-section.right[7] = {
+section.right[8] = {
   DiffRemove = {
     -- provider = "DiffRemove",
     provider = function()
@@ -237,7 +251,7 @@ section.right[7] = {
   }
 }
 
-section.right[9] = {
+section.right[10] = {
   DiagnosticError = {
     provider = function()
       local s = require('galaxyline.provider_diagnostic').get_diagnostic_error()
@@ -257,7 +271,7 @@ section.right[9] = {
   }
 }
 
-section.right[10] = {
+section.right[11] = {
   DiagnosticWarn = {
     -- provider = "DiagnosticWarn",
     provider = function()
@@ -275,7 +289,7 @@ section.right[10] = {
   }
 }
 
-section.right[11] = {
+section.right[12] = {
   DiagnosticHint = {
     -- provider = "DiagnosticHint",
     provider = function()
@@ -294,7 +308,7 @@ section.right[11] = {
   }
 }
 
-section.right[12] = {
+section.right[13] = {
   DiagnosticInfo = {
     -- provider = "DiagnosticInfo",
     provider = function()
@@ -313,7 +327,7 @@ section.right[12] = {
   }
 }
 
-section.right[13] = {
+section.right[14] = {
   LineInfo = {
     -- provider = "LineColumn",
     provider = function()
@@ -327,7 +341,7 @@ section.right[13] = {
   }
 }
 
-section.right[14] = {
+section.right[15] = {
   Space = {
     provider = function() return " " end,
     -- provider = " ",

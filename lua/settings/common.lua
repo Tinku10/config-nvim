@@ -32,6 +32,11 @@ vim.api.nvim_set_keymap('n', 'nk', ":lprevious<CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', 'tco', ":Telescope quickfix<CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', 'tno', ":Telescope loclist<CR>", {noremap = true})
 
+-- C++ compile and run commands
+vim.api.nvim_set_keymap('n', '<F8>', ":term  g++ -Wall -Wextra -pedantic -std=c++17 -O2 -Wformat=2 -Wfloat-equal -Wconversion -Wcast-qual -Wunused-variable -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fstack-protector %; if [ -f a.out  ]; then time ./a.out; rm a.out; fi <CR>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-c>', ":w <CR> :!g++ -o  %:r % -std=c++17 -Wall -fsanitize=address -fsanitize=undefined -Wshift-overflow <CR>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-x>', ":term ./%:r <Enter>", { noremap = true })
+
 -- utils.map("n", '<leader>go', '<cmd> lua dotfiles()<cr>', {noremap = true})
 -- utils.map('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
 -- utils.map("n", '<leader>o', '<cmd> lua content_selector()<cr>', {noremap = true})
