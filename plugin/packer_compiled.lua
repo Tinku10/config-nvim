@@ -119,6 +119,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/neoformat"
   },
+  neogit = {
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/neogit"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-autopairs"

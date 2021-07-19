@@ -10,7 +10,7 @@ return require('packer').startup({function()
     opt = true,
     requires = {
       {'onsails/lspkind-nvim'},
-      {'hrsh7th/vim-vsnip', opt = true}, 
+      {'hrsh7th/vim-vsnip', opt = true},
       {'hrsh7th/vim-vsnip-integ', opt = true}
     }
   }
@@ -139,6 +139,12 @@ return require('packer').startup({function()
   use {
     'tpope/vim-fugitive',
     -- opt = true
+  }
+
+  use {
+    'TimUntersberger/neogit',
+    opt = true,
+    requires = 'nvim-lua/plenary.nvim'
   }
 
   -- use 'tjdevries/nlua.nvim'

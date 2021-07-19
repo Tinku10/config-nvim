@@ -3,7 +3,19 @@ local fn = vim.fn
 -- local gl = require('galaxyline')
 local section = require('galaxyline').section
 
-require('galaxyline').short_line_list = {"NerdTree", "packager", "Floaterm", "coc-eplorer", "NvimTree", "packer", "Goyo", "Undotree", "dashboard", "LspTrouble"}
+require('galaxyline').short_line_list = {
+  "NerdTree",
+  "packager",
+  "Floaterm",
+  "coc-eplorer",
+  "NvimTree",
+  "packer",
+  "Goyo",
+  "Undotree",
+  "dashboard",
+  "LspTrouble",
+  "neogit"
+}
 
 -- color palette
 local colors = {
@@ -21,7 +33,7 @@ local colors = {
   magenta = "#BF616A",
   gray = "#616E88",
   blue = "#83a598",
-  red = "#cc241d",
+  red = "#fb4934",
   white = "#d5a4c1",
   black = "#282828"
 }
@@ -133,7 +145,30 @@ section.left[2] = {
   }
 }
 
-section.left[3] = {
+-- section.left[3] = {
+--   GitIcon = {
+--     condition = require("galaxyline.condition").check_git_workspace,
+--     provider = function()
+--       -- return "  "
+--       return ""
+--     end,
+--     separator = " ",
+--     separator_highlight = {colors['yellow'], colors.bg},
+--     highlight = {colors.green, colors.line_bg}
+--   }
+-- }
+
+-- section.left[4] = {
+--   GitBranch = {
+--     provider = 'GitBranch',
+--     condition = require("galaxyline.condition").check_git_workspace,
+--     separator = "  ",
+--     separator_highlight = {colors['yellow'], colors.bg},
+--     highlight = {colors.green, colors.line_bg, "bold"}
+--   }
+-- }
+
+section.left[5] = {
   FileName = {
     -- provider = "FileName",
     provider = function()
@@ -149,7 +184,7 @@ section.left[3] = {
 section.right[1] = {
   FileType = {
     provider = function()
-      return '[ ' ..  require('galaxyline.provider_buffer').get_buffer_filetype() .. ' ]'
+      return require('galaxyline.provider_buffer').get_buffer_filetype()
     end,
     -- condition = require("galaxyline.condition").check_git_workspace,
     separator = "  ",
@@ -246,7 +281,7 @@ section.right[8] = {
     condition = require("galaxyline.condition").check_git_workspace,
     separator = "  ",
     icon = " ",
-    highlight = {colors.orange, colors.line_bg},
+    highlight = {colors.red, colors.line_bg},
     separator_highlight = {colors.yellow, colors.bg}
   }
 }
@@ -266,7 +301,7 @@ section.right[10] = {
     -- condition = diagnostics_exist('Error'),
     icon = "    ",
     -- separator = "  ",
-    highlight = {colors.orange, colors.line_bg},
+    highlight = {colors.red, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
 }
@@ -284,7 +319,7 @@ section.right[11] = {
     -- condition = get_diagnostics('Warning') and get_diagnostics('Warning') > 0 ,
     -- separator = "  ",
     icon = "    ",
-    highlight = {colors.yellow, colors.line_bg},
+    highlight = {colors.orange, colors.line_bg},
     separator_highlight = {colors.bg, colors.bg}
   }
 }

@@ -13,3 +13,6 @@ vim.api.nvim_set_keymap('n', '<leader>n', ":Neoformat<cr>", {noremap = true, sil
 
 -- custom floatterms
 vim.api.nvim_set_keymap('n', '<leader>lg', '<cmd> lua require("plugins/term/floatterm").lazygit()<cr>', {noremap = true, silent = true})
+
+-- Neogit
+vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>Neogit<cr>', { noremap = true })

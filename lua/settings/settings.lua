@@ -15,7 +15,7 @@ vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undodir = '~/.config/nvim/undodir'
 vim.o.incsearch = true
-vim.o.showtabline = true
+vim.o.showtabline = 1
 vim.o.scrolloff = 8
 vim.o.showmode = false
 vim.o.linespace = 3
@@ -26,16 +26,16 @@ vim.o.updatetime = 5
 vim.o.wrap = false
 vim.o.termguicolors = true
 vim.o.pastetoggle = '<F2>'
-vim.o.colorcolumn = 80
-vim.o.windignore = vim.o.windignore + '~/.config/nvim/undodir/*'
-vim.o.shortmess:append({ c = true })
+vim.o.colorcolumn = '80'
+vim.o.wildignore = vim.o.wildignore .. '~/.config/nvim/undodir/*'
+vim.opt.shortmess:append({ c = true })
 
 -- vim variables (:let)
 vim.g.mapleader = " "
 vim.g.move_key_modifier = 'S'
 
 -- vim autocommands (autocmd)
--- vim.cmd("autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template('~/Documents/dsa/BaseTemplate/template.h')")
+vim.cmd [[autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template('~/Documents/dsa/BaseTemplate/template.h')]]
 vim.cmd('autocmd TermOpen * startinsert')
 vim.cmd('autocmd BufLeave term://* stopinsert')
 

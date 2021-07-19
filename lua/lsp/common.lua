@@ -1,10 +1,9 @@
 ------------------------ Common Mappings & Setup -------------------------------
 
-local common = { }
+local M = { }
 
 -- local nvim_lsp = require('lspconfig')
-
-common.on_attach = function(client, bufnr)
+M.on_attach = function(client, bufnr)
 
   require('completion').on_attach()
 
@@ -68,4 +67,4 @@ common.on_attach = function(client, bufnr)
   -- end
 end
 
-return common
+return M
