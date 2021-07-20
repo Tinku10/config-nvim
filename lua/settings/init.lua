@@ -14,7 +14,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require "settings.plugins"
-require "settings.utils"
+-- require "settings.utils"
 require "settings.common"
 vim.cmd('source ~/.config/nvim/lua/settings/settings.vim')
 

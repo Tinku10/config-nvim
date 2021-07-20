@@ -1,3 +1,6 @@
+" This is the init.vim file renamed to not collide with init.lua.
+" This file can be renamed back to use instead of init.lua
+
 syntax on
 
 set guicursor=

@@ -116,10 +116,10 @@ return require('packer').startup({function()
     opt = true
   }
 
-  use {
-    'numtostr/FTerm.nvim',
-    opt = true
-  }
+  -- use {
+  --   'numtostr/FTerm.nvim',
+  --   opt = true
+  -- }
 
   -- use 'akinsho/nvim-toggleterm.lua'
 

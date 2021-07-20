@@ -1,5 +1,3 @@
-local utils = require('settings/utils')
-
 require('telescope').setup{
   defaults = {
     vimgrep_arguments = {
@@ -75,10 +73,10 @@ require('telescope').setup{
 require('telescope').load_extension('fzy_native')
 -- require('telescope').load_extension('media_files')
 
-utils.map("n", '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true, silent = true })
-utils.map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
-utils.map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
-utils.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
+vim.api.nvim_set_keymap("n", '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
 
 ----------------------------- custom functions ----------------------------------
 
