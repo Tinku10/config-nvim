@@ -69,13 +69,8 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["FTerm.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/FTerm.nvim"
-  },
   ["completion-nvim"] = {
-    after = { "lspkind-nvim", "vim-vsnip-integ", "vim-vsnip" },
+    after = { "lspkind-nvim", "vim-vsnip", "vim-vsnip-integ" },
     loaded = false,
     needs_bufread = false,
     path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/completion-nvim"

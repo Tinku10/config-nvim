@@ -19,7 +19,7 @@ vim.api.nvim_set_keymap('n', 'wj', "<C-w>j", {noremap = true})
 vim.api.nvim_set_keymap('n', 'wk', "<C-w>k", {noremap = true})
 vim.api.nvim_set_keymap('n', 'wh', "<C-w>h", {noremap = true})
 
--- sourcing init.lua (does not source all files, TODO: figure out why?)
+-- sourcing init.lua (does not source all files)
 vim.api.nvim_set_keymap('n', '<leader>s', ":luafile ~/.config/nvim/init.lua<CR> :w ~/.config/nvim/init.lua<CR> :echo 'Sourced Successfully'<CR>", {noremap = true})
 
 -- quickfix list and location list mappings
@@ -31,6 +31,9 @@ vim.api.nvim_set_keymap('n', 'nj', ":lnext<CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', 'nk', ":lprevious<CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', 'tco', ":Telescope quickfix<CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', 'tno', ":Telescope loclist<CR>", {noremap = true})
+
+-- trim white space
+vim.api.nvim_set_keymap('n', 'tw', ':lua require("settings.editor").trim_white_space()<CR>', { noremap = true, silent = true })
 
 -- C++ compile and run commands
 vim.api.nvim_set_keymap('n', '<F8>', ":term  g++ -Wall -Wextra -pedantic -std=c++17 -O2 -Wformat=2 -Wfloat-equal -Wconversion -Wcast-qual -Wunused-variable -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fstack-protector %; if [ -f a.out  ]; then time ./a.out; rm a.out; fi <CR>", { noremap = true })
