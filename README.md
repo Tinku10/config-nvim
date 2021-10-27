@@ -15,7 +15,7 @@ My personal Neovim config I like to call LightNvim, pronounced ```lighten-vim```
 
 ### Plugins
 
- Checkout [this](lua/settings/plugins.lua) file for all the plugins I am using. Listing all here is taking too much time.
+ Checkout [this](lua/settings/configs.lua) file for all the plugins I am using. Listing all here is taking too much time.
 
 
 ### Branches

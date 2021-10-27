@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/tinku/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/tinku/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/tinku/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/tinku/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/tinku/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/jintu/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/jintu/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/jintu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/jintu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/jintu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -69,172 +69,154 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["completion-nvim"] = {
-    after = { "lspkind-nvim", "vim-vsnip", "vim-vsnip-integ" },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/completion-nvim"
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
   },
   ["dashboard-nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/dashboard-nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/dashboard-nvim"
   },
   ["diffview.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/diffview.nvim"
-  },
-  ["feline.nvim"] = {
-    loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/feline.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/diffview.nvim"
   },
   ["galaxyline.nvim"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
   gruvbox = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/gruvbox"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/gruvbox"
   },
   ["lsp-trouble.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/lsp-trouble.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/lsp-trouble.nvim"
   },
   ["lspkind-nvim"] = {
-    load_after = {
-      ["completion-nvim"] = true
-    },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/lspkind-nvim"
+    loaded = true,
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
   },
   neoformat = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/neoformat"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/neoformat"
   },
   neogit = {
     loaded = false,
     needs_bufread = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/neogit"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/neogit"
   },
   ["nvim-autopairs"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-colorizer.lua"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/nvim-colorizer.lua"
+    only_cond = false,
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-lspinstall"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-treesitter-refactor"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
   },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   playground = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/playground"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["twilight.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/twilight.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/twilight.nvim"
   },
   undotree = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/undotree"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/undotree"
   },
   ["vim-commentary"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-commentary"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-commentary"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-man"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-man"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-man"
   },
   ["vim-signify"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-signify"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-signify"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/start/vim-surround"
-  },
-  ["vim-vsnip"] = {
-    load_after = {
-      ["completion-nvim"] = true
-    },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/vim-vsnip"
-  },
-  ["vim-vsnip-integ"] = {
-    after_files = { "/home/tinku/.local/share/nvim/site/pack/packer/opt/vim-vsnip-integ/after/plugin/vsnip_integ.vim" },
-    load_after = {
-      ["completion-nvim"] = true
-    },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/vim-vsnip-integ"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-surround"
   },
   ["which-key.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/which-key.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/which-key.nvim"
   },
   ["zen-mode.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/tinku/.local/share/nvim/site/pack/packer/opt/zen-mode.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/zen-mode.nvim"
   }
 }
 
@@ -243,11 +225,11 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "html" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "css" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "javascript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "html" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
