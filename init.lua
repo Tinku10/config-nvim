@@ -22,7 +22,7 @@ require "editor"
 require "keymaps"
 require "plugins"
 require "lsp"
-vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/settings.vim')
+vim.cmd('source ' .. vim.fn.stdpath('config') .. '/lua/settings.vim')
 
 -- include all the plugins (plugins specific)
 require "configs"

@@ -8,8 +8,8 @@
 -- NOTE: names must begin with plugins followed by the name of the folder the
 -- plugin is placed in.
 
-vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/configs/gruvbox.vim')
-vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/configs/undotree.vim')
+vim.cmd('source ' .. vim.fn.stdpath('config') .. '/lua/configs/gruvbox.vim')
+vim.cmd('source ' .. vim.fn.stdpath('config') .. '/lua/configs/undotree.vim')
 
 require "configs.nvimtree"
 require "configs.telescope"
