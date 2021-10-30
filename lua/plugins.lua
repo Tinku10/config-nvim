@@ -77,7 +77,7 @@ return require('packer').startup({function()
 
 
   use {
-    'kabouzeid/nvim-lspinstall',
+    'williamboman/nvim-lsp-installer',
     -- opt = true
   }
 
@@ -133,6 +133,8 @@ return require('packer').startup({function()
     -- load on specific filetypes
     ft = {'html', 'css', 'javascript', 'javascriptreact', 'typescriptreact'}
   }
+
+   use "lukas-reineke/indent-blankline.nvim"
   
 	end 
 })

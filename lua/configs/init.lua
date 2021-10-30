@@ -11,6 +11,7 @@
 vim.cmd('source ' .. vim.fn.stdpath('config') .. '/lua/configs/gruvbox.vim')
 vim.cmd('source ' .. vim.fn.stdpath('config') .. '/lua/configs/undotree.vim')
 
+require "configs.lspinstall"
 require "configs.nvimtree"
 require "configs.telescope"
 require "configs.treesitter"

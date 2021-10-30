@@ -1,4 +1,6 @@
-on_attach = function(client, bufnr)
+local M = {}
+
+M.on_attach = function(client, bufnr)
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -46,13 +48,15 @@ on_attach = function(client, bufnr)
 
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local servers = {'clangd', 'bashls', 'cssls', 'html', 'sumneko_lua', 'pyright', 'tsserver', 'vimls', 'tailwindcss', 'vuels'}
+-- local servers = {'clangd', 'bashls', 'cssls', 'html', 'sumneko_lua', 'pyright', 'tsserver', 'vimls', 'tailwindcss', 'vuels'}
 
-for _, server in ipairs(servers) do
-	require'lspconfig'[server].setup {
-		on_attach = on_attach,
-		capabilities = capabilities
-	}
-end
+-- for _, server in ipairs(servers) do
+-- 	require'lspconfig'[server].setup {
+-- 		on_attach = on_attach,
+-- 		capabilities = capabilities
+-- 	}
+-- end
+
+return M
