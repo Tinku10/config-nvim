@@ -170,5 +170,5 @@ require'nvim-tree'.setup {
 -- local utils = require('settings/utils')
 
 vim.api.nvim_set_keymap('n', '<F3>', ':NvimTreeToggle<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>v', ':NvimTreeFind<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>v', ':NvimTreeFindFileToggle<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeRefresh<cr>', { noremap = true, silent = true })

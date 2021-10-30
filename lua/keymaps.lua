@@ -17,8 +17,10 @@ vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>Neogit<cr>', { noremap = true })
 -- most important mapping
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', {noremap = true, silent = true})
 
--- tree
-vim.api.nvim_set_keymap('n', '<leader>v', '<cmd>NvimTreeFindFile<cr>', {noremap = true})
+-- tree toggles
+vim.api.nvim_set_keymap('n', '<F3>', ':NvimTreeToggle<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>v', ':NvimTreeFindFileToggle<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeRefresh<cr>', { noremap = true, silent = true })
 
 -- move selected text up and down
 vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", {noremap = true, silent = true})
@@ -45,6 +47,9 @@ vim.api.nvim_set_keymap('n', '<leader>s', ":luafile ~/.config/nvim/init.lua<CR> 
 -- vim.api.nvim_set_keymap('n', 'nk', ":lprevious<CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', 'tco', ":Telescope quickfix<CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', 'tno', ":Telescope loclist<CR>", {noremap = true})
+
+-- treesitter
+vim.api.nvim_set_keymap('n', '<leader>ts', ':TSPlaygroundToggle<cr>', { noremap = true, silent = true })
 
 -- trim white space
 vim.api.nvim_set_keymap('n', 'tw', ':lua require("settings.editor").trim_white_space()<CR>', { noremap = true, silent = true })
