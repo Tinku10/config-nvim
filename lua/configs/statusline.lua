@@ -362,20 +362,20 @@ section.right[13] = {
   }
 }
 
-section.right[14] = {
-  LineInfo = {
-    -- provider = "LineColumn",
-    provider = function()
-      local cursor = vim.api.nvim_win_get_cursor(0)
-      local lines = vim.api.nvim_buf_line_count(0)
-      return 'ﴳ ' .. cursor[2] ..  '  ' .. '並' .. lines
-    end,
-    -- condition = checkwidth,
-    separator = "  ",
-    separator_highlight = {colors.blue, colors.line_bg},
-    highlight = {colors.green, colors.line_bg}
-  }
-}
+-- section.right[14] = {
+--   LineInfo = {
+--     -- provider = "LineColumn",
+--     provider = function()
+--       local cursor = vim.api.nvim_win_get_cursor(0)
+--       local lines = vim.api.nvim_buf_line_count(0)
+--       return ' ' .. cursor[2]
+--     end,
+--     -- condition = checkwidth,
+--     separator = "  ",
+--     separator_highlight = {colors.blue, colors.line_bg},
+--     highlight = {colors.green, colors.line_bg}
+--   }
+-- }
 
 section.right[15] = {
   Space = {

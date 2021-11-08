@@ -71,156 +71,192 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["dashboard-nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/dashboard-nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
   },
   ["diffview.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/diffview.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
   },
   ["galaxyline.nvim"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
+    url = "https://github.com/glepnir/galaxyline.nvim"
   },
   gruvbox = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/gruvbox"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/gruvbox-community/gruvbox"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lsp-trouble.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/lsp-trouble.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/lsp-trouble.nvim",
+    url = "https://github.com/folke/lsp-trouble.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
+    url = "https://github.com/onsails/lspkind-nvim"
   },
   neoformat = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/neoformat"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/neoformat",
+    url = "https://github.com/sbdchd/neoformat"
   },
   neogit = {
     loaded = false,
     needs_bufread = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/neogit"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/neogit",
+    url = "https://github.com/TimUntersberger/neogit"
   },
   ["nvim-autopairs"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-cmp"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-colorizer.lua"] = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/nvim-colorizer.lua"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-treesitter-refactor"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-refactor"
   },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   playground = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/playground"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
   },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzy-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["twilight.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/twilight.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/twilight.nvim",
+    url = "https://github.com/folke/twilight.nvim"
   },
   undotree = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/undotree"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
   },
   ["vim-commentary"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-commentary"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-man"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-man"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-man",
+    url = "https://github.com/vim-utils/vim-man"
   },
   ["vim-signify"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-signify"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-signify",
+    url = "https://github.com/mhinz/vim-signify"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-surround"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   },
   ["which-key.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/which-key.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   },
   ["zen-mode.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/zen-mode.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
