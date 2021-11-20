@@ -24,7 +24,7 @@ require('telescope').setup{
       vertical = {
         mirror = false,
       },
-      preview_width = 0.5
+      preview_width = 0.55
     },
     -- file_sorter =  require'telescope.sorters'.get_fuzzy_file,
     file_sorter =  require'telescope.sorters'.get_fzy_sorter,
@@ -40,7 +40,8 @@ require('telescope').setup{
     -- results_height = 1,
     -- results_width = 0.8,
     border = {},
-    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    -- borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
     color_devicons = true,
     use_less = true,
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,

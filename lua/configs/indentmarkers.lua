@@ -6,7 +6,7 @@ require("indent_blankline").setup {
     "statement", "switch_body"
   },
   filetype_exclude = {"dashboard", "packer", "help"},
-  filetype_include = {"cpp", "html", "jsx", "js", "css", "lua"},
+  -- filetype_include = {"cpp", "html", "jsx", "js", "css", "lua"},
   space_char_blankline = " ",
   show_current_context = true,
 }
