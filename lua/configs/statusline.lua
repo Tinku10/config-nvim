@@ -1,23 +1,5 @@
-local cmd = vim.api.nvim_command
-local fn = vim.fn
--- local gl = require('galaxyline')
-local section = require('galaxyline').section
+local lsp = require('feline.providers.lsp')
 
-require('galaxyline').short_line_list = {
-  "NerdTree",
-  "packager",
-  "Floaterm",
-  "coc-eplorer",
-  "NvimTree",
-  "packer",
-  "Goyo",
-  "Undotree",
-  "dashboard",
-  "LspTrouble",
-  "neogit"
-}
-
--- color palette
 local colors = {
   bg = "#3c3836",
   fg = "#81A1C1",
@@ -33,7 +15,7 @@ local colors = {
   magenta = "#BF616A",
   gray = "#616E88",
   blue = "#83a598",
-  red = "#fb4934",
+  red = "#cc241d",
   white = "#d5a4c1",
   black = "#282828"
 }
@@ -84,6 +66,32 @@ local modes = {
    [''] = 'V-BLOCK',
 }
 
+-- Initialize the properties table
+local properties = {
+    force_inactive = {
+        filetypes = {},
+        buftypes = {},
+        bufnames = {}
+    }
+}
+
+properties.force_inactive.filetypes = {
+    'NvimTree',
+    'dbui',
+    'packer',
+    'startify',
+    'fugitive',
+    'fugitiveblame'
+}
+
+properties.force_inactive.buftypes = {
+    'terminal'
+}
+
+-- properties.force_inactive.bufnames = {
+--     'some_buffer_name'
+-- }
+
 local buffer_not_empty = function()
   if fn.empty(fn.expand("%:t")) ~= 1 then
     return true
@@ -100,314 +108,181 @@ local checkwidth = function()
 end
 
 local whichmode = function()
-  local mode = fn.mode()
-  return modes[mode];
+  local mode = vim.fn.mode()
+  return "  " .. modes[mode] .. "  ";
 end
 
-local get_diagnostics = function(type)
-  if next(vim.lsp.buf_get_clients(0)) == nil then return 0 end
-  local clients = vim.lsp.get_active_clients()
-
-  local count = 0
-
-  if clients then
-    for _, client in ipairs(clients) do
-      count = count + vim.lsp.diagnostic.get_count(vim.api.nvim_get_current_buf(), type, client.id)
-    end
-  end
-
-  return count
-end
-
-local diagnostics_exist = function(type)
-  return get_diagnostics(type) > 0
-end
-
-section.left[1] = {
-  Space = {
-    provider = function() return " " end,
-    -- provider = " ",
-    highlight = {colors.line_bg, colors.line_bg},
-    separator_highlight = {colors.purple, colors.bg},
-  }
+-- Initialize the components table
+local components = {
+  active = {},
+  inactive = {}
 }
 
-section.left[2] = {
-  ViMode = {
-    provider = function()
-      cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
-      --   ҟαĺ           
-      return whichmode()
-    end,
-    separator = "  ",
-    separator_highlight = {colors.purple, colors.bg},
-    highlight = {colors.red, colors.line_bg, "bold"}
-  }
-}
+-- Insert three sections (left, mid and right) for the active statusline
+table.insert(components.active, {})
+table.insert(components.active, {})
+table.insert(components.active, {})
 
--- section.left[3] = {
---   GitIcon = {
---     condition = require("galaxyline.condition").check_git_workspace,
---     provider = function()
---       -- return "  "
---       return ""
---     end,
---     separator = " ",
---     separator_highlight = {colors['yellow'], colors.bg},
---     highlight = {colors.green, colors.line_bg}
+-- Insert a component that will be on the left side of the statusline
+-- when the window is active:
+table.insert(components.active[1], {
+  provider = function()
+    return modes[vim.fn.mode()]
+  end,
+  hl = function()
+    local val = {}
+    val.fg = mode_color[vim.fn.mode()]
+    val.style = 'bold'
+
+    return val
+  end,
+  right_sep = ' ',
+  left_sep = ' '
+  -- hl = {
+  --   name = require('feline.providers.vi_mode').get_mode_highlight_name(),
+  --   fg = mode_color[require('feline.providers.vi_mode').get_mode_highlight_name()],
+  --   style = 'bold'
+  -- }
+})
+
+table.insert(components.active[1], {
+  provider = {
+    name = 'file_info',
+    opts = {
+        type = 'unique',
+        file_modified_icon = 'M'
+    }
+  },
+  hl = {
+    -- name = colors['yellow'],
+    fg = colors['yellow'],
+    bg = colors['line_bg'],
+    style = 'bold'
+  },
+  icon = ''
+})
+-- Insert a component that will be on the middle of the statusline
+-- when the window is active:
+-- table.insert(components.mid.active, {
+--     -- Component info here
+-- })
+
+-- Insert a component that will be on the right side of the statusline
+-- when the window is active:
+table.insert(components.active[3], {
+    -- Component info here
+    provider = 'git_branch',
+    icon = ' ',
+    hl = {
+      fg = colors['green'],
+      bg = colors['line_bg'],
+      style = 'bold'
+    },
+    right_sep = ' ',
+    left_sep = ' '
+})
+
+table.insert(components.active[3], {
+    -- Component info here
+    provider = 'file_type',
+    hl = {
+      fg = colors['blue'],
+      bg = colors['line_bg'],
+      -- style = 'bold'
+    },
+    left_sep = ' ',
+    right_sep = ' '
+})
+
+-- table.insert(components.active[3], {
+--     -- Component info here
+--     provider = 'file_encoding',
+--     hl = {
+--       fg = colors['blue'],
+--       bg = colors['line_bg'],
+--       -- style = 'bold'
+--     },
+--     left_sep = '  ',
+--     right_sep = '  '
+-- })
+
+-- table.insert(components.active[3], {
+--   provider = 'git_diff_added',
+--   hl = {
+--     fg = colors['green'],
+--     bg = colors['line_bg']
 --   }
--- }
+-- })
 
--- section.left[4] = {
---   GitBranch = {
---     provider = 'GitBranch',
---     condition = require("galaxyline.condition").check_git_workspace,
---     separator = "  ",
---     separator_highlight = {colors['yellow'], colors.bg},
---     highlight = {colors.green, colors.line_bg, "bold"}
+-- table.insert(components.active[3], {
+--   provider = 'git_diff_changed',
+--   hl = {
+--     fg = colors['yellow'],
+--     bg = colors['line_bg']
 --   }
--- }
+-- })
 
-section.left[5] = {
-  FileName = {
-    -- provider = "FileName",
-    provider = function()
-      return fn.expand("%:f")
-    end,
-    separator = "  ",
-    condition = buffer_not_empty,
-    separator_highlight = {colors.purple, colors.bg},
-    highlight = {colors.yellow, colors.line_bg, "bold"}
-  }
-}
-
-section.right[1] = {
-  FileType = {
-    provider = function()
-      return require('galaxyline.provider_buffer').get_buffer_filetype()
-    end,
-    -- condition = require("galaxyline.condition").check_git_workspace,
-    separator = "  ",
-    separator_highlight = {colors['yellow'], colors.bg},
-    highlight = {colors.blue, colors.line_bg}
-  }
-}
-
-section.right[2] = {
-  GitIcon = {
-    condition = require("galaxyline.condition").check_git_workspace,
-    provider = function()
-      -- return "  "
-      return ""
-    end,
-    separator = "  ",
-    separator_highlight = {colors['yellow'], colors.bg},
-    highlight = {colors.green, colors.line_bg}
-  }
-}
-
-section.right[3] = {
-  GitBranch = {
-    provider = 'GitBranch',
-    condition = require("galaxyline.condition").check_git_workspace,
-    separator = " ",
-    separator_highlight = {colors['yellow'], colors.bg},
-    highlight = {colors.green, colors.line_bg, "bold"}
-  }
-}
-
-section.right[4] = {
-  FileFormat = {
-    provider = "FileFormat",
-    condition = checkwidth,
-    separator = "  ",
-    separator_highlight = {colors['yellow'], colors.bg},
-    highlight = {colors.blue, colors.line_bg}
-  }
-}
-
-section.right[5] = {
-  FileEncode = {
-    provider = function()
-      local encode = vim.bo.fenc ~= '' and vim.bo.fenc or vim.o.enc
-      return encode:upper()
-    end,
-    -- provider = "FileEncode",
-    condition = checkwidth,
-    -- extra space present in the provider name
-    separator = "  ",
-    separator_highlight = {colors.yellow, colors.line_bg},
-    highlight = {colors.blue, colors.line_bg}
-  }
-}
-
--- section.right[6] = {
---   DiffAdd = {
---     -- provider = "DiffAdd",
---     provider = function()
---       local add = vim.fn['sy#repo#get_stats']()[1]
---       return add
---     end,
---     condition = require("galaxyline.condition").check_git_workspace,
---     separator = "  ",
---     icon = " ",
---     separator_highlight = {colors.blue, colors.line_bg},
---     highlight = {colors.green, colors.line_bg}
+-- table.insert(components.active[3], {
+--   provider = 'git_diff_removed',
+--   hl = {
+--     fg = colors['orange'],
+--     bg = colors['line_bg']
 --   }
--- }
+-- })
 
--- section.right[7] = {
---   DiffModified = {
---     -- provider = "DiffModified",
---     provider = function()
---       local mod = vim.fn['sy#repo#get_stats']()[2]
---       return mod
---     end,
---     condition = require("galaxyline.condition").check_git_workspace,
---     separator = "  ",
---     icon = "柳",
---     highlight = {colors.yellow, colors.line_bg},
---     separator_highlight = {colors.yellow, colors.bg}
---   }
--- }
+table.insert(components.active[3], {
+  provider = function()
+    return ' ' ..  lsp.get_diagnostics_count('Error')
+  end,
+  enabled = function() return lsp.diagnostics_exist('Error') end,
+  hl = {
+    fg = colors['orange'],
+    bg = colors['line_bg']
+  },
+  left_sep = ' ',
+  right_sep = ' '
+})
 
--- section.right[8] = {
---   DiffRemove = {
---     -- provider = "DiffRemove",
---     provider = function()
---       local rem = vim.fn['sy#repo#get_stats']()[3]
---       return rem
---     end,
---     condition = require("galaxyline.condition").check_git_workspace,
---     separator = "  ",
---     icon = " ",
---     highlight = {colors.red, colors.line_bg},
---     separator_highlight = {colors.yellow, colors.bg}
---   }
--- }
+table.insert(components.active[3], {
+  provider = function()
+    return ' ' ..  lsp.get_diagnostics_count('Warning')
+  end,
+  enabled = function() return lsp.diagnostics_exist('Warning') end,
+  hl = {
+    fg = colors['yellow'],
+    bg = colors['line_bg']
+  },
+  left_sep = ' ',
+  right_sep = ' '
+})
 
-section.right[10] = {
-  DiagnosticError = {
-    provider = function()
-      local s = require('galaxyline.provider_diagnostic').get_diagnostic_error()
-      if s ~= nil then
-        s = s:sub(1, -2)
-      end
-      return s
-    end,
-    -- provider = function()
-    --   return get_diagnostics('Error')
-    -- end,
-    -- condition = diagnostics_exist('Error'),
-    icon = "    ",
-    -- separator = "  ",
-    highlight = {colors.red, colors.line_bg},
-    separator_highlight = {colors.bg, colors.bg}
-  }
-}
+table.insert(components.active[3], {
+  provider = function()
+    return ' ' ..  lsp.get_diagnostics_count('Hint')
+  end,
+  enabled = function() return lsp.diagnostics_exist('Hint') end,
+  hl = {
+    fg = colors['blue'],
+    bg = colors['line_bg']
+  },
+  left_sep = ' ',
+  right_sep = ' '
+})
 
-section.right[11] = {
-  DiagnosticWarn = {
-    -- provider = "DiagnosticWarn",
-    provider = function()
-      local s = require('galaxyline.provider_diagnostic').get_diagnostic_warn()
-      if s ~= nil then
-        s = s:sub(1, -2)
-      end
-      return s
-    end,
-    -- condition = get_diagnostics('Warning') and get_diagnostics('Warning') > 0 ,
-    -- separator = "  ",
-    icon = "    ",
-    highlight = {colors.orange, colors.line_bg},
-    separator_highlight = {colors.bg, colors.bg}
-  }
-}
 
-section.right[12] = {
-  DiagnosticHint = {
-    -- provider = "DiagnosticHint",
-    provider = function()
-      local s = require('galaxyline.provider_diagnostic').get_diagnostic_hint()
-      if s ~= nil then
-        s = s:sub(1, -2)
-      end
-      return s
-    end,
-    -- condition = get_diagnostics('Hint') and get_diagnostics('Hint') > 0 ,
-    -- icon = " ",
-    icon = "    ",
-    -- separator = "  ",
-    separator_highlight = {colors.yellow, colors.bg},
-    highlight = {colors.blue, colors.line_bg},
-  }
-}
+-- table.insert(components.active[3], {
+--   provider = 'position',
+--   hl = {
+--     fg = colors['green'],
+--     bg = colors['line_bg']
+--   },
+--   left_sep = '  ',
+--   right_sep = '  '
+-- })
 
-section.right[13] = {
-  DiagnosticInfo = {
-    -- provider = "DiagnosticInfo",
-    provider = function()
-      local s = require('galaxyline.provider_diagnostic').get_diagnostic_info()
-      if s ~= nil then
-        s = s:sub(1, -2)
-      end
-      return s
-    end,
-    -- condition = get_diagnostics('Information') and get_diagnostics('Information') > 0 ,
-    -- separator = "  ",
-    -- icon = " ",
-    icon = "    ",
-    highlight = {colors.green, colors.line_bg},
-    separator_highlight = {colors.bg, colors.bg}
-  }
-}
-
--- section.right[14] = {
---   LineInfo = {
---     -- provider = "LineColumn",
---     provider = function()
---       local cursor = vim.api.nvim_win_get_cursor(0)
---       local lines = vim.api.nvim_buf_line_count(0)
---       return ' ' .. cursor[2]
---     end,
---     -- condition = checkwidth,
---     separator = "  ",
---     separator_highlight = {colors.blue, colors.line_bg},
---     highlight = {colors.green, colors.line_bg}
---   }
--- }
-
-section.right[15] = {
-  Space = {
-    provider = function() return " " end,
-    -- provider = " ",
-    highlight = {colors.line_bg, colors.line_bg},
-    separator_highlight = {colors.purple, colors.bg},
-  }
-}
-
-section.short_line_left[1] = {
-  Space = {
-    provider = function()
-      return ' '
-    end,
-    separator = ' ',
-    separator_highlight = {'NONE', colors.bg},
-    highlight = {colors.orange, colors.bg}
-  }
-}
-
-section.short_line_left[2] = {
-  SFileName = {
-    provider = 'SFileName',
-    condition = require('galaxyline.condition').buffer_not_empty,
-    highlight = {colors.grey, colors.bg}
-  }
-}
-
-section.short_line_right[1] = {
-  BufferIcon = {
-    provider = "BufferIcon",
-    highlight = {colors.fg, colors.lbg}
-  }
-}
+require('feline').setup ({
+  colors = colors,
+  vi_mode_colors = mode_color,
+  components = components,
+  properties = properties
+})

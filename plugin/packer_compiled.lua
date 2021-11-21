@@ -91,10 +91,15 @@ _G.packer_plugins = {
     path = "/home/jintu/.local/share/nvim/site/pack/packer/opt/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
-  ["galaxyline.nvim"] = {
+  ["feline.nvim"] = {
     loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
-    url = "https://github.com/glepnir/galaxyline.nvim"
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/feline.nvim",
+    url = "https://github.com/famiu/feline.nvim"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   gruvbox = {
     loaded = true,
@@ -236,11 +241,6 @@ _G.packer_plugins = {
     path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-man",
     url = "https://github.com/vim-utils/vim-man"
   },
-  ["vim-signify"] = {
-    loaded = true,
-    path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-signify",
-    url = "https://github.com/mhinz/vim-signify"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/jintu/.local/share/nvim/site/pack/packer/start/vim-surround",
@@ -265,11 +265,11 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "html" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "css" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "javascript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
