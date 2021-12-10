@@ -42,7 +42,7 @@ vim.g.move_key_modifier = 'S'
 
 
 -- vim autocommands (autocmd)
-vim.cmd [[autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template('~/Documents/dsa/BaseTemplate/template.h')]]
+-- vim.cmd [[autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template('~/Desktop/codes/dsa/BaseTemplate/template.h')]]
 vim.cmd('autocmd TermOpen * startinsert')
 vim.cmd('autocmd BufLeave term://* stopinsert')
 

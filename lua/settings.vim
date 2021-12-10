@@ -69,7 +69,7 @@ endfun
 
 command! TrimWhitespace call TrimWhitespace()
 
-autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template("~/Documents/dsa/BaseTemplate/template.h")
+autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template("~/Desktop/codes/dsa/BaseTemplate/template.h")
 " hi MatchParen cterm=bold ctermbg=none ctermfg=229
 " kind of autosave 
 " autocmd TextChanged,TextChangedI <buffer> silent write

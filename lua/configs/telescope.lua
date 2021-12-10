@@ -139,7 +139,7 @@ end
 -- list all the files in a telescope buffer and copies the content of the file
 -- selected into the currsor cursor position
 M.content_selector = function()
-  listing("DSA", "~/Documents/dsa", vim.api.nvim_get_current_buf(),  vim.api.nvim_win_get_cursor(0))
+  listing("DSA", "~/Desktop/codes/dsa", vim.api.nvim_get_current_buf(),  vim.api.nvim_win_get_cursor(0))
 end
 
 return M
