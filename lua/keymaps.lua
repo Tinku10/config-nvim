@@ -1,9 +1,10 @@
+settings = require"user-settings"
 
 -- custom telescope commands
 vim.api.nvim_set_keymap("n", '<leader>fd', '<cmd> lua require("configs.telescope").dotfiles()<cr>', {noremap = true})
 vim.api.nvim_set_keymap("n", '<leader>fa', '<cmd> lua require("configs.telescope").anyjump()<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
-vim.api.nvim_set_keymap("n", '<leader>fl', '<cmd> lua require("configs.telescope").content_selector(vim.api.nvim_get_current_buf(), vim.api.nvim_win_get_cursor(0), "~/Desktop/codes/dsa")<cr>', {noremap = true})
+vim.api.nvim_set_keymap("n", '<leader>fl', '<cmd> lua require("configs.telescope").content_selector(settings.paths.dsa)<cr>', {noremap = true})
 
 -- format buffer using Neoformat
 vim.api.nvim_set_keymap('n', '<leader>n', ":Neoformat<cr>", {noremap = true, silent = true})
@@ -54,7 +55,7 @@ vim.api.nvim_set_keymap('n', '<leader>ts', ':TSPlaygroundToggle<cr>', { noremap 
 -- trim white space
 vim.api.nvim_set_keymap('n', 'tw', ':lua require("settings.editor").trim_white_space()<CR>', { noremap = true, silent = true })
 
--- C++ compile and run commands
-vim.api.nvim_set_keymap('n', '<F8>', ":term  g++ -Wall -Wextra -pedantic -std=c++17 -O2 -Wformat=2 -Wfloat-equal -Wconversion -Wcast-qual -Wunused-variable -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fstack-protector %; if [ -f a.out  ]; then time ./a.out; rm a.out; fi <CR>", { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-c>', ":w <CR> :!g++ -o  %:r % -std=c++17 -Wall -fsanitize=address -fsanitize=undefined -Wshift-overflow <CR>", { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-x>', ":term ./%:r <Enter>", { noremap = true })
+-- set keymaps from high level settings
+for _, keymap in pairs(settings.keymaps) do
+  vim.api.nvim_set_keymap(keymap[1], keymap[2], keymap[3], { noremap = true })
+end

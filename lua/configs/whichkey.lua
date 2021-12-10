@@ -1,5 +1,7 @@
 vim.cmd [[ packadd which-key.nvim ]]
 
+settings = require("user-settings")
+
 require("which-key").setup {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -25,7 +27,7 @@ require("which-key").setup {
     group = "+", -- symbol prepended to a group
   },
   window = {
-    border = "none", -- none, single, double, shadow
+    border = settings.ui.border, -- none, single, double, shadow
     position = "bottom", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
@@ -62,7 +64,7 @@ wk.register({
       b = {'<cmd>Telescope buffers<cr>', 'buffers'},
       h = {'<cmd>Telescope help_tags<cr>', 'help tags'},
       d = {'<cmd>lua require("configs.telescope").dotfiles()<cr>', 'dot files'},
-      l = {'<cmd>lua require("configs.telescope").content_selector()<cr>', 'dsa'},
+      l = {'<cmd>lua require("configs.telescope").content_selector(settings.paths.dsa)<cr>', 'dsa'},
       a = {'<cmd>lua require("configs.telescope").anyjump()<cr>', 'anyjump'},
       c = {
         name = '+commands',

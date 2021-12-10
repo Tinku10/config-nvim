@@ -69,7 +69,7 @@ endfun
 
 command! TrimWhitespace call TrimWhitespace()
 
-autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template("~/Desktop/codes/dsa/BaseTemplate/template.h")
+" autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template("~/Desktop/codes/dsa/BaseTemplate/template.h")
 " hi MatchParen cterm=bold ctermbg=none ctermfg=229
 " kind of autosave 
 " autocmd TextChanged,TextChangedI <buffer> silent write
@@ -84,7 +84,7 @@ autocmd BufNewFile *.c,*.cc,*.cpp,*.h call Template("~/Desktop/codes/dsa/BaseTem
 autocmd TermOpen * startinsert
 " autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
-map <F8> :w <CR> :term  g++ -Wall -Wextra -pedantic -std=c++17 -O2 -Wformat=2 -Wfloat-equal -Wconversion -Wcast-qual -Wunused-variable -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fstack-protector %; if [ -f a.out  ]; then time ./a.out; rm a.out; fi <CR>
-nnoremap <C-c> :w <CR> :!g++ -o  %:r % -std=c++17 -Wall -fsanitize=address -fsanitize=undefined -Wshift-overflow <CR>
+" map <F8> :w <CR> :term  g++ -Wall -Wextra -pedantic -std=c++17 -O2 -Wformat=2 -Wfloat-equal -Wconversion -Wcast-qual -Wunused-variable -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fstack-protector %; if [ -f a.out  ]; then time ./a.out; rm a.out; fi <CR>
+" nnoremap <C-c> :w <CR> :!g++ -o  %:r % -std=c++17 -Wall -fsanitize=address -fsanitize=undefined -Wshift-overflow <CR>
 " nnoremap <C-c> :w <CR> :!clear; makef %:r <CR>
-nnoremap <C-x> :term ./%:r <Enter>
+" nnoremap <C-x> :term ./%:r <Enter>
