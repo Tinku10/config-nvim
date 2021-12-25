@@ -130,14 +130,27 @@ table.insert(components.active[1], {
     return modes[vim.fn.mode()]
   end,
   hl = function()
-    local val = {}
-    val.fg = mode_color[vim.fn.mode()]
-    val.style = 'bold'
+      local val = {}
+      val.fg = mode_color[vim.fn.mode()]
+      val.bg = colors['line_bg']
+      val.style = 'bold'
 
-    return val
+      return val
   end,
-  right_sep = ' ',
-  left_sep = ' '
+  right_sep = {
+    str = ' ',
+    hl = {
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  },
+  left_sep = {
+    str = ' ',
+    hl = {
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  }
   -- hl = {
   --   name = require('feline.providers.vi_mode').get_mode_highlight_name(),
   --   fg = mode_color[require('feline.providers.vi_mode').get_mode_highlight_name()],
@@ -170,28 +183,52 @@ table.insert(components.active[1], {
 -- Insert a component that will be on the right side of the statusline
 -- when the window is active:
 table.insert(components.active[3], {
-    -- Component info here
-    provider = 'git_branch',
-    icon = ' ',
+  -- Component info here
+  provider = 'git_branch',
+  icon = ' ',
+  hl = {
+    fg = colors['green'],
+    bg = colors['line_bg'],
+    style = 'bold'
+  },
+  right_sep = {
+    str = ' ',
     hl = {
-      fg = colors['green'],
-      bg = colors['line_bg'],
-      style = 'bold'
-    },
-    right_sep = ' ',
-    left_sep = ' '
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  },
+  left_sep = {
+    str = ' ',
+    hl = {
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  }
 })
 
 table.insert(components.active[3], {
-    -- Component info here
-    provider = 'file_type',
+  -- Component info here
+  provider = 'file_type',
+  hl = {
+    fg = colors['blue'],
+    bg = colors['line_bg'],
+    -- style = 'bold'
+  },
+  right_sep = {
+    str = ' ',
     hl = {
-      fg = colors['blue'],
-      bg = colors['line_bg'],
-      -- style = 'bold'
-    },
-    left_sep = ' ',
-    right_sep = ' '
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  },
+  left_sep = {
+    str = ' ',
+    hl = {
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  }
 })
 
 -- table.insert(components.active[3], {
@@ -231,42 +268,72 @@ table.insert(components.active[3], {
 -- })
 
 table.insert(components.active[3], {
-  provider = function()
-    return ' ' ..  lsp.get_diagnostics_count('Error')
-  end,
-  enabled = function() return lsp.diagnostics_exist('Error') end,
+  provider = 'diagnostic_errors',
+  icon = ' ',
   hl = {
     fg = colors['orange'],
     bg = colors['line_bg']
   },
-  left_sep = ' ',
-  right_sep = ' '
+  right_sep = {
+    str = ' ',
+    hl = {
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  },
+  left_sep = {
+    str = ' ',
+    hl = {
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  }
 })
 
 table.insert(components.active[3], {
-  provider = function()
-    return ' ' ..  lsp.get_diagnostics_count('Warning')
-  end,
-  enabled = function() return lsp.diagnostics_exist('Warning') end,
+  provider = 'diagnostic_warnings',
+  icon = ' ',
   hl = {
     fg = colors['yellow'],
     bg = colors['line_bg']
   },
-  left_sep = ' ',
-  right_sep = ' '
+  right_sep = {
+    str = ' ',
+    hl = {
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  },
+  left_sep = {
+    str = ' ',
+    hl = {
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  }
 })
 
 table.insert(components.active[3], {
-  provider = function()
-    return ' ' ..  lsp.get_diagnostics_count('Hint')
-  end,
-  enabled = function() return lsp.diagnostics_exist('Hint') end,
+  provider = 'diagnostic_hints',
+  icon = ' ',
   hl = {
     fg = colors['blue'],
     bg = colors['line_bg']
   },
-  left_sep = ' ',
-  right_sep = ' '
+  right_sep = {
+    str = ' ',
+    hl = {
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  },
+  left_sep = {
+    str = ' ',
+    hl = {
+      fg = colors['line_bg'],
+      bg = colors['line_bg']
+    }
+  }
 })
 
 
