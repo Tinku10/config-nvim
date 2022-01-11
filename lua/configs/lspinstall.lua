@@ -14,6 +14,7 @@ lsp_installer.settings {
       server_pending = "➜",
       server_uninstalled = "✗"
     },
+    borders = false,
     keymaps = {
       -- Keymap to expand a server in the UI
       toggle_server_expand = "<CR>",
