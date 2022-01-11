@@ -103,11 +103,11 @@ wk.register({
     e = {'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', 'show line diagnostics'},
     ['x'] = {
       name = '+lsptrouble',
-      x = {'<cmd>LspTroubleToggle<cr>', 'toggle trouble'},
-      l = {'<cmd>LspTroubleToggle loclist<cr>', 'toggle location list'},
-      q = {'<cmd>LspTroubleToggle quickfix<cr>', 'toggle quickfix list'},
-      w = {'<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>', 'toggle ws diagnostics'},
-      d = {'<cmd>LspTroubleToggle lsp_document_diagnostics<cr>', 'toggle doc diagnostics'},
+      x = {'<cmd>TroubleToggle<cr>', 'toggle trouble'},
+      l = {'<cmd>TroubleToggle loclist<cr>', 'toggle location list'},
+      q = {'<cmd>TroubleToggle quickfix<cr>', 'toggle quickfix list'},
+      w = {'<cmd>TroubleToggle lsp_workspace_diagnostics<cr>', 'toggle ws diagnostics'},
+      d = {'<cmd>TroubleToggle lsp_document_diagnostics<cr>', 'toggle doc diagnostics'},
     },
     ['s'] = {
       name = '+session',
