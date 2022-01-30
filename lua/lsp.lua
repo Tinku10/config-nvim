@@ -8,10 +8,10 @@ M.on_attach = function(client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
   -- vim.api.nvim_set_current_dir(client.config.root_dir)
 
-  vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = " ", numhl = "LspDiagnosticsSignError"})
-  vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = " ", numhl = "LspDiagnosticsSignWarning"})
-  vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint", text = " ", numhl = "LspDiagnosticsSignHint"})
-  vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = " ", numhl = "LspDiagnosticsSignInformation"})
+  vim.fn.sign_define("DiagnosticSignError", {texthl = "DiagnosticSignError", text = "", numhl = "DiagnosticSignError"})
+  vim.fn.sign_define("DiagnosticSignWarn", {texthl = "DiagnosticSignWarn", text = "", numhl = "DiagnosticSignWarn"})
+  vim.fn.sign_define("DiagnosticSignHint", {texthl = "DiagnosticSignHint", text = "", numhl = "DiagnosticSignHint"})
+  vim.fn.sign_define("DiagnosticSignInfo", {texthl = "DiagnosticSignInfo", text = "", numhl = "DiagnosticSignInfo"})
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
@@ -46,8 +46,29 @@ M.on_attach = function(client, bufnr)
 
   vim.lsp.set_log_level("debug")
 
+  vim.diagnostic.config({
+    virtual_text = true,
+    signs = {
+      active = signs,
+    },
+    update_in_insert = true,
+    underline = true,
+    severity_sort = true,
+    float = {
+      focusable = false,
+      style = "minimal",
+      -- border = "rounded",
+      source = "always",
+      -- header = "",
+      -- prefix = "",
+    },
+  })
+
 end
 
+-- vim.g.code_action_menu_show_details = false
+-- vim.g.code_action_menu_show_diff = false
+--
 -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- local servers = {'clangd', 'bashls', 'cssls', 'html', 'sumneko_lua', 'pyright', 'tsserver', 'vimls', 'tailwindcss', 'vuels'}
