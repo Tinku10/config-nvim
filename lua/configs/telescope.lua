@@ -22,10 +22,15 @@ require('telescope').setup{
     layout_config = {
       horizontal = {
         mirror = false,
+        preview_width = 0.55,
+        results_width = 0.8,
       },
       vertical = {
         mirror = false,
       },
+      width = 0.87,
+      height = 0.90,
+      preview_cutoff = 120,
       preview_width = 0.55
     },
     -- file_sorter =  require'telescope.sorters'.get_fuzzy_file,
