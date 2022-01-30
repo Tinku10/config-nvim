@@ -5,7 +5,7 @@
 -- under lua (/lua/plugins/). Executing plugins will execute this file which
 -- in turn execute the specific plugin mentioned.
 --
--- NOTE: names must begin with plugins followed by the name of the folder the
+-- NOTE: names must begin with configs followed by the name of the folder the
 -- plugin is placed in.
 
 vim.cmd('source ' .. vim.fn.stdpath('config') .. '/lua/configs/gruvbox.vim')
@@ -23,9 +23,10 @@ require "configs.whichkey"
 require "configs.dashboard"
 require "configs.autopairs"
 require "configs.colorizer"
-require "configs.lsptrouble"
+require "configs.trouble"
 require "configs.zenmode"
 require "configs.dim"
 require "configs.git"
 require "configs.gitsigns"
 require "configs.indentmarkers"
+require "configs.godbolt"

@@ -26,6 +26,7 @@ vim.cmd('source ' .. vim.fn.stdpath('config') .. '/lua/settings.vim')
 
 -- include all the plugins (plugins specific)
 require "configs"
+require "highlights"
 
 
 -- automatically ensure that packer.nvim is installed
