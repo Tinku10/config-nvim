@@ -55,6 +55,9 @@ vim.api.nvim_set_keymap('n', '<leader>ts', ':TSPlaygroundToggle<cr>', { noremap 
 -- trim white space
 vim.api.nvim_set_keymap('n', 'tw', ':lua require("settings.editor").trim_white_space()<CR>', { noremap = true, silent = true })
 
+-- codeaction menu
+vim.api.nvim_set_keymap('n', '<leader>ca', ":CodeActionMenu", {noremap = true})
+
 -- set keymaps from high level settings
 for _, keymap in pairs(settings.keymaps) do
   vim.api.nvim_set_keymap(keymap[1], keymap[2], keymap[3], { noremap = true })

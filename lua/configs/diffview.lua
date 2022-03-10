@@ -11,12 +11,17 @@ require'diffview'.setup {
   },
   file_panel = {
     position = "left",      -- One of 'left', 'right', 'top', 'bottom'
-    width = 35,             -- Only applies when position is 'left' or 'right'
+    width = 30,             -- Only applies when position is 'left' or 'right'
     height = 10,            -- Only applies when position is 'top' or 'bottom'
+    listing_style = "tree",             -- One of 'list' or 'tree'
+    tree_options = {                    -- Only applies when listing_style is 'tree'
+      flatten_dirs = true,              -- Flatten dirs that only contain one single dir
+      folder_statuses = "only_folded",  -- One of 'never', 'only_folded' or 'always'.
+    },
   },
   file_history_panel = {
     position = "bottom",
-    width = 35,
+    width = 30,
     height = 16,
     log_options = {
       max_count = 256,      -- Limit the number of commits
@@ -27,6 +32,11 @@ require'diffview'.setup {
       reverse = false,      -- List commits in reverse order
     },
   },
+  default_args = {    -- Default args prepended to the arg-list for the listed commands
+    DiffviewOpen = {},
+    DiffviewFileHistory = {},
+  },
+  hooks = {},
   key_bindings = {
     disable_defaults = false,                   -- Disable the default key bindings
     -- The `view` bindings are active in the diff buffers, only when the current

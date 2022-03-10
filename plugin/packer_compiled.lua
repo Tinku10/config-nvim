@@ -101,6 +101,12 @@ _G.packer_plugins = {
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["godbolt.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/godbolt.nvim",
+    url = "https://github.com/p00f/godbolt.nvim"
+  },
   gruvbox = {
     loaded = true,
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/start/gruvbox",
@@ -110,12 +116,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
-  ["lsp-trouble.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/lsp-trouble.nvim",
-    url = "https://github.com/folke/lsp-trouble.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -142,6 +142,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-code-action-menu"] = {
+    commands = { "CodeActionMenu" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/nvim-code-action-menu",
+    url = "https://github.com/weilbith/nvim-code-action-menu"
   },
   ["nvim-colorizer.lua"] = {
     loaded = false,
@@ -215,6 +223,12 @@ _G.packer_plugins = {
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["trouble.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
+  },
   ["twilight.nvim"] = {
     loaded = false,
     needs_bufread = false,
@@ -261,6 +275,12 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file CodeActionMenu lua require("packer.load")({'nvim-code-action-menu'}, { cmd = "CodeActionMenu", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
@@ -277,5 +297,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

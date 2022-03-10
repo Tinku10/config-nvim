@@ -52,11 +52,11 @@ require('gitsigns').setup {
   status_formatter = nil, -- Use default
   max_file_length = 40000,
   preview_config = {
-    -- Options passed to nvim_open_win
-    border = 'none',
+    -- Options pssed to vim_open_win
+    border = "none",
     style = 'minimal',
     relative = 'cursor',
-    row = 0,
+    row = 1,
     col = 1
   },
   yadm = {

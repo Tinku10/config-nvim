@@ -116,7 +116,7 @@ return require('packer').startup({function()
   }
 
   use {
-    'folke/lsp-trouble.nvim',
+    'folke/trouble.nvim',
     opt = true,
     requires = "kyazdani42/nvim-web-devicons"
   }
@@ -139,6 +139,16 @@ return require('packer').startup({function()
   }
 
    use "lukas-reineke/indent-blankline.nvim"
+
+   use {
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
+   } 
+
+   use {
+     'p00f/godbolt.nvim',
+     opt = true
+   }
   
 	end 
 })
