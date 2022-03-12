@@ -1,24 +1,6 @@
 local lsp = require('feline.providers.lsp')
 
-local colors = {
-  bg = "#3c3836",
-  fg = "#81A1C1",
-  line_bg = "#3c3836",
-  lbg = "#3c3836",
-  fg_green = "#8FBCBB",
-  yellow = "#fabd2f",
-  cyan = "#A3BE8C",
-  darkblue = "#81A1C1",
-  green = "#689d6a",
-  orange = "#fe8019",
-  purple = "#d3869b",
-  magenta = "#BF616A",
-  gray = "#616E88",
-  blue = "#83a598",
-  red = "#cc241d",
-  white = "#d5a4c1",
-  black = "#282828"
-}
+local colors = require("colors").colors
 
 -- colors for different vim modes
 local mode_color = {
@@ -132,7 +114,7 @@ table.insert(components.active[1], {
   hl = function()
       local val = {}
       val.fg = mode_color[vim.fn.mode()]
-      val.bg = colors['line_bg']
+      val.bg = colors['bg']
       val.style = 'bold'
 
       return val
@@ -140,15 +122,15 @@ table.insert(components.active[1], {
   right_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   },
   left_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   }
   -- hl = {
@@ -169,7 +151,7 @@ table.insert(components.active[1], {
   hl = {
     -- name = colors['yellow'],
     fg = colors['yellow'],
-    bg = colors['line_bg'],
+    bg = colors['bg'],
     style = 'bold'
   },
   icon = ''
@@ -188,21 +170,21 @@ table.insert(components.active[3], {
   icon = ' ',
   hl = {
     fg = colors['green'],
-    bg = colors['line_bg'],
+    bg = colors['bg'],
     style = 'bold'
   },
   right_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   },
   left_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   }
 })
@@ -211,22 +193,22 @@ table.insert(components.active[3], {
   -- Component info here
   provider = 'file_type',
   hl = {
-    fg = colors['blue'],
-    bg = colors['line_bg'],
+    fg = colors['lightblue'],
+    bg = colors['bg'],
     -- style = 'bold'
   },
   right_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   },
   left_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   }
 })
@@ -236,7 +218,7 @@ table.insert(components.active[3], {
 --     provider = 'file_encoding',
 --     hl = {
 --       fg = colors['blue'],
---       bg = colors['line_bg'],
+--       bg = colors['bg'],
 --       -- style = 'bold'
 --     },
 --     left_sep = '  ',
@@ -247,7 +229,7 @@ table.insert(components.active[3], {
 --   provider = 'git_diff_added',
 --   hl = {
 --     fg = colors['green'],
---     bg = colors['line_bg']
+--     bg = colors['bg']
 --   }
 -- })
 
@@ -255,7 +237,7 @@ table.insert(components.active[3], {
 --   provider = 'git_diff_changed',
 --   hl = {
 --     fg = colors['yellow'],
---     bg = colors['line_bg']
+--     bg = colors['bg']
 --   }
 -- })
 
@@ -263,7 +245,7 @@ table.insert(components.active[3], {
 --   provider = 'git_diff_removed',
 --   hl = {
 --     fg = colors['orange'],
---     bg = colors['line_bg']
+--     bg = colors['bg']
 --   }
 -- })
 
@@ -272,20 +254,20 @@ table.insert(components.active[3], {
   icon = ' ',
   hl = {
     fg = colors['orange'],
-    bg = colors['line_bg']
+    bg = colors['bg']
   },
   right_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   },
   left_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   }
 })
@@ -295,20 +277,20 @@ table.insert(components.active[3], {
   icon = ' ',
   hl = {
     fg = colors['yellow'],
-    bg = colors['line_bg']
+    bg = colors['bg']
   },
   right_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   },
   left_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   }
 })
@@ -317,21 +299,21 @@ table.insert(components.active[3], {
   provider = 'diagnostic_hints',
   icon = ' ',
   hl = {
-    fg = colors['blue'],
-    bg = colors['line_bg']
+    fg = colors['lightblue'],
+    bg = colors['bg']
   },
   right_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   },
   left_sep = {
     str = ' ',
     hl = {
-      fg = colors['line_bg'],
-      bg = colors['line_bg']
+      fg = colors['bg'],
+      bg = colors['bg']
     }
   }
 })
@@ -341,7 +323,7 @@ table.insert(components.active[3], {
 --   provider = 'position',
 --   hl = {
 --     fg = colors['green'],
---     bg = colors['line_bg']
+--     bg = colors['bg']
 --   },
 --   left_sep = '  ',
 --   right_sep = '  '
