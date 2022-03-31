@@ -249,74 +249,74 @@ table.insert(components.active[3], {
 --   }
 -- })
 
-table.insert(components.active[3], {
-  provider = 'diagnostic_errors',
-  icon = ' ',
-  hl = {
-    fg = colors['orange'],
-    bg = colors['bg']
-  },
-  right_sep = {
-    str = ' ',
-    hl = {
-      fg = colors['bg'],
-      bg = colors['bg']
-    }
-  },
-  left_sep = {
-    str = ' ',
-    hl = {
-      fg = colors['bg'],
-      bg = colors['bg']
-    }
-  }
-})
+-- table.insert(components.active[3], {
+--   provider = 'diagnostic_errors',
+--   icon = ' ',
+--   hl = {
+--     fg = colors['orange'],
+--     bg = colors['bg']
+--   },
+--   right_sep = {
+--     str = ' ',
+--     hl = {
+--       fg = colors['bg'],
+--       bg = colors['bg']
+--     }
+--   },
+--   left_sep = {
+--     str = ' ',
+--     hl = {
+--       fg = colors['bg'],
+--       bg = colors['bg']
+--     }
+--   }
+-- })
 
-table.insert(components.active[3], {
-  provider = 'diagnostic_warnings',
-  icon = ' ',
-  hl = {
-    fg = colors['yellow'],
-    bg = colors['bg']
-  },
-  right_sep = {
-    str = ' ',
-    hl = {
-      fg = colors['bg'],
-      bg = colors['bg']
-    }
-  },
-  left_sep = {
-    str = ' ',
-    hl = {
-      fg = colors['bg'],
-      bg = colors['bg']
-    }
-  }
-})
+-- table.insert(components.active[3], {
+--   provider = 'diagnostic_warnings',
+--   icon = ' ',
+--   hl = {
+--     fg = colors['yellow'],
+--     bg = colors['bg']
+--   },
+--   right_sep = {
+--     str = ' ',
+--     hl = {
+--       fg = colors['bg'],
+--       bg = colors['bg']
+--     }
+--   },
+--   left_sep = {
+--     str = ' ',
+--     hl = {
+--       fg = colors['bg'],
+--       bg = colors['bg']
+--     }
+--   }
+-- })
 
-table.insert(components.active[3], {
-  provider = 'diagnostic_hints',
-  icon = ' ',
-  hl = {
-    fg = colors['lightblue'],
-    bg = colors['bg']
-  },
-  right_sep = {
-    str = ' ',
-    hl = {
-      fg = colors['bg'],
-      bg = colors['bg']
-    }
-  },
-  left_sep = {
-    str = ' ',
-    hl = {
-      fg = colors['bg'],
-      bg = colors['bg']
-    }
-  }
-})
+-- table.insert(components.active[3], {
+--   provider = 'diagnostic_hints',
+--   icon = ' ',
+--   hl = {
+--     fg = colors['lightblue'],
+--     bg = colors['bg']
+--   },
+--   right_sep = {
+--     str = ' ',
+--     hl = {
+--       fg = colors['bg'],
+--       bg = colors['bg']
+--     }
+--   },
+--   left_sep = {
+--     str = ' ',
+--     hl = {
+--       fg = colors['bg'],
+--       bg = colors['bg']
+--     }
+--   }
+-- })
 
 
 -- table.insert(components.active[3], {
