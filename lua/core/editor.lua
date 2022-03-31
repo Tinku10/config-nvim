@@ -34,6 +34,7 @@ vim.o.pastetoggle = '<F2>'
 vim.o.colorcolumn = '80'
 vim.o.wildignore = vim.o.wildignore .. vim.fn.stdpath('config') .. '/undodir/*'
 vim.opt.shortmess:append({ c = true })
+vim.o.laststatus = 3
 
 
 -- vim variables (:let)

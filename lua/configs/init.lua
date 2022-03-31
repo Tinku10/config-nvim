@@ -8,25 +8,35 @@
 -- NOTE: names must begin with configs followed by the name of the folder the
 -- plugin is placed in.
 
-vim.cmd('source ' .. vim.fn.stdpath('config') .. '/lua/configs/gruvbox.vim')
-vim.cmd('source ' .. vim.fn.stdpath('config') .. '/lua/configs/undotree.vim')
+vim.cmd("source " .. vim.fn.stdpath("config") .. "/lua/configs/gruvbox.vim")
+vim.cmd("source " .. vim.fn.stdpath("config") .. "/lua/configs/undotree.vim")
 
-require "configs.lspinstall"
-require "configs.nvimtree"
-require "configs.telescope"
-require "configs.treesitter"
-require "configs.completion"
-require "configs.diffview"
-require "configs.icons"
-require "configs.statusline"
-require "configs.whichkey"
-require "configs.dashboard"
-require "configs.autopairs"
-require "configs.colorizer"
-require "configs.trouble"
-require "configs.zenmode"
-require "configs.dim"
-require "configs.git"
-require "configs.gitsigns"
-require "configs.indentmarkers"
-require "configs.godbolt"
+local configs = {
+	"lspinstall",
+	"nvimtree",
+	"telescope",
+	"treesitter",
+	"completion",
+	"diffview",
+	"icons",
+	"statusline",
+	"whichkey",
+	"autopairs",
+	"colorizer",
+	"git",
+	"gitsigns",
+	"indentmarkers",
+	"org",
+  -- "dashboard",
+  -- "trouble",
+  -- "zenmode",
+  -- "dim",
+  -- "godbolt"
+}
+
+for _, src in ipairs(configs) do
+  local status, err = pcall(require, "configs." .. src)
+  if not status then
+    print("[CONFIG] Error loading " .. src)
+  end
+end
