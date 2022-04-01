@@ -49,8 +49,8 @@ lsp_installer.settings {
 
 lsp_installer.on_server_ready(function (server)
     server:setup {
-      on_attach = require('lsp').on_attach,
+      on_attach = require('core.lsp').on_attach,
       capabilities = capabilities
     }
-  vim.cmd [[ do User LspAttachBuffers ]]
+  -- vim.cmd [[ do User LspAttachBuffers ]]
 end)

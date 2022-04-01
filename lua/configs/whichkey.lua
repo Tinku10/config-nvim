@@ -1,6 +1,6 @@
 vim.cmd [[ packadd which-key.nvim ]]
 
-settings = require("user-settings")
+local settings = require("core.user-settings")
 
 require("which-key").setup {
   plugins = {

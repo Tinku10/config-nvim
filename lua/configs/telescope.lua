@@ -1,4 +1,4 @@
-settings = require('user-settings')
+settings = require('core.user-settings')
 
 require('telescope').setup{
   defaults = {

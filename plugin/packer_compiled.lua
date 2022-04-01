@@ -79,12 +79,6 @@ _G.packer_plugins = {
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["dashboard-nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/dashboard-nvim",
-    url = "https://github.com/glepnir/dashboard-nvim"
-  },
   ["diffview.nvim"] = {
     loaded = false,
     needs_bufread = false,
@@ -100,12 +94,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["godbolt.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/godbolt.nvim",
-    url = "https://github.com/p00f/godbolt.nvim"
   },
   gruvbox = {
     loaded = true,
@@ -132,6 +120,11 @@ _G.packer_plugins = {
     needs_bufread = true,
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/neogit",
     url = "https://github.com/TimUntersberger/neogit"
+  },
+  neorg = {
+    loaded = true,
+    path = "/Users/tinku/.local/share/nvim/site/pack/packer/start/neorg",
+    url = "https://github.com/nvim-neorg/neorg"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -223,18 +216,6 @@ _G.packer_plugins = {
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["trouble.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim"
-  },
-  ["twilight.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/twilight.nvim",
-    url = "https://github.com/folke/twilight.nvim"
-  },
   undotree = {
     loaded = true,
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/start/undotree",
@@ -265,12 +246,6 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
-  },
-  ["zen-mode.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/tinku/.local/share/nvim/site/pack/packer/opt/zen-mode.nvim",
-    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
@@ -285,11 +260,11 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "html" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "css" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "javascript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-colorizer.lua'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

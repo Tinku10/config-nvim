@@ -1,4 +1,4 @@
-settings = require"user-settings"
+local settings = require"core.user-settings"
 
 -- custom telescope commands
 vim.api.nvim_set_keymap("n", '<leader>fd', '<cmd> lua require("configs.telescope").dotfiles()<cr>', {noremap = true})

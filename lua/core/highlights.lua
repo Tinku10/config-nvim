@@ -1,4 +1,4 @@
-local colors = require("colors").colors
+local colors = require("core.colors").colors
 
 local hi_fg = function (group, col)
    vim.cmd("hi " .. group .. " guifg=" .. col)

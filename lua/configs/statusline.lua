@@ -1,6 +1,6 @@
 local lsp = require('feline.providers.lsp')
 
-local colors = require("colors").colors
+local colors = require("core.colors").colors
 
 -- colors for different vim modes
 local mode_color = {
