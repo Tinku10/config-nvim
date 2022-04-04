@@ -6,8 +6,9 @@ local configs = {
   "lsp",
   "plugins",
   "colors",
-  "user-settings",
-  "highlights"
+  "user",
+  "highlights",
+  "autocommands"
 }
 
 for _, src in ipairs(configs) do

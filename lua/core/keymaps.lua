@@ -1,8 +1,8 @@
-local settings = require"core.user-settings"
+local settings = require"core.user"
 
 -- custom telescope commands
-vim.api.nvim_set_keymap("n", '<leader>fd', '<cmd> lua require("configs.telescope").dotfiles()<cr>', {noremap = true})
-vim.api.nvim_set_keymap("n", '<leader>fa', '<cmd> lua require("configs.telescope").anyjump()<cr>', {noremap = true})
+vim.api.nvim_set_keymap("n", '<leader>fd', '<cmd> lua require("configs.telescope").dotfiles()<cr>', {noremap = true, desc = "list dotfiles"})
+vim.api.nvim_set_keymap("n", '<leader>fa', '<cmd> lua require("configs.telescope").anyjump()<cr>', {noremap = true, desc = "anyjump"})
 vim.api.nvim_set_keymap('n', '<leader>ps', ':lua require("telescope.builtin").grep_string({search = vim.fn.input("Grep for > ")})<cr>', {noremap = true})
 vim.api.nvim_set_keymap("n", '<leader>fl', '<cmd> lua require("configs.telescope").content_selector(settings.paths.dsa)<cr>', {noremap = true})
 
@@ -53,7 +53,7 @@ vim.api.nvim_set_keymap('n', 'tno', ":Telescope loclist<CR>", {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>ts', ':TSPlaygroundToggle<cr>', { noremap = true, silent = true })
 
 -- trim white space
-vim.api.nvim_set_keymap('n', 'tw', ':lua require("settings.editor").trim_white_space()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'tw', ':lua require("core.helpers").trim_white_space()<CR>', { noremap = true, silent = true })
 
 -- codeaction menu
 vim.api.nvim_set_keymap('n', '<leader>ca', ":CodeActionMenu", {noremap = true})
