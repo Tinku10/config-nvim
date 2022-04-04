@@ -19,6 +19,7 @@ vim.o.smartcase = true
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undodir = vim.fn.stdpath("config") .. "/undodir"
+vim.o.undofile = true
 vim.o.incsearch = true
 vim.o.showtabline = 1
 vim.o.scrolloff = 8
