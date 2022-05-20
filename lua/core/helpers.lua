@@ -1,12 +1,11 @@
 -- helper function to be used in several modules
 
-local a = require "plenary.async"
-
 local M = {}
 
 M.trim_white_space = function()
 	local current_view = vim.fn.winsaveview()
   vim.cmd[[%s/\s\+$//e]]
+  vim.cmd("nohl")
 	vim.fn.winrestview(current_view)
 end
 

@@ -39,7 +39,7 @@ return require("packer").startup({
 		})
 
 		use({
-			"famiu/feline.nvim",
+			"feline-nvim/feline.nvim",
 			requires = {
 				{ "kyazdani42/nvim-web-devicons" },
 			},
@@ -170,8 +170,20 @@ return require("packer").startup({
 			requires = "nvim-lua/plenary.nvim",
 		})
 
+    use({
+      'ggandor/lightspeed.nvim',
+      requires = "tpope/vim-repeat"
+    })
+
 		if packer_bootstrap then
 			require("packer").sync()
 		end
 	end,
+
+  config = {
+    profile = {
+      enable = true,
+      threshold = 1 -- the amount in ms that a plugins load time must be over for it to be included in the profile
+    }
+  }
 })

@@ -1,5 +1,5 @@
 require 'nvim-treesitter.configs'.setup{
-  ensure_installed = 'maintained',
+  ensure_installed = {"c", "cpp", "python", "lua"},
   highlight = {enable = true},
   playground = {
     enable = true,
