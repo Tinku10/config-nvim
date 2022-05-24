@@ -73,7 +73,8 @@ return require("packer").startup({
 
 		use("windwp/nvim-autopairs")
 
-		use("gruvbox-community/gruvbox")
+    use("ellisonleao/gruvbox.nvim")
+		-- use("gruvbox-community/gruvbox")
 
 		use({
 			"tpope/vim-surround",
