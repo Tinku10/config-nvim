@@ -1,7 +1,7 @@
 vim.cmd [[ packadd neogit ]]
 
 require("neogit").setup {
-  disable_signs = false,
+  disable_signs = true,
   disable_hint = true,
   disable_context_highlighting = false,
   disable_commit_confirmation = true,
@@ -46,7 +46,7 @@ require("neogit").setup {
       folded = false
     },
     staged = {
-      folded = true
+      folded = false
     },
     stashes = {
       folded = true

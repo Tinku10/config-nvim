@@ -107,6 +107,15 @@ table.insert(components.active, {})
 
 -- Insert a component that will be on the left side of the statusline
 -- when the window is active:
+--
+table.insert(components.active[1], {
+  provider = ' ',
+  hl = {
+    fg = colors['bg'],
+    bg = colors['bg']
+  }
+})
+
 table.insert(components.active[1], {
   provider = function()
     return modes[vim.fn.mode()]
@@ -120,24 +129,12 @@ table.insert(components.active[1], {
       return val
   end,
   right_sep = {
-    str = ' ',
+    str = ' ' .. '' .. ' ',
     hl = {
-      fg = colors['bg'],
+      fg = mode_color[vim.fn.mode()],
       bg = colors['bg']
     }
   },
-  left_sep = {
-    str = ' ',
-    hl = {
-      fg = colors['bg'],
-      bg = colors['bg']
-    }
-  }
-  -- hl = {
-  --   name = require('feline.providers.vi_mode').get_mode_highlight_name(),
-  --   fg = mode_color[require('feline.providers.vi_mode').get_mode_highlight_name()],
-  --   style = 'bold'
-  -- }
 })
 
 table.insert(components.active[1], {
@@ -154,6 +151,13 @@ table.insert(components.active[1], {
     bg = colors['bg'],
     style = 'bold'
   },
+  right_sep = {
+    str = ' ' .. '' .. ' ',
+    hl = {
+      fg = colors['yellow'],
+      bg = colors['bg']
+    }
+  },
   icon = ''
 })
 -- Insert a component that will be on the middle of the statusline
@@ -164,6 +168,8 @@ table.insert(components.active[1], {
 
 -- Insert a component that will be on the right side of the statusline
 -- when the window is active:
+--
+
 table.insert(components.active[3], {
   -- Component info here
   provider = 'git_branch',
@@ -173,17 +179,25 @@ table.insert(components.active[3], {
     bg = colors['bg'],
     style = 'bold'
   },
-  right_sep = {
-    str = ' ',
+  left_sep = {
+    str = ' ' .. '' .. ' ',
     hl = {
-      fg = colors['bg'],
+      fg = colors['green'],
       bg = colors['bg']
     }
+  }
+})
+
+table.insert(components.active[3], {
+  provider = 'position',
+  hl = {
+    fg = colors['purple'],
+    bg = colors['bg']
   },
   left_sep = {
-    str = ' ',
+    str = ' ' .. '' .. ' ',
     hl = {
-      fg = colors['bg'],
+      fg = colors['purple'],
       bg = colors['bg']
     }
   }
@@ -197,19 +211,20 @@ table.insert(components.active[3], {
     bg = colors['bg'],
     -- style = 'bold'
   },
-  right_sep = {
-    str = ' ',
-    hl = {
-      fg = colors['bg'],
-      bg = colors['bg']
-    }
-  },
   left_sep = {
-    str = ' ',
+    str = ' ' .. '' .. ' ',
     hl = {
-      fg = colors['bg'],
+      fg = colors['lightblue'],
       bg = colors['bg']
     }
+  }
+})
+
+table.insert(components.active[3], {
+  provider = ' ',
+  hl = {
+    fg = colors['bg'],
+    bg = colors['bg']
   }
 })
 
@@ -256,13 +271,6 @@ table.insert(components.active[3], {
 --     fg = colors['orange'],
 --     bg = colors['bg']
 --   },
---   right_sep = {
---     str = ' ',
---     hl = {
---       fg = colors['bg'],
---       bg = colors['bg']
---     }
---   },
 --   left_sep = {
 --     str = ' ',
 --     hl = {
@@ -278,13 +286,6 @@ table.insert(components.active[3], {
 --   hl = {
 --     fg = colors['yellow'],
 --     bg = colors['bg']
---   },
---   right_sep = {
---     str = ' ',
---     hl = {
---       fg = colors['bg'],
---       bg = colors['bg']
---     }
 --   },
 --   left_sep = {
 --     str = ' ',
@@ -302,13 +303,6 @@ table.insert(components.active[3], {
 --     fg = colors['lightblue'],
 --     bg = colors['bg']
 --   },
---   right_sep = {
---     str = ' ',
---     hl = {
---       fg = colors['bg'],
---       bg = colors['bg']
---     }
---   },
 --   left_sep = {
 --     str = ' ',
 --     hl = {
@@ -318,16 +312,6 @@ table.insert(components.active[3], {
 --   }
 -- })
 
-
--- table.insert(components.active[3], {
---   provider = 'position',
---   hl = {
---     fg = colors['green'],
---     bg = colors['bg']
---   },
---   left_sep = '  ',
---   right_sep = '  '
--- })
 
 require('feline').setup ({
   colors = colors,
