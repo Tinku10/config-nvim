@@ -68,6 +68,33 @@ require 'nvim-treesitter.configs'.setup{
     --     comment = '// %s'
     --   }
     -- }
+  },
+  context = {
+    enable = true,
+    max_lines = 2,
+    patterns = {
+    default = {
+        'class',
+        'function',
+        'method',
+        -- 'for', -- These won't appear in the context
+        -- 'while',
+        -- 'if',
+        -- 'switch',
+        -- 'case',
+    },
+    -- Example for a specific filetype.
+    -- If a pattern is missing, *open a PR* so everyone can benefit.
+    --   rust = {
+    --       'impl_item',
+    --   },
+    },
+    exact_patterns = {
+        -- Example for a specific filetype with Lua patterns
+        -- Treat patterns.rust as a Lua pattern (i.e "^impl_item$" will
+        -- exactly match "impl_item" only)
+        -- rust = true,
+    },
   }
 }
 

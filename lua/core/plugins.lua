@@ -34,6 +34,8 @@ return require("packer").startup({
 				{ "nvim-treesitter/nvim-treesitter-refactor" },
 				{ "nvim-treesitter/playground" },
 				"JoosepAlviste/nvim-ts-context-commentstring",
+        'nvim-treesitter/nvim-treesitter-context'
+
 			},
 			run = ":TSUpdate",
 		})
