@@ -130,10 +130,14 @@ table.insert(components.active[1], {
   end,
   right_sep = {
     str = ' ' .. '' .. ' ',
-    hl = {
-      fg = mode_color[vim.fn.mode()],
-      bg = colors['bg']
-    }
+    hl = function()
+        local val = {}
+        val.fg = mode_color[vim.fn.mode()]
+        val.bg = colors['bg']
+        val.style = 'bold'
+
+        return val
+    end,
   },
 })
 

@@ -16,6 +16,7 @@ require'nvim-tree'.setup {
   reload_on_bufenter = false,
   respect_buf_cwd = false,
   view = {
+    adaptive_size = false,
     width = 30,
     height = 30,
     hide_root_folder = false,
@@ -123,6 +124,9 @@ require'nvim-tree'.setup {
       global = false,
       restrict_above_cwd = false,
     },
+    expand_all = {
+      max_folder_discovery = 300,
+    },
     open_file = {
       quit_on_open = true,
       resize_window = true,
@@ -134,6 +138,9 @@ require'nvim-tree'.setup {
           buftype = { "nofile", "terminal", "help" },
         },
       },
+    },
+    remove_file = {
+      close_window = true,
     },
   },
   trash = {

@@ -2,12 +2,11 @@ require("neorg").setup {
   load = {
     ["core.defaults"] = {},
     ["core.norg.concealer"] = {},
-    ["core.norg.completion"] = {},
-    ["core.integrations.nvim-cmp"] = {
+    ["core.norg.completion"] = {
       config = { -- Note that this table is optional and doesn't need to be provided
-          -- Configuration here
+      -- Configuration here
       }
-    }
+    },
     -- ["core.norg.dirman"] = {
     --   config = {
     --   workspaces = {
