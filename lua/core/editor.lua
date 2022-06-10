@@ -16,6 +16,7 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 vim.o.nu = true
 vim.o.smartcase = true
+-- vim.o.ignorecase = true
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undodir = vim.fn.stdpath("config") .. "/undodir"
@@ -36,6 +37,7 @@ vim.o.colorcolumn = "80"
 vim.o.wildignore = vim.o.wildignore .. vim.fn.stdpath("config") .. "/undodir/*"
 vim.opt.shortmess:append({ c = true })
 vim.o.laststatus = 3
+vim.o.scrolloff = 999
 
 -- vim variables (:let)
 vim.g.mapleader = " "
