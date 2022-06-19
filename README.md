@@ -1,15 +1,15 @@
 <!-- <center>
 <h2>Neovim Configs</h2> -->
-<h1 align="center"><strong>LightNvim</strong></h1>
+<h2 align="center"><strong>Neovim Config</strong></h2>
 <!-- <img align="center" src="assets/images/logo.png"> -->
 <!-- </center> -->
 
 
-![Setup1](assets/images/setup01.png)
+![Setup1](assets/images/setup.png)
 <!-- ![Setup2](assets/images/setup02.png)
 ![Setup3](assets/images/setup03.png) -->
 
-My personal Neovim config I like to call LightNvim, pronounced ```lighten-vim```. Keep reading to know more about this project.
+This is my personal Neovim config. So, it is highly opinionated for my own convenience.
 
 <br>
 
