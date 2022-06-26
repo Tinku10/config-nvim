@@ -36,6 +36,7 @@ require'nvim-tree'.setup {
     add_trailing = false,
     group_empty = false,
     highlight_git = false,
+    full_name = true,
     highlight_opened_files = "none",
     root_folder_modifier = ":~",
     indent_markers = {
@@ -43,12 +44,13 @@ require'nvim-tree'.setup {
       icons = {
         corner = "└ ",
         edge = "│ ",
+        item = "│ ",
         none = "  ",
       },
     },
     icons = {
       webdev_colors = true,
-      git_placement = "after",
+      git_placement = "signcolumn",
       padding = " ",
       symlink_arrow = " ➛ ",
       show = {
@@ -111,6 +113,10 @@ require'nvim-tree'.setup {
     dotfiles = false,
     custom = {},
     exclude = {},
+  },
+  filesystem_watchers = {
+    enable = false,
+    interval = 100,
   },
   git = {
     enable = true,
