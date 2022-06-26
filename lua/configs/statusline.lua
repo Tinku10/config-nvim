@@ -142,7 +142,7 @@ table.insert(components.active[1], {
 		local errors = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 
 		if #errors > 0 then
-			local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+			local curr_line = vim.api.nvim_win_get_cursor(0)[1] + 1
 			next_loc = helpers.upper_bound(errors, curr_line)
 
 			if not next_loc then
@@ -181,7 +181,7 @@ table.insert(components.active[1], {
 		local warnings = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
 
 		if #warnings > 0 then
-			local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+			local curr_line = vim.api.nvim_win_get_cursor(0)[1] + 1
 			next_loc = helpers.upper_bound(warnings, curr_line)
 
 			if not next_loc then
@@ -220,7 +220,7 @@ table.insert(components.active[1], {
 		local hints = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
 
 		if #hints > 0 then
-			local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+			local curr_line = vim.api.nvim_win_get_cursor(0)[1] + 1
 			next_loc = helpers.upper_bound(hints, curr_line)
 
 			if not next_loc then
