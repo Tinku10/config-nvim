@@ -1,15 +1,13 @@
-local group = vim.api.nvim_create_augroup("group", { clear = true })
-
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "*",
   command = "startinsert",
-  group = group,
+  group = vim.api.nvim_create_augroup("group", { clear = true }),
 })
 
 vim.api.nvim_create_autocmd("BufLeave", {
   pattern = "term://*",
   command = "stopinsert",
-  group = group,
+  group = vim.api.nvim_create_augroup("group", { clear = true }),
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
