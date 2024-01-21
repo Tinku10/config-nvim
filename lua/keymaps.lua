@@ -86,7 +86,7 @@ end
 M.create_nvimtree_keymaps = function()
 	-- nvim tree
 	vim.keymap.set("n", "<F3>", ":NvimTreeToggle<cr>", { noremap = true, silent = true, desc = "Tree Toggle" })
-	vim.keymap.set("n", "<leader>v", ":NvimTreeFindFileToggle<cr>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<leader>v", ":NvimTreeFindFileToggle<cr>", { noremap = true, silent = true, desc = "File tree toggle" })
 	vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<cr>", { noremap = true, silent = true })
 end
 
