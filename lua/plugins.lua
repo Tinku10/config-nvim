@@ -37,7 +37,7 @@ require("lazy").setup({
         clangd = {},
         gopls = {},
         pyright = {},
-        -- rust_analyzer = {},
+        rust_analyzer = {},
         -- tsserver = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
@@ -67,7 +67,6 @@ require("lazy").setup({
 
       mason_lspconfig.setup_handlers({
         function(server_name)
-          print(server_name)
           require("lspconfig")[server_name].setup({
             capabilities = capabilities,
             on_attach = require("keymaps").create_lsp_keymaps,
@@ -89,6 +88,7 @@ require("lazy").setup({
     config = function()
       local cmp = require("cmp")
       cmp.setup({
+        preselect = 'None',
         snippet = {
           expand = function(args)
             -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
@@ -100,7 +100,7 @@ require("lazy").setup({
         mapping = {
           ["<C-d>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
+          -- ["<CR>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.close(),
           ["<C-y>"] = cmp.config.disable, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -200,7 +200,13 @@ require("lazy").setup({
 			{ "kyazdani42/nvim-web-devicons" },
 		},
 		config = function()
-			require("nvim-tree").setup()
+			require("nvim-tree").setup({
+        actions = {
+          open_file = {
+            quit_on_open = true
+          }
+        }
+      })
       require("keymaps").create_nvimtree_keymaps()
 		end,
 	},
@@ -227,16 +233,24 @@ require("lazy").setup({
 	-- 		vim.cmd([[colorscheme gruvbox]])
 	-- 	end,
 	-- },
+	-- {
+    -- "rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme kanagawa")
+	-- 	end,
+	-- },
 	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		opts = {
-			variant = "moon",
-		},
+    "aktersnurra/no-clown-fiesta.nvim",
 		config = function()
-			vim.cmd("colorscheme rose-pine")
+			vim.cmd("colorscheme no-clown-fiesta")
 		end,
 	},
+  -- {
+  --   "rose-pine/neovim", name = "rose-pine",
+  --   config = function()
+  --     vim.cmd("colorscheme rose-pine")
+  --   end,
+  -- },
 	{
 		"tpope/vim-surround",
 	},
@@ -245,15 +259,18 @@ require("lazy").setup({
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		opts = {
-			signs = {
-				add = { text = "+" },
-				change = { text = "~" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "~" },
-			},
-		},
+    config = function()
+      require("gitsigns").setup({
+        signs = {
+          add = { text = "+" },
+          change = { text = "~" },
+          delete = { text = "_" },
+          topdelete = { text = "‾" },
+          changedelete = { text = "~" },
+        },
+        on_attach = require("keymaps").create_gitsigns_keymaps
+      })
+    end
 	},
 	{
 		"sbdchd/neoformat",
@@ -291,14 +308,14 @@ require("lazy").setup({
 		ft = { "html", "css", "javascript", "javascriptreact", "typescriptreact" },
 	},
 	"lukas-reineke/indent-blankline.nvim",
-	{
-		"ggandor/leap.nvim",
-		dependencies = "tpope/vim-repeat",
-		opts = {
-			safe_labels = { "s", "f", "n", "u", "t", "/", "F", "L", "N", "H", "G", "M", "U", "T", "?", "Z" },
-		},
-		config = function()
-			require("leap").add_default_mappings()
-		end,
-	},
+	-- {
+	-- 	"ggandor/leap.nvim",
+	-- 	dependencies = "tpope/vim-repeat",
+	-- 	opts = {
+	-- 		safe_labels = { "s", "f", "n", "u", "t", "/", "F", "L", "N", "H", "G", "M", "U", "T", "?", "Z" },
+	-- 	},
+	-- 	config = function()
+	-- 		require("leap").add_default_mappings()
+	-- 	end,
+	-- },
 })
