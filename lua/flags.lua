@@ -1,5 +1,5 @@
 vim.o.encoding = "UTF-8"
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 vim.o.hlsearch = true
 vim.o.hidden = true
 vim.o.errorbells = false
@@ -27,7 +27,7 @@ vim.o.updatetime = 5
 vim.o.wrap = false
 vim.o.termguicolors = true
 vim.o.pastetoggle = "<F2>"
-vim.o.colorcolumn = "80"
+vim.o.colorcolumn = ""
 vim.o.wildignore = vim.o.wildignore .. vim.o.undodir
 vim.opt.shortmess:append({ c = true })
 vim.o.laststatus = 3
