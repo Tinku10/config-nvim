@@ -38,6 +38,7 @@ require("lazy").setup({
         gopls = {},
         pyright = {},
         rust_analyzer = {},
+        bufls = {},
         -- tsserver = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
@@ -245,6 +246,12 @@ require("lazy").setup({
 			vim.cmd("colorscheme no-clown-fiesta")
 		end,
 	},
+    -- {
+    --   "mellow-theme/mellow.nvim",
+    --   config = function()
+    --     vim.cmd("colorscheme mellow")
+    --   end,
+    -- },
   -- {
   --   "rose-pine/neovim", name = "rose-pine",
   --   config = function()

@@ -130,6 +130,7 @@ M.create_telescope_keymaps = function()
   vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "Search Help" })
   vim.keymap.set("n", "<leader>gs", require("telescope.builtin").grep_string, { desc = "Grep String" })
   vim.keymap.set("n", "<leader>lg", require("telescope.builtin").live_grep, { desc = "Live Grep" })
+  vim.keymap.set("n", "<leader>ch", require("telescope.builtin").command_history, { desc = "Command History" })
 end
 
 M.create_nvimtree_keymaps = function()

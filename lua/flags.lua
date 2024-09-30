@@ -26,8 +26,10 @@ vim.o.cmdheight = 1
 vim.o.updatetime = 5
 vim.o.wrap = false
 vim.o.termguicolors = true
-vim.o.pastetoggle = "<F2>"
+-- vim.o.pastetoggle = "<F2>"
 vim.o.colorcolumn = ""
+vim.o.list = false
+vim.opt.listchars= { space = '·', tab = '→-', eol = '¬', trail = '.' }
 vim.o.wildignore = vim.o.wildignore .. vim.o.undodir
 vim.opt.shortmess:append({ c = true })
 vim.o.laststatus = 3
