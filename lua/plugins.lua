@@ -28,55 +28,55 @@ require("lazy").setup({
 			-- Additional lua configuration, makes nvim stuff amazing!
 			"folke/neodev.nvim",
 		},
-    config = function()
-      -- mason-lspconfig requires that these setup functions are called in this order
-      -- before setting up the servers.
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-      local servers = {
-        clangd = {},
-        gopls = {},
-        pyright = {},
-        rust_analyzer = {},
-        bufls = {},
-        -- tsserver = {},
-        -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+		config = function()
+			-- mason-lspconfig requires that these setup functions are called in this order
+			-- before setting up the servers.
+			require("mason").setup()
+			require("mason-lspconfig").setup()
+			local servers = {
+				clangd = {},
+				gopls = {},
+				pyright = {},
+				rust_analyzer = {},
+				bufls = {},
+				-- tsserver = {},
+				-- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
-        lua_ls = {
-          Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-            -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            diagnostics = { disable = { 'missing-fields' } },
-          },
-        },
-      }
+				lua_ls = {
+					Lua = {
+						workspace = { checkThirdParty = false },
+						telemetry = { enable = false },
+						-- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+						diagnostics = { disable = { "missing-fields" } },
+					},
+				},
+			}
 
-      -- Setup neovim lua configuration
-      require("neodev").setup()
+			-- Setup neovim lua configuration
+			require("neodev").setup()
 
-      -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+			-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-      -- Ensure the servers above are installed
-      local mason_lspconfig = require("mason-lspconfig")
+			-- Ensure the servers above are installed
+			local mason_lspconfig = require("mason-lspconfig")
 
-      mason_lspconfig.setup({
-        ensure_installed = vim.tbl_keys(servers),
-      })
+			mason_lspconfig.setup({
+				ensure_installed = vim.tbl_keys(servers),
+			})
 
-      mason_lspconfig.setup_handlers({
-        function(server_name)
-          require("lspconfig")[server_name].setup({
-            capabilities = capabilities,
-            on_attach = require("keymaps").create_lsp_keymaps,
-            settings = servers[server_name],
-            filetypes = (servers[server_name] or {}).filetypes,
-          })
-        end,
-      })
-    end
+			mason_lspconfig.setup_handlers({
+				function(server_name)
+					require("lspconfig")[server_name].setup({
+						capabilities = capabilities,
+						on_attach = require("keymaps").create_lsp_keymaps,
+						settings = servers[server_name],
+						filetypes = (servers[server_name] or {}).filetypes,
+					})
+				end,
+			})
+		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
@@ -86,64 +86,64 @@ require("lazy").setup({
 			"neovim/nvim-lspconfig",
 			"onsails/lspkind-nvim",
 		},
-    config = function()
-      local cmp = require("cmp")
-      cmp.setup({
-        preselect = 'None',
-        snippet = {
-          expand = function(args)
-            -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-            -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
-          end,
-        },
-        mapping = {
-          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          -- ["<CR>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.close(),
-          ["<C-y>"] = cmp.config.disable, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
-          -- ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
-          ["<Tab>"] = function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            else
-              fallback()
-            end
-          end,
-          ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
-        },
-        sources = cmp.config.sources({
-          { name = "nvim_lua" },
-          { name = "nvim_lsp" },
-          { name = "nvim_lsp_signature_help" },
-        }, {
-          { name = "buffer" },
-        }),
-        formatting = {
-          format = require("lspkind").cmp_format({
-            with_text = true,
-            maxwidth = 50,
-            menu = {
-              buffer = "[Buffer]",
-              nvim_lsp = "[LSP]",
-              luasnip = "[LuaSnip]",
-              nvim_lua = "[Lua]",
-              latex_symbols = "[Latex]",
-            },
-          }),
-        },
-        completion = {
-          completeopt = "menuone,noinsert,noselect",
-        },
-        experimental = {
-          ghost_text = true,
-          native_menu = false,
-        },
-      })
-    end
+		config = function()
+			local cmp = require("cmp")
+			cmp.setup({
+				preselect = "None",
+				snippet = {
+					expand = function(args)
+						-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+						-- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+						-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+						-- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+					end,
+				},
+				mapping = {
+					["<C-d>"] = cmp.mapping.scroll_docs(-4),
+					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					-- ["<CR>"] = cmp.mapping.complete(),
+					["<C-e>"] = cmp.mapping.close(),
+					["<C-y>"] = cmp.config.disable, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					-- ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+					["<Tab>"] = function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						else
+							fallback()
+						end
+					end,
+					["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
+				},
+				sources = cmp.config.sources({
+					{ name = "nvim_lua" },
+					{ name = "nvim_lsp" },
+					{ name = "nvim_lsp_signature_help" },
+				}, {
+					{ name = "buffer" },
+				}),
+				formatting = {
+					format = require("lspkind").cmp_format({
+						with_text = true,
+						maxwidth = 50,
+						menu = {
+							buffer = "[Buffer]",
+							nvim_lsp = "[LSP]",
+							luasnip = "[LuaSnip]",
+							nvim_lua = "[Lua]",
+							latex_symbols = "[Latex]",
+						},
+					}),
+				},
+				completion = {
+					completeopt = "menuone,noinsert,noselect",
+				},
+				experimental = {
+					ghost_text = true,
+					native_menu = false,
+				},
+			})
+		end,
 	},
 
 	{
@@ -174,7 +174,7 @@ require("lazy").setup({
 				highlight = { enable = true },
 				indent = { enable = true },
 			})
-      require("keymaps").create_treesitter_keymaps()
+			require("keymaps").create_treesitter_keymaps()
 		end,
 		build = ":TSUpdate",
 	},
@@ -191,9 +191,9 @@ require("lazy").setup({
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzy-native.nvim" },
 		},
-    config = function()
-      require("keymaps").create_telescope_keymaps()
-    end
+		config = function()
+			require("keymaps").create_telescope_keymaps()
+		end,
 	},
 	{
 		"kyazdani42/nvim-tree.lua",
@@ -202,13 +202,13 @@ require("lazy").setup({
 		},
 		config = function()
 			require("nvim-tree").setup({
-        actions = {
-          open_file = {
-            quit_on_open = true
-          }
-        }
-      })
-      require("keymaps").create_nvimtree_keymaps()
+				actions = {
+					open_file = {
+						quit_on_open = true,
+					},
+				},
+			})
+			require("keymaps").create_nvimtree_keymaps()
 		end,
 	},
 	{
@@ -216,16 +216,13 @@ require("lazy").setup({
 	},
 	{
 		"windwp/nvim-autopairs",
-    event = "InsertEnter",
+		event = "InsertEnter",
 		config = function()
-      require("nvim-autopairs").setup()
-      -- If you want insert `(` after select function or method item
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local cmp = require('cmp')
-      cmp.event:on(
-        'confirm_done',
-        cmp_autopairs.on_confirm_done()
-      )
+			require("nvim-autopairs").setup()
+			-- If you want insert `(` after select function or method item
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			local cmp = require("cmp")
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
 	-- {
@@ -235,29 +232,43 @@ require("lazy").setup({
 	-- 	end,
 	-- },
 	-- {
-    -- "rebelot/kanagawa.nvim",
+	-- "rebelot/kanagawa.nvim",
 	-- 	config = function()
 	-- 		vim.cmd("colorscheme kanagawa")
 	-- 	end,
 	-- },
 	{
-    "aktersnurra/no-clown-fiesta.nvim",
+		"aktersnurra/no-clown-fiesta.nvim",
 		config = function()
 			vim.cmd("colorscheme no-clown-fiesta")
 		end,
 	},
-    -- {
-    --   "mellow-theme/mellow.nvim",
-    --   config = function()
-    --     vim.cmd("colorscheme mellow")
-    --   end,
-    -- },
-  -- {
-  --   "rose-pine/neovim", name = "rose-pine",
-  --   config = function()
-  --     vim.cmd("colorscheme rose-pine")
-  --   end,
-  -- },
+	{
+		"mellow-theme/mellow.nvim",
+		config = function()
+			local variants = require("mellow.colors")
+			local cfg = require("mellow.config").config
+			local c = variants[cfg.variant]
+
+			vim.cmd("colorscheme mellow")
+
+			-- Default values hides the text
+			vim.api.nvim_set_hl(0, "NeogitDiffAddHighlight", { fg = c.bg, bg = c.green })
+			vim.api.nvim_set_hl(0, "NeogitDiffDeleteHighlight", { fg = c.bg, bg = c.red })
+		end,
+	},
+	-- {
+	-- "samharju/serene.nvim",
+	-- config = function()
+	-- vim.cmd.colorscheme("serene")
+	-- end
+	-- },
+	-- {
+	--   "rose-pine/neovim", name = "rose-pine",
+	--   config = function()
+	--     vim.cmd("colorscheme rose-pine")
+	--   end,
+	-- },
 	{
 		"tpope/vim-surround",
 	},
@@ -266,18 +277,18 @@ require("lazy").setup({
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup({
-        signs = {
-          add = { text = "+" },
-          change = { text = "~" },
-          delete = { text = "_" },
-          topdelete = { text = "‾" },
-          changedelete = { text = "~" },
-        },
-        on_attach = require("keymaps").create_gitsigns_keymaps
-      })
-    end
+		config = function()
+			require("gitsigns").setup({
+				signs = {
+					add = { text = "+" },
+					change = { text = "~" },
+					delete = { text = "_" },
+					topdelete = { text = "‾" },
+					changedelete = { text = "~" },
+				},
+				on_attach = require("keymaps").create_gitsigns_keymaps,
+			})
+		end,
 	},
 	{
 		"sbdchd/neoformat",
@@ -292,7 +303,7 @@ require("lazy").setup({
 		dependencies = "nvim-lua/plenary.nvim",
 		config = function()
 			require("neogit").setup()
-      require("keymaps").create_neogit_keymaps()
+			require("keymaps").create_neogit_keymaps()
 		end,
 	},
 	{
@@ -325,4 +336,10 @@ require("lazy").setup({
 	-- 		require("leap").add_default_mappings()
 	-- 	end,
 	-- },
+	{
+		"stevearc/oil.nvim",
+		config = function()
+			require("oil").setup()
+		end,
+	},
 })
