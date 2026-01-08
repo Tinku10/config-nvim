@@ -11,3 +11,5 @@ require("plugins")
 
 -- Set up autocmds
 require("autocmds")
+
+require("lsp")

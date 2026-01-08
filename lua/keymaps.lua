@@ -13,6 +13,7 @@ end
 M.create_default_keymaps = (function()
   -- most important mapping
   vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
+  -- vim.keymap.set("i", "<leader>i", "<Esc>", { noremap = true, silent = true })
 
   -- move selected text up and down
   vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
@@ -20,6 +21,7 @@ M.create_default_keymaps = (function()
 
   -- go to normal mode in terminal buffer
   vim.keymap.set("t", "jj", "<C-\\><C-N>", { noremap = true })
+  -- vim.keymap.set("t", "<leader>i", "<C-\\><C-N>", { noremap = true })
 
   -- move between windows (splits)
   vim.keymap.set("n", "wl", "<C-w>l", { noremap = true })
@@ -28,10 +30,17 @@ M.create_default_keymaps = (function()
   vim.keymap.set("n", "wh", "<C-w>h", { noremap = true })
 
   -- resize windows width
-  vim.keymap.set("n", "w,", "<C-w><k<CR>", { noremap = true, desc = "Narrow Window" })
-  vim.keymap.set("n", "w.", "<C-w>>k<CR>", { noremap = true, desc = "Widen Window" })
+  vim.keymap.set("n", "<C-,>", ":vert resize -10<CR>", { noremap = true, desc = "Narrow Window" })
+  vim.keymap.set("n", "<C-.>", ":vert resize +10<CR>", { noremap = true, desc = "Widen Window" })
+
+  -- maximize the current window
+  vim.keymap.set("n", "wf", ":vert resize<CR> :resize<CR>", { noremap = true, desc = "Maximize the window" })
+  -- vim.keymap.set("n", "<C-v>", ":resize -10<CR>", { noremap = true, desc = "Narrow Window" })
+  -- vim.keymap.set("n", "<C-k>", ":resize +10<CR>", { noremap = true, desc = "Widen Window" })
 
   vim.keymap.set("n", "<leader>dw", "<Cmd>%s/\\s\\+$//<CR>", { noremap = true, desc = "Remove trailing whitespace" })
+
+  vim.keymap.set('n', '<leader>h', vim.cmd.UndotreeToggle)
 
   -- quickfix list and location list mappings
   -- vim.keymap.set('n', 'co', ":copen<CR>", {noremap = true})
@@ -44,8 +53,8 @@ M.create_default_keymaps = (function()
   -- vim.keymap.set('n', 'tw', ':lua require("core.helpers").trim_white_space()<CR>', { noremap = true, silent = true })
 
   -- execute the command under cursor on shell and paste the stdout
-  -- type !! in normal mode is equivalent to :.!
   vim.keymap.set("n", "<leader>se",
+    -- type !! in normal mode is equivalent to :.!
     function()
       local user_input = vim.fn.input("Shell Command: ")
       local shell = os.getenv("SHELL")
@@ -70,6 +79,16 @@ M.create_default_keymaps = (function()
     end,
     { noremap = true, desc = "Execute any non-prompting shell command" }
   )
+
+  vim.keymap.set("n", "q", ":q<CR>")
+  vim.keymap.set("n", "<leader>t", function()
+    vim.cmd.vnew()
+    vim.cmd.terminal()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 10)
+    -- vim.api.nvim_command("sp | wincmd j | resize 10 | term")
+    -- vim.api.nvim_command("sp <CR> <C-w>j <CR> resize 10 <CR> term <CR> i")
+  end)
 end)()
 
 M.create_lsp_keymaps = function()

@@ -19,7 +19,6 @@ require("lazy").setup({
 		dependencies = {
 			-- Automatically install LSPs to stdpath for neovim
 			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
 
 			-- Useful status updates for LSP
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -28,55 +27,6 @@ require("lazy").setup({
 			-- Additional lua configuration, makes nvim stuff amazing!
 			"folke/neodev.nvim",
 		},
-		config = function()
-			-- mason-lspconfig requires that these setup functions are called in this order
-			-- before setting up the servers.
-			require("mason").setup()
-			require("mason-lspconfig").setup()
-			local servers = {
-				clangd = {},
-				gopls = {},
-				pyright = {},
-				rust_analyzer = {},
-				bufls = {},
-				-- tsserver = {},
-				-- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
-				lua_ls = {
-					Lua = {
-						workspace = { checkThirdParty = false },
-						telemetry = { enable = false },
-						-- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-						diagnostics = { disable = { "missing-fields" } },
-					},
-				},
-			}
-
-			-- Setup neovim lua configuration
-			require("neodev").setup()
-
-			-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
-			-- Ensure the servers above are installed
-			local mason_lspconfig = require("mason-lspconfig")
-
-			mason_lspconfig.setup({
-				ensure_installed = vim.tbl_keys(servers),
-			})
-
-			mason_lspconfig.setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-						on_attach = require("keymaps").create_lsp_keymaps,
-						settings = servers[server_name],
-						filetypes = (servers[server_name] or {}).filetypes,
-					})
-				end,
-			})
-		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
@@ -202,6 +152,9 @@ require("lazy").setup({
 		},
 		config = function()
 			require("nvim-tree").setup({
+				view = {
+					preserve_window_proportions = true,
+				},
 				actions = {
 					open_file = {
 						quit_on_open = true,
@@ -243,20 +196,20 @@ require("lazy").setup({
 			vim.cmd("colorscheme no-clown-fiesta")
 		end,
 	},
-	{
-		"mellow-theme/mellow.nvim",
-		config = function()
-			local variants = require("mellow.colors")
-			local cfg = require("mellow.config").config
-			local c = variants[cfg.variant]
+	-- {
+	-- 	"mellow-theme/mellow.nvim",
+	-- 	config = function()
+	-- 		local variants = require("mellow.colors")
+	-- 		local cfg = require("mellow.config").config
+	-- 		local c = variants[cfg.variant]
 
-			vim.cmd("colorscheme mellow")
+	-- 		vim.cmd("colorscheme mellow")
 
-			-- Default values hides the text
-			vim.api.nvim_set_hl(0, "NeogitDiffAddHighlight", { fg = c.bg, bg = c.green })
-			vim.api.nvim_set_hl(0, "NeogitDiffDeleteHighlight", { fg = c.bg, bg = c.red })
-		end,
-	},
+	-- 		-- Default values hides the text
+	-- 		vim.api.nvim_set_hl(0, "NeogitDiffAddHighlight", { fg = c.bg, bg = c.green })
+	-- 		vim.api.nvim_set_hl(0, "NeogitDiffDeleteHighlight", { fg = c.bg, bg = c.red })
+	-- 	end,
+	-- },
 	-- {
 	-- "samharju/serene.nvim",
 	-- config = function()
@@ -340,6 +293,30 @@ require("lazy").setup({
 		"stevearc/oil.nvim",
 		config = function()
 			require("oil").setup()
+		end,
+	},
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = { "rcarriga/nvim-dap-ui", 'mfussenegger/nvim-dap-python', "nvim-neotest/nvim-nio" },
+		config = function()
+			require("dapui").setup()
+			local dap = require("dap")
+      dap.adapters.python = {
+        type = 'executable',
+        command = vim.fn.getcwd() .. "/venv/bin/python",
+        args = { '-m', 'debugpy.adapter' },
+      }
+			dap.configurations.python = {
+				{
+					type = "python",
+					request = "launch",
+					name = "Launch file",
+					program = "${file}",
+					pythonPath = function()
+						return vim.fn.getcwd() .. "/venv/bin/python"
+					end,
+				},
+			}
 		end,
 	},
 })
